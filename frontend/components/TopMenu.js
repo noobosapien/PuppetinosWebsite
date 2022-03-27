@@ -45,7 +45,7 @@ const PaperDrop = styled(Paper)(({ theme }) => ({
   position: 'absolute',
   width: '1.5rem',
   height: '2rem',
-  background: theme.palette.common.greenBlue,
+  background: theme.palette.common.roseRed,
   marginTop: '1rem',
   marginLeft: '1rem',
   borderRadius: '10rem 10rem 5rem 5rem',

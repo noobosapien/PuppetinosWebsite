@@ -105,7 +105,7 @@ export default function Layout({ title, description, children }) {
           <Paper
             variant="outlined"
             sx={(theme) => ({
-              background: theme.palette.common.greenBlue,
+              background: theme.palette.common.roseRed,
               borderRadius: 0,
             })}
           >

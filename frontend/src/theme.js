@@ -11,11 +11,14 @@ const darkGray = '#454545';
 const lightBrown = '#B1AB7D';
 const orange = '#ff7700';
 const lightRed = '#ff6b6b';
+
+const purple = '#42005e';
+const roseRed = '#ff006f';
 // Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#3a8783',
+      main: '#ff006f',
       // main: '#ffffff',
     },
     secondary: {
@@ -36,6 +39,8 @@ const theme = createTheme({
       lightAqua,
       aqua,
       lightRed,
+      purple,
+      roseRed,
     },
   },
 
@@ -45,7 +50,7 @@ const theme = createTheme({
       fontFamily: 'Ranga',
       fontStyle: 'italic',
       // fontWeight: 700,
-      color: greenBlue,
+      color: roseRed,
     },
     h2: {
       fontFamily: 'Rancho',
@@ -85,7 +90,7 @@ const theme = createTheme({
   overrides: {
     MuiChip: {
       root: {
-        backgroundColor: greenBlue,
+        backgroundColor: roseRed,
       },
       label: {
         fontFamily: 'Rancho',

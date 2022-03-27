@@ -14,7 +14,7 @@ import { useRouter } from 'next/router';
 const Carousel = loadable(() => import('react-spring-3d-carousel'));
 
 const CustomImg = styled(Card)(({ theme }) => ({
-  backgroundColor: '#3a8783',
+  backgroundColor: theme.palette.common.roseRed,
   borderRadius: '2rem',
 }));
 
