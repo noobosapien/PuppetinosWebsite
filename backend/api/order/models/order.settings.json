@@ -1,0 +1,71 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "name": "Order",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "json",
+      "required": true
+    },
+    "shippingAddress": {
+      "type": "json",
+      "required": true,
+      "private": true
+    },
+    "billingAddress": {
+      "type": "json",
+      "required": true,
+      "private": true
+    },
+    "shippingInfo": {
+      "type": "json",
+      "required": true
+    },
+    "billingInfo": {
+      "type": "json",
+      "required": true
+    },
+    "shippingOption": {
+      "type": "json",
+      "required": true
+    },
+    "subtotal": {
+      "type": "decimal",
+      "required": false
+    },
+    "total": {
+      "type": "decimal",
+      "required": true
+    },
+    "status": {
+      "type": "string",
+      "default": "placed",
+      "required": true
+    },
+    "orderLink": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "orderId": {
+      "type": "string",
+      "required": true
+    },
+    "orderEncObj": {
+      "type": "json",
+      "required": true
+    },
+    "orderAuth": {
+      "type": "string"
+    }
+  }
+}
