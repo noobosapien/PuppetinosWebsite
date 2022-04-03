@@ -5,13 +5,13 @@ export default function Privacy() {
   return (
     <Layout>
       <div style={{ padding: '2rem' }}>
-        <h1>Privacy Policy for ArtisanCey</h1>
+        <h1>Privacy Policy for Puppetino</h1>
 
         <p>
-          At artisancey, accessible from https://artisancey.com, one of our main
+          At puppetino, accessible from https://puppetino.com, one of our main
           priorities is the privacy of our visitors. This Privacy Policy
           document contains types of information that is collected and recorded
-          by artisancey and how we use it.
+          by puppetino and how we use it.
         </p>
 
         <p>
@@ -22,7 +22,7 @@ export default function Privacy() {
         <p>
           This Privacy Policy applies only to our online activities and is valid
           for visitors to our website with regards to the information that they
-          shared and/or collect in artisancey. This policy is not applicable to
+          shared and/or collect in puppetino. This policy is not applicable to
           any information collected offline or via channels other than this
           website. Our Privacy Policy was created with the help of the{' '}
           <a href="https://www.privacypolicygenerator.info">
@@ -79,22 +79,21 @@ export default function Privacy() {
         <h2>Log Files</h2>
 
         <p>
-          artisancey follows a standard procedure of using log files. These
-          files log visitors when they visit websites. All hosting companies do
-          this and a part of hosting services' analytics. The information
-          collected by log files include internet protocol (IP) addresses,
-          browser type, Internet Service Provider (ISP), date and time stamp,
-          referring/exit pages, and possibly the number of clicks. These are not
-          linked to any information that is personally identifiable. The purpose
-          of the information is for analyzing trends, administering the site,
-          tracking users' movement on the website, and gathering demographic
-          information.
+          puppetino follows a standard procedure of using log files. These files
+          log visitors when they visit websites. All hosting companies do this
+          and a part of hosting services' analytics. The information collected
+          by log files include internet protocol (IP) addresses, browser type,
+          Internet Service Provider (ISP), date and time stamp, referring/exit
+          pages, and possibly the number of clicks. These are not linked to any
+          information that is personally identifiable. The purpose of the
+          information is for analyzing trends, administering the site, tracking
+          users' movement on the website, and gathering demographic information.
         </p>
 
         <h2>Cookies and Web Beacons</h2>
 
         <p>
-          Like any other website, artisancey uses 'cookies'. These cookies are
+          Like any other website, puppetino uses 'cookies'. These cookies are
           used to store information including visitors' preferences, and the
           pages on the website that the visitor accessed or visited. The
           information is used to optimize the users' experience by customizing
@@ -114,13 +113,13 @@ export default function Privacy() {
 
         <p>
           You may consult this list to find the Privacy Policy for each of the
-          advertising partners of artisancey.
+          advertising partners of puppetino.
         </p>
 
         <p>
           Third-party ad servers or ad networks uses technologies like cookies,
           JavaScript, or Web Beacons that are used in their respective
-          advertisements and links that appear on artisancey, which are sent
+          advertisements and links that appear on puppetino, which are sent
           directly to users' browser. They automatically receive your IP address
           when this occurs. These technologies are used to measure the
           effectiveness of their advertising campaigns and/or to personalize the
@@ -128,14 +127,14 @@ export default function Privacy() {
         </p>
 
         <p>
-          Note that artisancey has no access to or control over these cookies
+          Note that puppetino has no access to or control over these cookies
           that are used by third-party advertisers.
         </p>
 
         <h2>Third Party Privacy Policies</h2>
 
         <p>
-          artisancey's Privacy Policy does not apply to other advertisers or
+          puppetino's Privacy Policy does not apply to other advertisers or
           websites. Thus, we are advising you to consult the respective Privacy
           Policies of these third-party ad servers for more detailed
           information. It may include their practices and instructions about how
@@ -221,7 +220,7 @@ export default function Privacy() {
         </p>
 
         <p>
-          artisancey does not knowingly collect any Personal Identifiable
+          puppetino does not knowingly collect any Personal Identifiable
           Information from children under the age of 13. If you think that your
           child provided this kind of information on our website, we strongly
           encourage you to contact us immediately and we will do our best

@@ -135,9 +135,9 @@ module.exports = {
 
       await strapi.plugins["email"].services.email.send({
         to: shippingAddress.email.value,
-        from: "sales@artisancey.com",
-        replyTo: "sales@artisancey.com",
-        subject: "ArtisanCey order confirmation",
+        from: "sales@puppetino.com",
+        replyTo: "sales@puppetino.com",
+        subject: "Puppetino order confirmation",
         text: "We recieved your order!",
         html: confirmation,
       });

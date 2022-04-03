@@ -24,7 +24,7 @@ export default function Refunds() {
         <h3>RETURN PROCESS</h3>
 
         <p>
-          To return an item, please email customer service at hi@artisancey.com
+          To return an item, please email customer service at hi@puppetino.com
           to obtain a Return Merchandise Authorization (RMA) number, place the
           item securely in it's original packaging and mail your return to the
           following address:
@@ -71,7 +71,7 @@ export default function Refunds() {
           us at:
         </p>
 
-        <h4>hi@artisancey.com</h4>
+        <h4>hi@puppetino.com</h4>
       </div>
     </Layout>
   );

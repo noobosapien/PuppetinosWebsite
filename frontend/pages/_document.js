@@ -63,6 +63,12 @@ export default class MyDocument extends Document {
             }}
           />
 
+          {/* 2checkout */}
+          <script
+            type="text/javascript"
+            src="https://2pay-js.2checkout.com/v1/2pay.js"
+          ></script>
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>

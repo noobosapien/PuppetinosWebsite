@@ -10,8 +10,8 @@ export default function Terms() {
         <h2>OVERVIEW</h2>
 
         <p>
-          This website is operated by ArtisanCey. Throughout the site, the terms
-          “we”, “us” and “our” refer to ArtisanCey. ArtisanCey offers this
+          This website is operated by Puppetino. Throughout the site, the terms
+          “we”, “us” and “our” refer to Puppetino. Puppetino offers this
           website, including all information, tools and services available from
           this site to you, the user, conditioned upon your acceptance of all
           terms, conditions, policies and notices stated here.
@@ -336,7 +336,7 @@ export default function Terms() {
           or implied, including all implied warranties or conditions of
           merchantability, merchantable quality, fitness for a particular
           purpose, durability, title, and non-infringement. In no case shall
-          ArtisanCey, our directors, officers, employees, affiliates, agents,
+          Puppetino, our directors, officers, employees, affiliates, agents,
           contractors, interns, suppliers, service providers or licensors be
           liable for any injury, loss, claim, or any direct, indirect,
           incidental, punitive, special, or consequential damages of any kind,
@@ -359,7 +359,7 @@ export default function Terms() {
         <h3>SECTION 14 - INDEMNIFICATION</h3>
 
         <p>
-          You agree to indemnify, defend and hold harmless ArtisanCey and our
+          You agree to indemnify, defend and hold harmless Puppetino and our
           parent, subsidiaries, affiliates, partners, officers, directors,
           agents, contractors, licensors, service providers, subcontractors,
           suppliers, interns and employees, harmless from any claim or demand,
@@ -439,7 +439,7 @@ export default function Terms() {
 
         <p>
           Questions about the Terms of Service should be sent to us at
-          hi@artisancey.com.
+          hi@puppetino.com.
         </p>
       </div>
     </Layout>

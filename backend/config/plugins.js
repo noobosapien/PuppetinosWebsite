@@ -17,9 +17,9 @@ module.exports = ({ env }) => ({
       apiKey: env("SENDGRID_API_KEY"),
     },
     settings: {
-      defaultForm: "sales@artisancey.com",
-      defaultTo: "sales@artisancey.com",
-      defaultReplyTo: "sales@artisancey.com",
+      defaultForm: "sales@puppetino.com",
+      defaultTo: "sales@puppetino.com",
+      defaultReplyTo: "sales@puppetino.com",
     },
   },
 });

@@ -20,7 +20,7 @@ import {
 } from '@mui/material';
 import LocalShippingIcon from '@mui/icons-material/LocalShipping';
 import Close from '@mui/icons-material/Close';
-import Logo from '../public/slice5.png';
+import Logo from '../public/Logo.png';
 import { styled } from '@mui/material/styles';
 import SearchIcon from '@mui/icons-material/Search';
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag';
@@ -54,7 +54,11 @@ const LogoButton = styled(Button)(({ theme }) => ({
     width: '24rem !important',
   },
 
-  top: '1rem',
+  '&:hover': {
+    backgroundColor: '#ffffff00',
+  },
+
+  top: '0rem',
 }));
 
 const NavButton = styled(IconButton)(({ theme }) => ({
@@ -96,7 +100,7 @@ export default function Layout({ title, description, children }) {
   return (
     <>
       <Head>
-        <title>{title ? `${title}` : 'Artisan Cey'}</title>
+        <title>{title ? `${title}` : 'Puppetino'}</title>
         {description && <meta name="description" content={description} />}
       </Head>
 
@@ -320,7 +324,7 @@ export default function Layout({ title, description, children }) {
                     cursor: 'pointer',
                   }}
                 >
-                  What is ArtisanCey?
+                  What is Puppetino?
                 </Typography>
               </NextLink>
             </Grid>
