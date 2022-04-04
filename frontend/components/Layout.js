@@ -100,7 +100,7 @@ export default function Layout({ title, description, children }) {
   return (
     <>
       <Head>
-        <title>{title ? `${title}` : 'Puppetino'}</title>
+        <title>{title ? `${title}` : 'Puppetinos'}</title>
         {description && <meta name="description" content={description} />}
       </Head>
 
@@ -324,7 +324,7 @@ export default function Layout({ title, description, children }) {
                     cursor: 'pointer',
                   }}
                 >
-                  What is Puppetino?
+                  What is Puppetinos?
                 </Typography>
               </NextLink>
             </Grid>

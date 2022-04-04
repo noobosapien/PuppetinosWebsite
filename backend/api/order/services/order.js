@@ -72,7 +72,7 @@ module.exports = {
             <table class="row" width="700" border="0" align="center" cellpadding="0" cellspacing="0" style="width:700px;max-width:700px;" bgcolor="#ffffff">
               <tbody><tr>
                 <td align="center" valign="middle" style="padding:0;">
-                  <a href=""><img data-crop="false" mc:hideable="" mc:edit="" src="https://i.ibb.co/2Pg6fdm/favicon.png" alt="Puppetino" border="0" width="20%" style="display:block;border:0;width:20%;"></a>
+                  <a href=""><img data-crop="false" mc:hideable="" mc:edit="" src="https://i.ibb.co/2Pg6fdm/favicon.png" alt="Puppetinos" border="0" width="20%" style="display:block;border:0;width:20%;"></a>
                 </td>
               </tr>
             </tbody></table>
@@ -149,7 +149,7 @@ module.exports = {
 
                     <tr>
                     <td data-size="Section Headlines" data-color="Section Headlines" class="Section Headlines centerText" align="center" valign="middle" style="font-family:'Poppins',Arial,Helvetica,sans-serif;color:#3a8783;font-size:15px;line-height:44px;font-weight:400;letter-spacing:0px;padding:0px;padding-bottom:3px;">
-                        Check your Order status <a href="https://puppetino.com/order/${
+                        Check your Order status <a href="https://puppetinos.com/order/${
                           order.orderLink
                         }?auth=${order.orderAuth}">here</a>
                       </td>
@@ -440,7 +440,7 @@ module.exports = {
                     <tr>
                       <td data-size="Section Headlines" data-color="Section Headlines" class="Section Headlines" align="center" valign="middle" style="font-family:'Poppins',Arial,Helvetica,sans-serif;color:#3a8783;font-size:16px;line-height:22px;font-weight:400;letter-spacing:0px;padding:0px;padding-bottom:8px; font-weight: 400;">
                          If you have any questions or concerns please contact us at
-      <a href="mailto:hi@puppetino.com" style="color: #3a8783; text-decoration: none;">hi@puppetino.com</a>
+      <a href="mailto:hi@puppetinos.com" style="color: #3a8783; text-decoration: none;">hi@puppetinos.com</a>
       
                       </td>
                     </tr>

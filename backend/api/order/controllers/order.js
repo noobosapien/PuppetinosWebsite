@@ -7,7 +7,6 @@
 
 const crypto = require("crypto");
 const { sanitizeEntity } = require("strapi-utils");
-const stripe = require("stripe")(process.env.STRIPE_SK);
 const { uuid } = require("uuidv4");
 
 module.exports = {
@@ -135,9 +134,9 @@ module.exports = {
 
       await strapi.plugins["email"].services.email.send({
         to: shippingAddress.email.value,
-        from: "sales@puppetino.com",
-        replyTo: "sales@puppetino.com",
-        subject: "Puppetino order confirmation",
+        from: "sales@puppetinos.com",
+        replyTo: "sales@puppetinos.com",
+        subject: "Puppetinos order confirmation",
         text: "We recieved your order!",
         html: confirmation,
       });
@@ -222,16 +221,7 @@ module.exports = {
           });
         }
 
-        const intent = await stripe.paymentIntents.create(
-          {
-            amount: Number((serverTotal + shippingValid.price) * 100).toFixed(
-              0
-            ),
-            currency: "usd",
-            receipt_email: shippingAddress.email.value,
-          },
-          { idempotencyKey }
-        );
+        const intent = {};
 
         return { client_secret: intent.client_secret, intentID: intent.id };
       }

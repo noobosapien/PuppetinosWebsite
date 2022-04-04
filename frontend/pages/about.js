@@ -24,7 +24,7 @@ export default function About() {
         sx={{ paddingTop: '2rem' }}
       >
         <Grid item>
-          <Typography variant="h3">What is Puppetino?</Typography>
+          <Typography variant="h3">What is Puppetinos?</Typography>
         </Grid>
 
         <Grid item xs={12} />
