@@ -18,7 +18,6 @@ import DirectionsBoatFilledTwoToneIcon from '@mui/icons-material/DirectionsBoatF
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Store } from '../../utils/store';
 import { useRouter } from 'next/router';
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { v4 as uuidv4 } from 'uuid';
 import { processOrder } from '../../helpers/processOrder';
 import { placeOrder } from '../../helpers/placeOrder';
@@ -36,8 +35,6 @@ export default function PaymentCard({ loading, setLoading }) {
   const [countryValid, setCountryValid] = useState(true);
 
   const router = useRouter();
-  const stripe = useStripe();
-  const elements = useElements();
 
   function reducer(state, action) {
     switch (action.type) {
@@ -366,8 +363,6 @@ export default function PaymentCard({ loading, setLoading }) {
 
     const idempotencyKey = uuidv4();
 
-    const cardElement = elements.getElement(CardElement);
-
     if (cardValid) {
       setLoading(true);
     } else {
@@ -380,49 +375,9 @@ export default function PaymentCard({ loading, setLoading }) {
     var result;
 
     if (diff) {
-      result = await stripe.confirmCardPayment(
-        clientSecret,
-        {
-          payment_method: {
-            card: cardElement,
-            billing_details: {
-              address: {
-                city: billingAddress?.city?.value,
-                state: billingAddress?.region?.value,
-                line1: billingAddress?.address?.value,
-              },
-              email: shippingAddress?.email?.value,
-              name: `${billingAddress?.firstName?.value} ${billingAddress?.lastName?.value}`,
-              phone: billingAddress?.phone?.value,
-            },
-          },
-        },
-        {
-          idempotencyKey,
-        }
-      );
+      result = {};
     } else {
-      result = await stripe.confirmCardPayment(
-        clientSecret,
-        {
-          payment_method: {
-            card: cardElement,
-            billing_details: {
-              address: {
-                city: shippingAddress.city.value,
-                state: shippingAddress.region.value,
-                line1: shippingAddress.address.value,
-              },
-              email: shippingAddress.email.value,
-              name: `${shippingAddress.firstName.value} ${shippingAddress.lastName.value}`,
-              phone: shippingAddress.phone.value,
-            },
-          },
-        },
-        {
-          idempotencyKey,
-        }
-      );
+      result = { paymentIntent: {} };
     }
 
     if (result.error) {
@@ -488,7 +443,7 @@ export default function PaymentCard({ loading, setLoading }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (!stripe || !elements) return;
+    return;
   };
 
   const handleCardChange = async (e) => {
@@ -499,22 +454,7 @@ export default function PaymentCard({ loading, setLoading }) {
     }
   };
 
-  const cardWrapper = (
-    <form onChange={handleSubmit} style={{}}>
-      <CardElement
-        onChange={handleCardChange}
-        options={{
-          style: {
-            base: {
-              fontSize: '1.0rem',
-              fontFamily: 'Roboto',
-              color: '#474747',
-            },
-          },
-        }}
-      />
-    </form>
-  );
+  const cardWrapper = <form onChange={handleSubmit} style={{}}></form>;
 
   return (
     <Card variant="outlined" sx={{}}>

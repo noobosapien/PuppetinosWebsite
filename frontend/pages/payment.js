@@ -8,15 +8,8 @@ import ShowBaggedItems from '../components/Checkout/ShowBaggedItems';
 import { Box } from '@mui/system';
 import SideCart from '../components/Checkout/SideCart';
 
-import { Elements } from '@stripe/react-stripe-js';
-import { loadStripe } from '@stripe/stripe-js';
 import PaymentCard from '../components/Payment/PaymentCard';
 import TwoCheckout from '../components/Payment/TwoCheckout';
-
-const stripePromise = loadStripe(
-  process.env.STRIPE_PK ||
-    'pk_live_51KZWxzCO54trWcxUUi780flRPxcdmmp0fUWLD5SxVLd1k9XOsDNktTph9r451GNRvI5Gd8TPQKgw0hYicAaOENpG00YGJ2lMJZ'
-);
 
 export default function Checkout() {
   const { state, dispatch } = useContext(Store);
