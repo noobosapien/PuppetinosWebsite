@@ -34,7 +34,7 @@ export default function ProductCard({ product }) {
   if (product) {
     prod.id = product.id ? product.id : '';
     prod.img =
-      product.images && product.images[0] ? product.images[0].url : candle.src;
+      product.images && product.images[0] ? product.images[0].url : undefined;
     prod.name = product.name ? product.name : 'Name';
     prod.price = product.price ? product.price : '0';
     prod.slug = product.slug ? product.slug : '';

@@ -93,12 +93,20 @@ export default function Hero() {
   const matchesLG = useMediaQuery(theme.breakpoints.down('lg'));
   const matchesXL = useMediaQuery(theme.breakpoints.down('xl'));
 
-  const handleGoToCL = async (e) => {
-    router.push('/category/Clean Living');
+  const handleGoToHP = async (e) => {
+    router.push('/category/Hand Puppets');
   };
 
-  const handleGoToAC = async (e) => {
-    router.push('/category/Artisans Corner');
+  const handleGoToMN = async (e) => {
+    router.push('/category/Marionettes');
+  };
+
+  const handleGoToFP = async (e) => {
+    router.push('/category/Finger Puppets');
+  };
+
+  const handleGoToSP = async (e) => {
+    router.push('/category/Shadow Puppets');
   };
 
   return (
@@ -141,12 +149,12 @@ export default function Hero() {
                     },
                   })}
                 >
-                  <CardActionArea onClick={handleGoToCL}>
+                  <CardActionArea onClick={handleGoToHP}>
                     <CardMedia
                       component="img"
                       height="100%"
                       image={HandPuppet.src}
-                      alt="clean living"
+                      alt="Hand Puppets"
                       sx={{
                         opacity: 0.7,
                         transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
@@ -189,12 +197,12 @@ export default function Hero() {
                     },
                   })}
                 >
-                  <CardActionArea onClick={handleGoToCL}>
+                  <CardActionArea onClick={handleGoToMN}>
                     <CardMedia
                       component="img"
                       height="100%"
                       image={Marionette.src}
-                      alt="clean living"
+                      alt="Marionettes"
                       sx={{
                         opacity: 0.7,
                         transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
@@ -241,12 +249,12 @@ export default function Hero() {
                     },
                   })}
                 >
-                  <CardActionArea onClick={handleGoToCL}>
+                  <CardActionArea onClick={handleGoToFP}>
                     <CardMedia
                       component="img"
                       height="100%"
                       image={FingerPuppet.src}
-                      alt="clean living"
+                      alt="finger puppets"
                       sx={{
                         opacity: 0.7,
                         transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
@@ -289,12 +297,12 @@ export default function Hero() {
                     },
                   })}
                 >
-                  <CardActionArea onClick={handleGoToCL}>
+                  <CardActionArea onClick={handleGoToSP}>
                     <CardMedia
                       component="img"
                       height="100%"
                       image={ShadowPuppet.src}
-                      alt="clean living"
+                      alt="shadow puppets"
                       sx={{
                         opacity: 0.7,
                         transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,

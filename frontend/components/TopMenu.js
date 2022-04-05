@@ -14,10 +14,11 @@ import { Box } from '@mui/system';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import Image from 'next/image';
-import Nature from '../public/leaf2.svg';
-import Art from '../public/art2.svg';
-import Contact from '../public/contact.svg';
-import Wholesale from '../public/wholesale.svg';
+import HandPuppet from '../public/hand_puppet.svg';
+import Marionette from '../public/marionette.svg';
+import FingerPuppet from '../public/finger_puppet.svg';
+import ShadowPuppet from '../public/shadow_puppet.svg';
+
 import { useRouter } from 'next/router';
 import { Store } from '../utils/store';
 
@@ -96,7 +97,7 @@ export default function TopMenu() {
               <CardActionArea
                 disableRipple
                 onClick={(e) => {
-                  router.push('/category/Clean Living');
+                  router.push('/category/Hand Puppets');
                 }}
               >
                 <Grid
@@ -107,8 +108,8 @@ export default function TopMenu() {
                 >
                   <Grid item>
                     <Image
-                      src={Nature}
-                      alt={'clean living'}
+                      src={HandPuppet}
+                      alt={'hand puppets'}
                       width={40}
                       height={40}
                     />
@@ -121,7 +122,7 @@ export default function TopMenu() {
                         fontSize: matchesMD ? '0.6rem' : '1.5rem',
                       }}
                     >
-                      Clean Living
+                      Hand Puppets
                     </Typography>
                   </Grid>
                 </Grid>
@@ -132,7 +133,7 @@ export default function TopMenu() {
               <CardActionArea
                 disableRipple
                 onClick={(e) => {
-                  router.push('/category/Artisans Corner');
+                  router.push('/category/Marionettes');
                 }}
               >
                 <Grid
@@ -143,8 +144,8 @@ export default function TopMenu() {
                 >
                   <Grid item>
                     <Image
-                      src={Art}
-                      alt={'artisans corner'}
+                      src={Marionette}
+                      alt={'marionettes'}
                       width={40}
                       height={40}
                     />
@@ -157,43 +158,7 @@ export default function TopMenu() {
                         fontSize: matchesMD ? '0.6rem' : '1.5rem',
                       }}
                     >
-                      Artisan's Corner
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardActionArea>
-            </Grid>
-
-            {/* <Grid item>
-              <CardActionArea
-                disableRipple
-                onClick={(e) => {
-                  router.push('/wholesale');
-                }}
-              >
-                <Grid
-                  container
-                  justifyContent="center"
-                  direction="column"
-                  alignItems="center"
-                >
-                  <Grid item>
-                    <Image
-                      src={Wholesale}
-                      alt={'wholesale'}
-                      width={40}
-                      height={40}
-                    />
-                  </Grid>
-
-                  <Grid item>
-                    <Typography
-                      sx={{
-                        color: '#fff',
-                        fontSize: matchesMD ? '0.6rem' : '1.5rem',
-                      }}
-                    >
-                      Wholesale
+                      Marionettes
                     </Typography>
                   </Grid>
                 </Grid>
@@ -204,7 +169,7 @@ export default function TopMenu() {
               <CardActionArea
                 disableRipple
                 onClick={(e) => {
-                  router.push('/contact');
+                  router.push('/category/Finger Puppets');
                 }}
               >
                 <Grid
@@ -215,8 +180,8 @@ export default function TopMenu() {
                 >
                   <Grid item>
                     <Image
-                      src={Contact}
-                      alt={'contact'}
+                      src={FingerPuppet}
+                      alt={'finger puppets'}
                       width={40}
                       height={40}
                     />
@@ -229,12 +194,48 @@ export default function TopMenu() {
                         fontSize: matchesMD ? '0.6rem' : '1.5rem',
                       }}
                     >
-                      Contact
+                      Finger Puppets
                     </Typography>
                   </Grid>
                 </Grid>
               </CardActionArea>
-            </Grid> */}
+            </Grid>
+
+            <Grid item>
+              <CardActionArea
+                disableRipple
+                onClick={(e) => {
+                  router.push('/category/Shadow Puppets');
+                }}
+              >
+                <Grid
+                  container
+                  justifyContent="center"
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Image
+                      src={ShadowPuppet}
+                      alt={'shadow puppets'}
+                      width={40}
+                      height={40}
+                    />
+                  </Grid>
+
+                  <Grid item>
+                    <Typography
+                      sx={{
+                        color: '#fff',
+                        fontSize: matchesMD ? '0.6rem' : '1.5rem',
+                      }}
+                    >
+                      Shadow Puppets
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </CardActionArea>
+            </Grid>
           </Grid>
         </CustomBox>
       </Collapse>

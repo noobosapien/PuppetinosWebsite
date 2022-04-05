@@ -7,6 +7,7 @@ import SmallProductCard from '../common/SmallProductCard';
 import { useRouter } from 'next/router';
 import OTP from '../../public/OTP.png';
 import Carousel3D from './Carousel3D';
+import { getAllTopRated } from '../../helpers/getAllTopRated';
 
 export default function Carousel({ products }) {
   const theme = useTheme();
@@ -35,16 +36,12 @@ export default function Carousel({ products }) {
     }
   }, [products]);
 
-  const [RatedCL, setRatedCL] = useState([]);
-  const [RatedAC, setRatedAC] = useState([]);
+  const [TopRated, setTopRated] = useState([]);
 
   useEffect(() => {
     const getProducts = async () => {
-      const result = await getTopRated('62108e8587e59b6047859e53', 3);
-      if (result instanceof Array) setRatedCL([...result]);
-
-      const result2 = await getTopRated('622d249f6c49bb3c9664a51d', 3);
-      if (result2 instanceof Array) setRatedAC([...result2]);
+      const result = await getAllTopRated(3);
+      if (result instanceof Array) setTopRated([...result]);
     };
 
     getProducts();
@@ -87,34 +84,6 @@ export default function Carousel({ products }) {
       </Grid>
 
       <Grid item xs={12} lg={4} container direction="column" spacing={10}>
-        <Grid item container alignItems="center" direction="column" spacing={6}>
-          <Grid item>
-            <Typography
-              sx={(theme) => ({
-                fontFamily: 'Ranga',
-                fontSize: '1.5rem',
-              })}
-            >
-              Top rated from
-            </Typography>
-            <Typography
-              sx={(theme) => ({
-                fontFamily: 'Monoton',
-                fontSize: '1.0rem',
-              })}
-            >
-              Clean Living
-            </Typography>
-          </Grid>
-          <Grid item container justifyContent="space-evenly" spacing={4}>
-            {RatedCL.map((cl) => (
-              <Grid item key={cl.id}>
-                <SmallProductCard product={cl} />
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
-
         <Grid item>
           <Card elevation={10}>
             <Grid container direction="column" alignItems="center">
@@ -175,20 +144,12 @@ export default function Carousel({ products }) {
                 fontSize: '1.5rem',
               })}
             >
-              Top rated from
-            </Typography>
-            <Typography
-              sx={(theme) => ({
-                fontFamily: 'Monoton',
-                fontSize: '1.0rem',
-              })}
-            >
-              Artisan's corner
+              Top rated
             </Typography>
           </Grid>
           <Grid item container justifyContent="space-evenly" spacing={4}>
-            {RatedAC.map((cl) => (
-              <Grid item key={`${cl.id}_AC`}>
+            {TopRated.map((cl) => (
+              <Grid item key={cl.id}>
                 <SmallProductCard product={cl} />
               </Grid>
             ))}
