@@ -120,7 +120,7 @@ module.exports = {
 
         orderLink: encrypted.content,
         orderEncObj: JSON.stringify(encrypted),
-        orderId,
+        orderId: uuid(), //well change this later
         orderAuth,
       };
 

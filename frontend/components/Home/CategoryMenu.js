@@ -2,32 +2,10 @@ import { ButtonBase, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { styled } from '@mui/material/styles';
 import { Box } from '@mui/system';
-import des1 from '../../public/shell_bowl.jpg';
-import des2 from '../../public/candle.jpg';
-import des3 from '../../public/bundle.jpg';
 
 import NextLink from 'next/link';
 
-const images = [
-  {
-    url: des1.src,
-    title: 'Clean Living',
-    width: '33%',
-    href: '/category/Clean Living',
-  },
-  {
-    url: des2.src,
-    title: 'Home Deco',
-    width: '33%',
-    href: '/category/Home Deco',
-  },
-  {
-    url: des3.src,
-    title: 'Sculptures by Artisans',
-    width: '33%',
-    href: '/category/Sculptures by Artisans',
-  },
-];
+const images = [];
 
 const ImageButton = styled(ButtonBase)(({ theme }) => ({
   position: 'relative',

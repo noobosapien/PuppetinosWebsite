@@ -31,7 +31,7 @@ export default function Refunds() {
         </p>
 
         <p>
-          <p>Artisancey</p>
+          <p>Puppetinos</p>
           <p style={{ marginTop: '-1rem' }}>Attn: Returns</p>
           <p style={{ marginTop: '-1rem' }}>RMA#</p>
           <p style={{ marginTop: '-1rem' }}>

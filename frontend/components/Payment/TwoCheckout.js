@@ -20,6 +20,7 @@ import { Store } from '../../utils/store';
 import { useRouter } from 'next/router';
 import BillingAddress from './BillingAddress';
 import Message from '../common/Message';
+import { placeOrder } from '../../helpers/placeOrder';
 
 export default function TwoCheckout() {
   const { state, dispatch } = useContext(Store);
@@ -294,6 +295,47 @@ export default function TwoCheckout() {
           });
       });
   }, []);
+
+  const handlePay = async (e) => {
+    try {
+      const total = (
+        cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
+        (shippingMethod.value === 'standard' ? 5 : 20)
+      ).toFixed(2);
+
+      const subtotal = cartItems
+        .reduce((a, c) => a + c.quantity * c.price, 0)
+        .toFixed(2);
+
+      const order = await placeOrder({
+        items: cartItems,
+        total,
+        subtotal,
+        country: 'US',
+        billingCountry: 'US',
+        shippingOption: {
+          label: state.cart.shippingMethod && state.cart.shippingMethod.value,
+          price:
+            state.cart.shippingMethod &&
+            state.cart.shippingMethod.value === 'express'
+              ? 20
+              : 5,
+        },
+        shippingAddress,
+        billingAddress: diff ? billingAddress : shippingAddress,
+        orderId: Math.floor(Math.random() * 3) * Math.floor(Math.random() * 2),
+      });
+
+      if (order && order.message === 'success') {
+        dispatch({ type: 'CART_CLEAR' });
+
+        router.push(`/order/${order.link}?auth=${order.auth}`);
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  };
+
   return (
     <>
       <Card variant="outlined" sx={{}}>
@@ -422,7 +464,11 @@ export default function TwoCheckout() {
 
                 <div id="card-element"></div>
 
-                <button class="btn btn-primary" type="submit">
+                <button
+                  onClick={handlePay}
+                  class="btn btn-primary"
+                  type="submit"
+                >
                   Generate token
                 </button>
               </form>

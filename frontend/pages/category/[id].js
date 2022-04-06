@@ -48,10 +48,7 @@ export default function Category(props) {
   };
 
   return (
-    <Layout
-      title="Artisan Cey"
-      description={'Artisan Cey hand crafted and delivered'}
-    >
+    <Layout title="Puppetinos" description={'Puppetinos'}>
       <Grid
         container
         justifyContent="space-evenly"
