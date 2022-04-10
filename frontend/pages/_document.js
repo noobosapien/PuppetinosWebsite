@@ -49,7 +49,7 @@ export default class MyDocument extends Document {
 
           <script
             async
-            src="https://www.googletagmanager.com/gtag/js?id=G-TPS9GFNC27"
+            src="https://www.googletagmanager.com/gtag/js?id=UA-225358409-1"
           />
 
           <script
@@ -58,7 +58,7 @@ export default class MyDocument extends Document {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-TPS9GFNC27', { page_path: window.location.pathname });
+              gtag('config', 'UA-225358409-1', { page_path: window.location.pathname });
             `,
             }}
           />
@@ -68,6 +68,9 @@ export default class MyDocument extends Document {
             type="text/javascript"
             src="https://2pay-js.2checkout.com/v1/2pay.js"
           ></script>
+
+          {/* Amazon Pay */}
+          <script src="https://static-na.payments-amazon.com/checkout.js"></script>
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}

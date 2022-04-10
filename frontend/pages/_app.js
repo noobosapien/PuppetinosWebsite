@@ -21,7 +21,7 @@ export default function MyApp(props) {
   const router = useRouter();
 
   const handleRouteChange = (url) => {
-    window.gtag('config', 'G-TPS9GFNC27', {
+    window.gtag('config', 'UA-225358409-1', {
       page_path: url,
     });
   };

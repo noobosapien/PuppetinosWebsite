@@ -18,9 +18,11 @@ import DirectionsBoatFilledTwoToneIcon from '@mui/icons-material/DirectionsBoatF
 import React, { useContext, useEffect, useReducer, useState } from 'react';
 import { Store } from '../../utils/store';
 import { useRouter } from 'next/router';
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js';
 import { v4 as uuidv4 } from 'uuid';
 import { processOrder } from '../../helpers/processOrder';
 import { placeOrder } from '../../helpers/placeOrder';
+import { setDebug } from '../../helpers/setDebug';
 import countries from '../../utils/countries';
 import BillingAddress from './BillingAddress';
 import Cookies from 'js-cookie';
@@ -35,6 +37,8 @@ export default function PaymentCard({ loading, setLoading }) {
   const [countryValid, setCountryValid] = useState(true);
 
   const router = useRouter();
+  const stripe = useStripe();
+  const elements = useElements();
 
   function reducer(state, action) {
     switch (action.type) {
@@ -297,6 +301,12 @@ export default function PaymentCard({ loading, setLoading }) {
           setClientSecret(result.client_secret);
         }
       } catch (e) {
+        await setDebug({
+          error: 'Cannot process order',
+          ...shippingAddress,
+          ...shippingCountry,
+        });
+
         console.log(e);
       }
     };
@@ -363,6 +373,8 @@ export default function PaymentCard({ loading, setLoading }) {
 
     const idempotencyKey = uuidv4();
 
+    const cardElement = elements.getElement(CardElement);
+
     if (cardValid) {
       setLoading(true);
     } else {
@@ -375,15 +387,60 @@ export default function PaymentCard({ loading, setLoading }) {
     var result;
 
     if (diff) {
-      result = {};
+      result = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: {
+            card: cardElement,
+            billing_details: {
+              address: {
+                city: billingAddress?.city?.value,
+                state: billingAddress?.region?.value,
+                line1: billingAddress?.address?.value,
+              },
+              email: shippingAddress?.email?.value,
+              name: `${billingAddress?.firstName?.value} ${billingAddress?.lastName?.value}`,
+              phone: billingAddress?.phone?.value,
+            },
+          },
+        },
+        {
+          idempotencyKey,
+        }
+      );
     } else {
-      result = { paymentIntent: {} };
+      result = await stripe.confirmCardPayment(
+        clientSecret,
+        {
+          payment_method: {
+            card: cardElement,
+            billing_details: {
+              address: {
+                city: shippingAddress.city.value,
+                state: shippingAddress.region.value,
+                line1: shippingAddress.address.value,
+              },
+              email: shippingAddress.email.value,
+              name: `${shippingAddress.firstName.value} ${shippingAddress.lastName.value}`,
+              phone: shippingAddress.phone.value,
+            },
+          },
+        },
+        {
+          idempotencyKey,
+        }
+      );
     }
 
     if (result.error) {
       setMessage('Payment failed, please try again.');
       setSeverity('error');
       setOpenMessage(true);
+      await setDebug({
+        error: 'Payment failed',
+        ...shippingAddress,
+        ...shippingCountry,
+      });
       setLoading(false);
     } else if (result.paymentIntent.status === 'succeeded') {
       setMessage(
@@ -434,6 +491,11 @@ export default function PaymentCard({ loading, setLoading }) {
         setMessage(
           'SOMETHING WENT WRONG, PLEASE CONTACT SUPPORT, YOUR ORDER HAS NOT BEING PLACED.'
         );
+        await setDebug({
+          error: 'Cannot place order on the server',
+          ...shippingAddress,
+          ...shippingCountry,
+        });
         setSeverity('error');
         setOpenMessage(true);
       }
@@ -443,7 +505,7 @@ export default function PaymentCard({ loading, setLoading }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    return;
+    if (!stripe || !elements) return;
   };
 
   const handleCardChange = async (e) => {
@@ -454,7 +516,22 @@ export default function PaymentCard({ loading, setLoading }) {
     }
   };
 
-  const cardWrapper = <form onChange={handleSubmit} style={{}}></form>;
+  const cardWrapper = (
+    <form onChange={handleSubmit} style={{}}>
+      <CardElement
+        onChange={handleCardChange}
+        options={{
+          style: {
+            base: {
+              fontSize: '1.0rem',
+              fontFamily: 'Roboto',
+              color: '#474747',
+            },
+          },
+        }}
+      />
+    </form>
+  );
 
   return (
     <Card variant="outlined" sx={{}}>

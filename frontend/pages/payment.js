@@ -8,8 +8,14 @@ import ShowBaggedItems from '../components/Checkout/ShowBaggedItems';
 import { Box } from '@mui/system';
 import SideCart from '../components/Checkout/SideCart';
 
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import PaymentCard from '../components/Payment/PaymentCard';
-import TwoCheckout from '../components/Payment/TwoCheckout';
+
+const stripePromise = loadStripe(
+  process.env.STRIPE_PK ||
+    'pk_test_51KlmmXBjzktAVpB3bqgjVI3SMazdRltAO8VzIZ2uXeQ7ZzaQGFayS4EtjtJuczcDu3Cd7oKkuIvlkFJhyZ1nWLVc00NnuEpUpX'
+);
 
 export default function Checkout() {
   const { state, dispatch } = useContext(Store);
@@ -71,11 +77,9 @@ export default function Checkout() {
         <Grid item>
           <Grid container alignItems="center" justifyContent="space-evenly">
             <Grid item xs={12} md={5} lg={4}>
-              {/* <Elements stripe={stripePromise}>
+              <Elements stripe={stripePromise}>
                 <PaymentCard loading={loading} setLoading={setLoading} />
-              </Elements> */}
-
-              <TwoCheckout />
+              </Elements>
             </Grid>
 
             <Grid item md={5} sx={{ display: { xs: 'none', md: 'block' } }}>

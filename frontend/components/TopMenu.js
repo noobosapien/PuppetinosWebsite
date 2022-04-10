@@ -82,7 +82,6 @@ export default function TopMenu() {
     : 40;
 
   const handlePaperClick = (e) => {
-    console.log(topMenu && topMenu.open);
     topMenu && topMenu.open
       ? dispatch({ type: 'CLOSE_TOP_MENU' })
       : dispatch({ type: 'OPEN_TOP_MENU' });

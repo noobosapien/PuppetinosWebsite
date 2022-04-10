@@ -2,7 +2,7 @@ import { Button, Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import React from 'react';
-import Tree from '../../public/Tree.svg';
+import Sticker from '../../public/sticker.svg';
 
 export default function Satisfaction() {
   const router = useRouter();
@@ -18,7 +18,7 @@ export default function Satisfaction() {
       }}
     >
       <Grid item>
-        <Image src={Tree} alt="tree" width="300px" height="300px" />
+        <Image src={Sticker} alt="sticker" width="300px" height="300px" />
       </Grid>
 
       <Grid
