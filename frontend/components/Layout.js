@@ -269,7 +269,7 @@ export default function Layout({ title, description, children }) {
                     src={OTP}
                     alt="one tree planted"
                     width={215}
-                    height={50}
+                    height={215}
                   />
                 </Grid>
               </Grid>

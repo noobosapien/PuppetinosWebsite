@@ -100,7 +100,7 @@ export default function Carousel({ products }) {
               </Grid>
 
               <Grid item>
-                <Image height="50" width={215} src={OTP.src} alt="OTP" />
+                <Image height={215} width={215} src={OTP.src} alt="OTP" />
               </Grid>
 
               <Grid item>

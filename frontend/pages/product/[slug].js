@@ -460,7 +460,7 @@ export default function ProductPage(props) {
 
                         <Grid item>
                           <Image
-                            height="50"
+                            height={215}
                             width={215}
                             src={OTP.src}
                             alt="OTP"

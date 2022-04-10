@@ -133,7 +133,7 @@ export default function About() {
             </Grid>
 
             <Grid item>
-              <Image width={215} height={50} alt="One tree plant" src={OTP} />
+              <Image width={215} height={215} alt="One tree plant" src={OTP} />
             </Grid>
 
             <Grid item>
