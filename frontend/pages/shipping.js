@@ -186,6 +186,19 @@ export default function Checkout() {
                             fontSize: '1rem',
                           },
                         }}
+                        value="free"
+                        control={<Radio />}
+                        label="Free shipping"
+                      />
+
+                      {/* <div style={{ margin: '1rem' }} /> */}
+
+                      {/* <FormControlLabel
+                        sx={{
+                          '& .MuiFormControlLabel-label': {
+                            fontSize: '1rem',
+                          },
+                        }}
                         value="standard"
                         control={<Radio />}
                         label="Standard shipping $5.00"
@@ -201,7 +214,7 @@ export default function Checkout() {
                         }}
                         control={<Radio />}
                         label="Express shipping $20.00"
-                      />
+                      /> */}
                     </RadioGroup>
                   </FormControl>
                 </CardContent>

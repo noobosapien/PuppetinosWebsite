@@ -223,15 +223,15 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
               </Grid>
               <Grid item>
                 <Typography variant="body2">
-                  Shipping:{' '}
-                  {order
+                  Shipping: Free
+                  {/* {order
                     ? orderShipping === 'standard'
                       ? '$5.00'
                       : orderShipping === 'express'
                       ? '$20.00'
                       : ''
                     : ''}
-                  {!order && (shipping === 'standard' ? '$5.00' : '$20.00')}
+                  {!order && (shipping === 'standard' ? '$5.00' : '$20.00')} */}
                 </Typography>
               </Grid>
             </Grid>
@@ -255,10 +255,11 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
                 Total: $
                 {order && orderTotal
                   ? orderTotal.toFixed(2)
-                  : (
-                      cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
-                      (shipping === 'standard' ? 5 : 20)
-                    ).toFixed(2)}
+                  : cartItems
+                      .reduce((a, c) => a + c.quantity * c.price, 0)
+                      // +
+                      // (shipping === 'standard' ? 5 : 20)
+                      .toFixed(2)}
               </Typography>
             </Paper>
           </Grid>

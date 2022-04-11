@@ -84,7 +84,7 @@ export default function Carousel({ products }) {
       </Grid>
 
       <Grid item xs={12} lg={4} container direction="column" spacing={10}>
-        <Grid item>
+        {/* <Grid item>
           <Card elevation={10}>
             <Grid container direction="column" alignItems="center">
               <Grid item>
@@ -134,7 +134,7 @@ export default function Carousel({ products }) {
               </Grid>
             </Grid>
           </Card>
-        </Grid>
+        </Grid> */}
 
         <Grid item container alignItems="center" direction="column" spacing={6}>
           <Grid item>

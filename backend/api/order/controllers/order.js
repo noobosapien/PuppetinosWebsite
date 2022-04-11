@@ -170,6 +170,7 @@ module.exports = {
       let unavailable = [];
 
       const shippingVariants = [
+        { label: "free", price: 0 },
         { label: "standard", price: 5 },
         { label: "express", price: 20 },
       ];

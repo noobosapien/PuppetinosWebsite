@@ -31,10 +31,10 @@ export default function Satisfaction() {
       >
         <Grid item>
           <Typography align="center" variant="body2">
-            Commited to the environment and customer satisfaction
+            Commited to customer satisfaction
           </Typography>
         </Grid>
-        <Grid item>
+        {/* <Grid item>
           <Button
             variant="contained"
             color="secondary"
@@ -43,7 +43,7 @@ export default function Satisfaction() {
           >
             Explore
           </Button>
-        </Grid>
+        </Grid> */}
       </Grid>
     </Grid>
   );

@@ -277,21 +277,23 @@ export default function PaymentCard({ loading, setLoading }) {
 
     const sendOrder = async () => {
       try {
-        const total = (
-          cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
-          (shippingMethod.value === 'standard' ? 5 : 20)
-        ).toFixed(2);
+        const total = cartItems
+          .reduce((a, c) => a + c.quantity * c.price, 0)
+          // +
+          // (shippingMethod.value === 'standard' ? 5 : 20)
+          .toFixed(2);
 
         const result = await processOrder({
           items: cartItems,
           total,
           shippingOption: {
             label: state.cart.shippingMethod && state.cart.shippingMethod.value,
-            price:
-              state.cart.shippingMethod &&
-              state.cart.shippingMethod.value === 'express'
-                ? 20
-                : 5,
+            price: 0,
+            // price:
+            //   state.cart.shippingMethod &&
+            //   state.cart.shippingMethod.value === 'express'
+            //     ? 20
+            //     : 5,
           },
           idempotencyKey,
           shippingAddress,
@@ -450,10 +452,11 @@ export default function PaymentCard({ loading, setLoading }) {
       setOpenMessage(true);
 
       try {
-        const total = (
-          cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
-          (shippingMethod.value === 'standard' ? 5 : 20)
-        ).toFixed(2);
+        const total = cartItems
+          .reduce((a, c) => a + c.quantity * c.price, 0)
+          // +
+          // (shippingMethod.value === 'standard' ? 5 : 20)
+          .toFixed(2);
 
         const subtotal = cartItems
           .reduce((a, c) => a + c.quantity * c.price, 0)
@@ -471,11 +474,12 @@ export default function PaymentCard({ loading, setLoading }) {
           billingCountry,
           shippingOption: {
             label: state.cart.shippingMethod && state.cart.shippingMethod.value,
-            price:
-              state.cart.shippingMethod &&
-              state.cart.shippingMethod.value === 'express'
-                ? 20
-                : 5,
+            // price:
+            //   state.cart.shippingMethod &&
+            //   state.cart.shippingMethod.value === 'express'
+            //     ? 20
+            //     : 5,
+            price: 0,
           },
           shippingAddress,
           billingAddress: diff ? billingAddress : shippingAddress,
@@ -597,12 +601,13 @@ export default function PaymentCard({ loading, setLoading }) {
             </ListItemAvatar>
             <ListItemText
               primary="Shipping method"
-              secondary={`${
-                state.cart.shippingMethod &&
-                state.cart.shippingMethod.value === 'express'
-                  ? `Express shipping ($20.00)`
-                  : `Standard shipping ($5.00)`
-              }`}
+              // secondary={`${
+              //   state.cart.shippingMethod &&
+              //   state.cart.shippingMethod.value === 'free'
+              //     ? `Express shipping ($20.00)`
+              //     : `Standard shipping ($5.00)`
+              // }`}
+              secondary="Free shipping"
             />
           </ListItem>
         </List>
@@ -661,10 +666,11 @@ export default function PaymentCard({ loading, setLoading }) {
               {loading ? (
                 <CircularProgress color="primary" size="1.5rem" />
               ) : (
-                `Pay $${(
-                  cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
-                  (shippingMethod.value === 'standard' ? 5 : 20)
-                ).toFixed(2)}`
+                `Pay $${cartItems
+                  .reduce((a, c) => a + c.quantity * c.price, 0)
+                  // +
+                  // (shippingMethod.value === 'standard' ? 5 : 20)
+                  .toFixed(2)}`
               )}
             </Button>
           </Grid>

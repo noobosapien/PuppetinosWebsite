@@ -253,10 +253,11 @@ export default function SideCart({ shipping, order }) {
                     })}
                   >
                     Total: $
-                    {(
-                      items.reduce((a, c) => a + c.quantity * c.price, 0) +
-                      (shippingOption.label === 'standard' ? 5 : 20)
-                    ).toFixed(2)}
+                    {items
+                      .reduce((a, c) => a + c.quantity * c.price, 0)
+                      // +
+                      // (shippingOption.label === 'standard' ? 5 : 20)
+                      .toFixed(2)}
                   </Typography>
                 </Paper>
               </Grid>
@@ -274,7 +275,8 @@ export default function SideCart({ shipping, order }) {
                   </Grid>
                   <Grid item>
                     <Typography variant="body2">
-                      Shipping: {shipping === 'standard' ? '$5.00' : '$20.00'}
+                      Shipping: Free
+                      {/* Shipping: {shipping === 'standard' ? '$5.00' : '$20.00'} */}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -296,10 +298,11 @@ export default function SideCart({ shipping, order }) {
                     })}
                   >
                     Total: $
-                    {(
-                      cartItems.reduce((a, c) => a + c.quantity * c.price, 0) +
-                      (shipping === 'standard' ? 5 : 20)
-                    ).toFixed(2)}
+                    {cartItems
+                      .reduce((a, c) => a + c.quantity * c.price, 0)
+                      // +
+                      // (shipping === 'standard' ? 5 : 20)
+                      .toFixed(2)}
                   </Typography>
                 </Paper>
               </Grid>

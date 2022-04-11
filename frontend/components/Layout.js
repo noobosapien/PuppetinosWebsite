@@ -104,7 +104,7 @@ export default function Layout({ title, description, children }) {
         {description && <meta name="description" content={description} />}
       </Head>
 
-      <Stack sx={{ width: '100%' }} justifyContent="center" spacing={2}>
+      {/* <Stack sx={{ width: '100%' }} justifyContent="center" spacing={2}>
         <Collapse in={openShipping} sx={{ width: '100%' }}>
           <Paper
             variant="outlined"
@@ -134,7 +134,7 @@ export default function Layout({ title, description, children }) {
             </Grid>
           </Paper>
         </Collapse>
-      </Stack>
+      </Stack> */}
 
       <SearchDialog openSearch={openSearch} setOpenSearch={setOpenSearch} />
 
@@ -251,7 +251,7 @@ export default function Layout({ title, description, children }) {
               <Image src={Sticker} alt="sticker" width={50} height={50} />
             </Grid>
 
-            <Grid item>
+            {/* <Grid item>
               <Grid
                 container
                 direction="column"
@@ -273,7 +273,7 @@ export default function Layout({ title, description, children }) {
                   />
                 </Grid>
               </Grid>
-            </Grid>
+            </Grid> */}
 
             <Grid item>
               <Typography variant="body2">We accept:</Typography>
@@ -314,7 +314,7 @@ export default function Layout({ title, description, children }) {
           </Grid>
 
           <Grid item container direction="column" alignItems="center" md={4}>
-            <Grid item>
+            {/* <Grid item>
               <NextLink href="/about">
                 <Typography
                   href="/about"
@@ -327,7 +327,7 @@ export default function Layout({ title, description, children }) {
                   What is Puppetinos?
                 </Typography>
               </NextLink>
-            </Grid>
+            </Grid> */}
 
             <Grid item>
               <NextLink href="/privacy">

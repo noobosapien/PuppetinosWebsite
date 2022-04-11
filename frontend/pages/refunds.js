@@ -34,11 +34,9 @@ export default function Refunds() {
           <p>Puppetinos</p>
           <p style={{ marginTop: '-1rem' }}>Attn: Returns</p>
           <p style={{ marginTop: '-1rem' }}>RMA#</p>
-          <p style={{ marginTop: '-1rem' }}>
-            16/32, 1st lane, Wijayapura, Pinhena, Kottawa
-          </p>
-          <p style={{ marginTop: '-1rem' }}>Colombo, Colombo 10230</p>
-          <p style={{ marginTop: '-1rem' }}>Sri Lanka</p>
+          <p style={{ marginTop: '-1rem' }}>304 South Jones Blvd,</p>
+          <p style={{ marginTop: '-1rem' }}>#3147</p>
+          <p style={{ marginTop: '-1rem' }}>Las Vegas, NV 89107</p>
         </p>
 
         <p>

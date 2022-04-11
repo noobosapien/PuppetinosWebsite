@@ -427,7 +427,7 @@ export default function ProductPage(props) {
                   )}
                 </Grid>
 
-                <Grid item>
+                {/* <Grid item>
                   <Card elevation={10}>
                     <CardActionArea>
                       <Grid container direction="column" alignItems="center">
@@ -480,7 +480,7 @@ export default function ProductPage(props) {
                       </Grid>
                     </CardActionArea>
                   </Card>
-                </Grid>
+                </Grid> */}
               </Grid>
             </Grid>
           </Grid>
