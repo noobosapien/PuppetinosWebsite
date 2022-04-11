@@ -20,14 +20,13 @@ export default function InfoTable({ product }) {
     } else {
       setRows([]);
     }
-    console.log(product.additionalInfo);
   }, [product]);
 
   return (
     <TableContainer component={Paper}>
       <Table sx={{}} aria-label="simple table">
         <TableBody>
-          <TableRow
+          {/* <TableRow
             key="prod width"
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
@@ -35,7 +34,7 @@ export default function InfoTable({ product }) {
               Width
             </TableCell>
             <TableCell align="right">{product.width} cm</TableCell>
-          </TableRow>
+          </TableRow> */}
           <TableRow
             key="prod height"
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -43,7 +42,7 @@ export default function InfoTable({ product }) {
             <TableCell component="th" scope="row">
               Height
             </TableCell>
-            <TableCell align="right">{product.height} cm</TableCell>
+            <TableCell align="right">{product.height} inches</TableCell>
           </TableRow>
           {rows.map((row) => (
             <TableRow

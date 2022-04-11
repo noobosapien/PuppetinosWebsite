@@ -264,10 +264,6 @@ export default function AmazonPay() {
   const [message, setMessage] = useState('');
   const [severity, setSeverity] = useState('error');
 
-  useEffect(() => {
-    console.log();
-  }, []);
-
   const handlePay = async (e) => {
     try {
       const total = (

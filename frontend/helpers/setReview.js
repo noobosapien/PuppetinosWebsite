@@ -22,6 +22,6 @@ export async function setReview(
       }
     );
 
-    console.log(await res.json());
+    return await res.json();
   } catch (e) {}
 }
