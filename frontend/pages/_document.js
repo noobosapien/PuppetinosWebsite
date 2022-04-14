@@ -72,6 +72,11 @@ export default class MyDocument extends Document {
           {/* Amazon Pay */}
           <script src="https://static-na.payments-amazon.com/checkout.js"></script>
 
+          <meta
+            name="google-site-verification"
+            content="fAZmk6173-GJjiqtBkxyOwa4LcxMlPf2DmYhPrTow1A"
+          />
+
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>
