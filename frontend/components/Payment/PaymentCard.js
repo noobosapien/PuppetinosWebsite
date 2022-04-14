@@ -384,6 +384,12 @@ export default function PaymentCard({ loading, setLoading }) {
       setSeverity('error');
       setOpenMessage(true);
       setLoading(false);
+
+      await setDebug({
+        error: 'Card invalid',
+        ...shippingAddress,
+        ...shippingCountry,
+      });
     }
 
     var result;
@@ -497,6 +503,7 @@ export default function PaymentCard({ loading, setLoading }) {
         );
         await setDebug({
           error: 'Cannot place order on the server',
+          stripeError: e,
           ...shippingAddress,
           ...shippingCountry,
         });
