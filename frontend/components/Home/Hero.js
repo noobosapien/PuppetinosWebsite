@@ -14,7 +14,7 @@ import Artisan from '../../public/rare.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import HandPuppet from '../../public/hand_puppet.webp';
-import Marionette from '../../public/marionette.webp';
+import Marionette from '../../public/pinochio_mari.jpg';
 import FingerPuppet from '../../public/finger_puppet.jpg';
 import ShadowPuppet from '../../public/shadow_puppet.webp';
 import Art from '../../public/art.svg';
