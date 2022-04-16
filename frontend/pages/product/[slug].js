@@ -41,6 +41,7 @@ import InfoTable from '../../components/Product/InfoTable';
 import { Store } from '../../utils/store';
 import { getProductInfo } from '../../helpers/getProductInfo';
 import Message from '../../components/common/Message';
+import setDebug from '../../helpers/setDebug';
 import OTP from '../../public/OTP.png';
 import Coconut from '../../public/coconut.svg';
 import Eco from '../../public/eco.svg';
@@ -114,7 +115,7 @@ export default function ProductPage(props) {
     if (Number(amount) > 1) setAmount(Number(amount) - 1);
   };
 
-  const handleAddToCart = (e) => {
+  const handleAddToCart = async (e) => {
     if (amount === '') {
       dispatch({
         type: 'CART_ADD_ITEM',
@@ -140,6 +141,8 @@ export default function ProductPage(props) {
         },
       });
     }
+
+    await setDebug({ product: product[0] });
 
     setOpenMessage(true);
   };

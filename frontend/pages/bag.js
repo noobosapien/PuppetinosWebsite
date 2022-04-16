@@ -1,11 +1,12 @@
 import { Button, Card, Grid, List, ListItem, Typography } from '@mui/material';
 import { useRouter } from 'next/router';
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/store';
 import dynamic from 'next/dynamic';
 import BaggedItem from '../components/Bag/BaggedItem';
 import SentimentSatisfiedAltIcon from '@mui/icons-material/SentimentSatisfiedAlt';
+import { setDebug } from '../helpers/setDebug';
 
 function Cart() {
   const { state, dispatch } = useContext(Store);
@@ -13,6 +14,16 @@ function Cart() {
   const {
     cart: { cartItems },
   } = state;
+
+  useEffect(() => {
+    async function sendInfo() {
+      await setDebug({
+        ...state,
+      });
+    }
+
+    sendInfo();
+  }, []);
 
   const removeItemHandler = (item) => (e) => {
     dispatch({ type: 'CART_REMOVE_ITEM', payload: item });

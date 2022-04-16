@@ -21,6 +21,7 @@ import { useRouter } from 'next/router';
 import { Store } from '../../utils/store';
 import { getProductInfo } from '../../helpers/getProductInfo';
 import Message from './Message';
+import { setDebug } from '../../helpers/setDebug';
 
 export default function ProductCard({ product }) {
   const { state, dispatch } = useContext(Store);
@@ -93,6 +94,8 @@ export default function ProductCard({ product }) {
       type: 'CART_ADD_ITEM',
       payload: { ...prod, quantity },
     });
+
+    await setDebug({ product: prod, quantity });
 
     setOpenMessage(true);
   };
