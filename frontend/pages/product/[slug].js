@@ -41,7 +41,7 @@ import InfoTable from '../../components/Product/InfoTable';
 import { Store } from '../../utils/store';
 import { getProductInfo } from '../../helpers/getProductInfo';
 import Message from '../../components/common/Message';
-import setDebug from '../../helpers/setDebug';
+import { setDebug } from '../../helpers/setDebug';
 import OTP from '../../public/OTP.png';
 import Coconut from '../../public/coconut.svg';
 import Eco from '../../public/eco.svg';
@@ -226,7 +226,12 @@ export default function ProductPage(props) {
             </Grid>
 
             <Grid item xs={10} lg={5}>
-              <Grid container direction="column" spacing={3}>
+              <Grid
+                container
+                direction="column"
+                justifyContent="center"
+                spacing={3}
+              >
                 <Grid item>
                   <Typography variant="h4">{prodInfo.name}</Typography>
                 </Grid>
