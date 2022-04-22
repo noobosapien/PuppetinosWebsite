@@ -441,6 +441,7 @@ export default function PaymentCard({ loading, setLoading }) {
     }
 
     if (result.error) {
+      console.log(result.error);
       setMessage('Payment failed, please try again.');
       setSeverity('error');
       setOpenMessage(true);
