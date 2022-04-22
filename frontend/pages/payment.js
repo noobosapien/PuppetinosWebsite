@@ -1,4 +1,4 @@
-import { Grid } from '@mui/material';
+import { Grid, Typography } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/store';
@@ -80,9 +80,13 @@ export default function Checkout() {
         <Grid item>
           <Grid container alignItems="center" justifyContent="space-evenly">
             <Grid item xs={12} md={5} lg={4}>
-              <Elements stripe={stripePromise}>
+              {/* <Elements stripe={stripePromise}>
                 <PaymentCard loading={loading} setLoading={setLoading} />
-              </Elements>
+              </Elements> */}
+
+              <Typography variant="h3">
+                Sorry for the inconvenience. Payments are temporarily disabled.
+              </Typography>
             </Grid>
 
             <Grid item md={5} sx={{ display: { xs: 'none', md: 'block' } }}>
