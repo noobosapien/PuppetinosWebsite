@@ -7,17 +7,13 @@ import {
   Typography,
 } from '@mui/material';
 import { styled } from '@mui/system';
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import Clean from '../../public/clean2.jpg';
-import Artisan from '../../public/rare.svg';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';
 import HandPuppet from '../../public/hand_puppet.webp';
 import Marionette from '../../public/pinochio_mari.jpg';
 import FingerPuppet from '../../public/finger_puppet.jpg';
 import ShadowPuppet from '../../public/shadow_puppet.webp';
-import Art from '../../public/art.svg';
 import { useRouter } from 'next/router';
 
 const Animation = styled('div')(({ theme }) => ({
