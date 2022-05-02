@@ -11,6 +11,10 @@ export default class MyDocument extends Document {
         <Head>
           {/* PWA primary color */}
           <meta name="theme-color" content={theme.palette.primary.main} />
+          <meta
+            name="facebook-domain-verification"
+            content="z9mm8db92s4hccc2qvl6wip3zaq8qq"
+          />
           <link rel="shortcut icon" href="/image/favicon.svg" />
           <link
             rel="apple-touch-icon"
