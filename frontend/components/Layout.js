@@ -104,7 +104,7 @@ export default function Layout({ title, description, children }) {
         {description && <meta name="description" content={description} />}
       </Head>
 
-      {/* <Stack sx={{ width: '100%' }} justifyContent="center" spacing={2}>
+      <Stack sx={{ width: '100%' }} justifyContent="center" spacing={2}>
         <Collapse in={openShipping} sx={{ width: '100%' }}>
           <Paper
             variant="outlined"
@@ -124,7 +124,7 @@ export default function Layout({ title, description, children }) {
                   variant="body2"
                   sx={{ color: '#fff', fontSize: '1.2rem' }}
                 >
-                  20% goes to charity in your name.
+                  20% goes to ACCO in your name.
                 </Typography>
               </Grid>
 
@@ -134,7 +134,7 @@ export default function Layout({ title, description, children }) {
             </Grid>
           </Paper>
         </Collapse>
-      </Stack> */}
+      </Stack>
 
       <SearchDialog openSearch={openSearch} setOpenSearch={setOpenSearch} />
 
@@ -224,7 +224,7 @@ export default function Layout({ title, description, children }) {
         </Toolbar>
       </AppBar>
 
-      {/* <TopMenu /> */}
+      <TopMenu />
 
       {children}
 

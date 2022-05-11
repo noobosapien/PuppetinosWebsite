@@ -130,30 +130,29 @@ export default function Hero() {
                 <Card
                   sx={(theme) => ({
                     borderRadius: '25%',
-                    width: '25rem',
+                    width: '50rem',
                     [theme.breakpoints.down('xl')]: {
-                      width: '25rem',
+                      width: '50rem',
                     },
                     [theme.breakpoints.down('lg')]: {
-                      width: '20rem',
+                      width: '40rem',
                     },
                     [theme.breakpoints.down('md')]: {
-                      width: '15rem',
+                      width: '35rem',
                     },
                     [theme.breakpoints.down('sm')]: {
-                      width: '8rem',
+                      width: '18rem',
                     },
                   })}
                 >
-                  <CardActionArea onClick={handleGoToHP}>
+                  <CardActionArea onClick={handleGoToMN}>
                     <CardMedia
                       component="img"
                       height="100%"
-                      image={HandPuppet.src}
-                      alt="Hand Puppets"
+                      image={Marionette.src}
+                      alt="All puppets"
                       sx={{
                         opacity: 0.7,
-                        transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
                       }}
                     />
                   </CardActionArea>
@@ -161,12 +160,14 @@ export default function Hero() {
               </Grid>
 
               <Grid item>
-                <Typography variant="body2">Hand Puppets</Typography>
+                <Typography variant="body2" sx={{ fontSize: '2rem' }}>
+                  View all the puppets
+                </Typography>
               </Grid>
             </Grid>
           </Grid>
 
-          <Grid item>
+          {/* <Grid item>
             <Grid
               container
               direction="column"
@@ -211,12 +212,14 @@ export default function Hero() {
               <Grid item>
                 <Typography variant="body2">Marionettes</Typography>
               </Grid>
-            </Grid>
-          </Grid>
+            </Grid> 
+          </Grid>*/}
         </Grid>
 
-        <Grid item container justifyContent="space-evenly" alignItems="center">
-          {/* finger puppets and shadow puppets */}
+        {/* <Grid item container justifyContent="space-evenly" alignItems="center">
+          {
+            //finger puppets and shadow puppets
+          }
 
           <Grid item>
             <Grid
@@ -313,7 +316,7 @@ export default function Hero() {
               </Grid>
             </Grid>
           </Grid>
-        </Grid>
+        </Grid> */}
       </Grid>
     </>
   );
