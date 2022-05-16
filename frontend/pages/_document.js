@@ -42,7 +42,7 @@ export default class MyDocument extends Document {
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Monoton&family=Rancho&family=Ranga&display=swap"
+            href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Monoton&family=Rancho&family=Ranga&display=swap"
             rel="stylesheet"
           />
 
@@ -79,7 +79,12 @@ export default class MyDocument extends Document {
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}
         </Head>
-        <body style={{ overflowX: 'hidden' }}>
+        <body
+          style={{
+            overflowX: 'hidden',
+            background: '#fff',
+          }}
+        >
           <Main />
           <NextScript />
         </body>

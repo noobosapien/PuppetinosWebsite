@@ -96,42 +96,6 @@ export default function TopMenu() {
               <CardActionArea
                 disableRipple
                 onClick={(e) => {
-                  router.push('/category/Hand Puppets');
-                }}
-              >
-                <Grid
-                  container
-                  justifyContent="center"
-                  direction="column"
-                  alignItems="center"
-                >
-                  <Grid item>
-                    <Image
-                      src={HandPuppet}
-                      alt={'hand puppets'}
-                      width={40}
-                      height={40}
-                    />
-                  </Grid>
-
-                  <Grid item>
-                    <Typography
-                      sx={{
-                        color: '#fff',
-                        fontSize: matchesMD ? '0.6rem' : '1.5rem',
-                      }}
-                    >
-                      Hand Puppets
-                    </Typography>
-                  </Grid>
-                </Grid>
-              </CardActionArea>
-            </Grid>
-
-            <Grid item>
-              <CardActionArea
-                disableRipple
-                onClick={(e) => {
                   router.push('/category/Marionettes');
                 }}
               >
@@ -168,7 +132,7 @@ export default function TopMenu() {
               <CardActionArea
                 disableRipple
                 onClick={(e) => {
-                  router.push('/category/Finger Puppets');
+                  router.push('/bundles');
                 }}
               >
                 <Grid
@@ -179,8 +143,8 @@ export default function TopMenu() {
                 >
                   <Grid item>
                     <Image
-                      src={FingerPuppet}
-                      alt={'finger puppets'}
+                      src={Marionette}
+                      alt={'Bundles'}
                       width={40}
                       height={40}
                     />
@@ -193,7 +157,43 @@ export default function TopMenu() {
                         fontSize: matchesMD ? '0.6rem' : '1.5rem',
                       }}
                     >
-                      Finger Puppets
+                      Bundles
+                    </Typography>
+                  </Grid>
+                </Grid>
+              </CardActionArea>
+            </Grid>
+
+            <Grid item>
+              <CardActionArea
+                disableRipple
+                onClick={(e) => {
+                  router.push('/category/Finger Puppets');
+                }}
+              >
+                <Grid
+                  container
+                  justifyContent="center"
+                  direction="column"
+                  alignItems="center"
+                >
+                  <Grid item>
+                    <Image
+                      src={FingerPuppet}
+                      alt={'Theatre'}
+                      width={40}
+                      height={40}
+                    />
+                  </Grid>
+
+                  <Grid item>
+                    <Typography
+                      sx={{
+                        color: '#fff',
+                        fontSize: matchesMD ? '0.6rem' : '1.5rem',
+                      }}
+                    >
+                      Theatre
                     </Typography>
                   </Grid>
                 </Grid>
@@ -216,13 +216,13 @@ export default function TopMenu() {
                   <Grid item>
                     <Image
                       src={ShadowPuppet}
-                      alt={'shadow puppets'}
+                      alt={'more'}
                       width={40}
                       height={40}
                     />
                   </Grid>
 
-                  <Grid item>
+                  {/* <Grid item>
                     <Typography
                       sx={{
                         color: '#fff',
@@ -231,7 +231,7 @@ export default function TopMenu() {
                     >
                       Shadow Puppets
                     </Typography>
-                  </Grid>
+                  </Grid> */}
                 </Grid>
               </CardActionArea>
             </Grid>

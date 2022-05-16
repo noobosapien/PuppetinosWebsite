@@ -1,154 +1,395 @@
-import { ButtonBase, Grid, Typography } from '@mui/material';
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { Box } from '@mui/system';
 
 import NextLink from 'next/link';
-
-const images = [];
-
-const ImageButton = styled(ButtonBase)(({ theme }) => ({
-  position: 'relative',
-  height: 200,
-  [theme.breakpoints.down('sm')]: {
-    width: '100% !important', // Overrides inline-style
-    height: '200',
-  },
-  '&:hover, &.Mui-focusVisible': {
-    zIndex: 1,
-    '& .MuiImageBackdrop-root': {
-      opacity: 0.15,
-    },
-    '& .MuiImageMarked-root': {
-      opacity: 0,
-    },
-    '& .MuiTypography-root': {
-      border: '4px solid currentColor',
-    },
-  },
-}));
-
-const ImageSrc = styled('span')({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundSize: 'cover',
-  backgroundPosition: 'center 40%',
-});
-
-const Image = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  color: theme.palette.common.white,
-}));
-
-const ImageBackdrop = styled('span')(({ theme }) => ({
-  position: 'absolute',
-  left: 0,
-  right: 0,
-  top: 0,
-  bottom: 0,
-  backgroundColor: theme.palette.common.black,
-  opacity: 0.4,
-  transition: theme.transitions.create('opacity'),
-}));
-
-const ImageMarked = styled('span')(({ theme }) => ({
-  height: 3,
-  width: 18,
-  backgroundColor: theme.palette.common.white,
-  position: 'absolute',
-  bottom: -2,
-  left: 'calc(50% - 9px)',
-  transition: theme.transitions.create('opacity'),
-}));
+import {
+  Button,
+  Card,
+  CardActionArea,
+  CardHeader,
+  CardMedia,
+  Grid,
+  Typography,
+} from '@mui/material';
+import Marionette from '../../public/marionettes.jpg';
+import Bundles from '../../public/bundles.jpg';
+import Theatre from '../../public/theatre.jpg';
+import Stories from '../../public/stories.jpg';
+import HowToUse from '../../public/how.jpg';
+import Charity from '../../public/charity.jpg';
+import Sticker from '../../public/sticker.png';
 
 export default function CategoryMenu() {
   return (
-    <Grid
-      container
-      justifyContent="center"
-      alignItems="center"
-      direction="column"
-      spacing={10}
-      sx={(theme) => ({
-        [theme.breakpoints.up('xl')]: {
-          marginTop: '10%',
-        },
-        [theme.breakpoints.down('xl')]: {
-          marginTop: '20%',
-        },
-        [theme.breakpoints.down('lg')]: {
-          marginTop: '25%',
-        },
-        [theme.breakpoints.down('md')]: {
-          marginTop: '30%',
-        },
-        [theme.breakpoints.down('sm')]: {
-          marginTop: '30%',
-        },
-        [theme.breakpoints.down('xs')]: {
-          marginTop: '35%',
-        },
-      })}
-    >
-      <Grid item>
-        <Typography variant="h3">Categories</Typography>
-      </Grid>
-
-      <Grid item>
-        <Box
-          sx={(theme) => ({
-            display: 'flex',
-            flexWrap: 'wrap',
-            [theme.breakpoints.up('xl')]: { minWidth: 1000 },
-            [theme.breakpoints.down('xl')]: { minWidth: 1000 },
-            [theme.breakpoints.down('lg')]: { minWidth: 800 },
-            [theme.breakpoints.down('md')]: { minWidth: 550 },
-            [theme.breakpoints.down('sm')]: { minWidth: 250 },
-            [theme.breakpoints.down('xs')]: { minWidth: 1000 },
-            width: '100%',
-          })}
-        >
-          {images.map((image) => (
-            <NextLink href={image.href} key={image.title} passHref>
-              <ImageButton
-                focusRipple
-                style={{
-                  width: image.width,
+    <>
+      <Grid
+        container
+        direction="column"
+        alignItems="center"
+        justifyContent="center"
+        sx={{
+          // marginTop: '5rem',
+          background: 'rgba(0, 0, 0, 0.02)',
+          paddingBottom: '5rem',
+        }}
+        spacing={10}
+      >
+        <Grid item container justifyContent="space-evenly" spacing={10}>
+          {/* Marionettes and bundles */}
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(255, 251, 28, 0.8)',
+                  textShadow: '1px 1px 2px black',
                 }}
               >
-                <ImageSrc style={{ backgroundImage: `url(${image.url})` }} />
-                <ImageBackdrop className="MuiImageBackdrop-root" />
-                <Image>
-                  <Typography
-                    component="span"
-                    variant="subtitle1"
-                    color="inherit"
-                    sx={{
-                      position: 'relative',
-                      p: 4,
-                      pt: 2,
-                      pb: (theme) => `calc(${theme.spacing(1)} + 6px)`,
-                    }}
-                  >
-                    {image.title}
-                    <ImageMarked className="MuiImageMarked-root" />
-                  </Typography>
-                </Image>
-              </ImageButton>
-            </NextLink>
-          ))}
-        </Box>
+                Marionettes
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={Marionette.src}
+              />
+
+              <CardActionArea
+                sx={{ background: '#ff006f', borderRadius: '0 0 1rem 1rem' }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Shop
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(66, 255, 28, 0.8)',
+                  textShadow: '1px 1px 2px black',
+                }}
+              >
+                Bundles
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={Bundles.src}
+              />
+
+              <CardActionArea
+                sx={{ background: '#ff006f', borderRadius: '0 0 1rem 1rem' }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Shop
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Grid item container justifyContent="space-evenly" spacing={10}>
+          {/* Theaters and stories */}
+
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(222, 144, 0, 0.8)',
+                  textShadow: '1px 1px 2px black',
+                }}
+              >
+                Theatres
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={Theatre.src}
+              />
+
+              <CardActionArea
+                sx={{ background: '#ff006f', borderRadius: '0 0 1rem 1rem' }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Shop
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(0, 222, 192, 0.8)',
+                  textShadow: '1px 1px 2px black',
+                }}
+              >
+                Stories
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={Stories.src}
+              />
+
+              <CardActionArea
+                sx={{ background: '#00c3ff', borderRadius: '0 0 1rem 1rem' }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Explore
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
+
+        <Grid item container justifyContent="space-evenly" spacing={10}>
+          {/* How to use and charity */}
+
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(164, 107, 255, 0.8)',
+                  textShadow: '1px 1px 2px black',
+                }}
+              >
+                How to use?
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={HowToUse.src}
+              />
+
+              <CardActionArea
+                sx={{ background: '#00c3ff', borderRadius: '0 0 1rem 1rem' }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Learn
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+
+          <Grid
+            item
+            sx={{
+              position: 'relative',
+            }}
+          >
+            <img
+              src={Sticker.src}
+              style={{
+                position: 'absolute',
+                top: '2.0rem',
+              }}
+            />
+            <Card
+              sx={{
+                maxWidth: '22rem',
+                borderRadius: '1rem',
+              }}
+              elevation={14}
+            >
+              <Typography
+                align="center"
+                sx={{
+                  fontSize: '2rem',
+                  color: 'white',
+                  background: 'rgba(255, 0, 8, 0.8)',
+                  textShadow: '1px 1px 2px black',
+                }}
+              >
+                Charity
+              </Typography>
+              <CardMedia
+                component="img"
+                alt="green iguana"
+                height="300rem"
+                image={Charity.src}
+              />
+
+              <CardActionArea
+                sx={{
+                  background: 'rgba(255, 0, 8, 0.8)',
+                  borderRadius: '0 0 1rem 1rem',
+                }}
+              >
+                <Typography
+                  align="center"
+                  variant="body2"
+                  sx={{
+                    fontSize: '2rem',
+                    marginTop: '1rem',
+                    marginBottom: '1rem',
+                    color: 'white',
+                  }}
+                >
+                  Get involved
+                </Typography>
+              </CardActionArea>
+            </Card>
+          </Grid>
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 }

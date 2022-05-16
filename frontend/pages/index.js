@@ -1,4 +1,6 @@
+import { Divider } from '@mui/material';
 import Carousel from '../components/Home/Carousel';
+import CategoryMenu from '../components/Home/CategoryMenu';
 import Hero from '../components/Home/Hero';
 import LatestProducts from '../components/Home/LatestProducts';
 import Satisfaction from '../components/Home/Satisfaction';
@@ -9,6 +11,8 @@ export default function Home({ featured }) {
     <Layout title="Puppetinos" description={'Puppetinos passion for puppets'}>
       <Hero />
       <Carousel products={featured} />
+      <Divider sx={{ marginTop: '5rem', marginBottom: '5rem' }} />
+      <CategoryMenu />
       <LatestProducts />
       <Satisfaction />
     </Layout>
