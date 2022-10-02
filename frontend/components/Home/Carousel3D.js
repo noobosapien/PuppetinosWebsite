@@ -20,8 +20,8 @@ const CustomImg = styled(Card)(({ theme }) => ({
 
 const CustomTyp = styled(Typography)(({ theme }) => ({
   color: '#fff',
-  fontFamily: 'Rancho',
   fontSize: '1.0rem',
+  background: 'rgba(0, 0, 0, 0.4)',
 }));
 
 export default function Carousel3D({ slides }) {
@@ -36,7 +36,7 @@ export default function Carousel3D({ slides }) {
       } else {
         setSlide(slide + 1);
       }
-    }, 10000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, [slide]);
@@ -52,21 +52,50 @@ export default function Carousel3D({ slides }) {
             sx={(theme) => ({
               margin: '0 5rem',
               width: '10rem',
+              height: '10rem',
               [theme.breakpoints.up('sm')]: {
-                width: '20rem',
+                width: '30rem',
+                height: '30rem',
               },
+              backgroundImage: `url(${sl.image})`,
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
             })}
           >
             <CardActionArea
+              sx={(theme) => ({
+                top: '50%',
+                [theme.breakpoints.up('sm')]: {
+                  top: '80%',
+                },
+              })}
               onClick={(e) => {
                 router.push(`/product/${sl.slug}`);
               }}
             >
-              <CardMedia component="img" image={sl.image} />
               <CardContent>
-                <CustomTyp align="center">{sl.name}</CustomTyp>
+                <CustomTyp
+                  align="center"
+                  sx={{
+                    borderRadius: '10% 10% 0% 0%',
+                  }}
+                >
+                  {sl.name}
+                </CustomTyp>
 
-                <CustomTyp align="center" variant="h6">
+                <CustomTyp
+                  align="center"
+                  variant="h6"
+                  sx={(theme) => ({
+                    [theme.breakpoints.up('xs')]: {
+                      fontSize: '1.2rem',
+                    },
+                    [theme.breakpoints.up('md')]: {
+                      fontSize: '1.6rem',
+                    },
+                    borderRadius: '0% 0% 30% 30%',
+                  })}
+                >
                   ${sl.price}
                 </CustomTyp>
               </CardContent>

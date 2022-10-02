@@ -24,10 +24,6 @@
       "type": "boolean",
       "required": true
     },
-    "category": {
-      "model": "category",
-      "via": "products"
-    },
     "price": {
       "type": "decimal",
       "required": true
@@ -87,6 +83,21 @@
     },
     "description2": {
       "type": "text"
+    },
+    "seasonal": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "video": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
     }
   }
 }

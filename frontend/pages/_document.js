@@ -34,17 +34,16 @@ export default class MyDocument extends Document {
             href="/images/favicon-16x16.png"
           />
 
-          <link
-            rel="stylesheet"
-            href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
-          />
-
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" />
           <link
-            href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Monoton&family=Rancho&family=Ranga&display=swap"
-            rel="stylesheet"
+            rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossOrigin="true"
           />
+          <link
+            href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;500;600;700;800;900&display=swap"
+            rel="stylesheet"
+          ></link>
 
           <script
             async
@@ -66,15 +65,6 @@ export default class MyDocument extends Document {
             `,
             }}
           />
-
-          {/* 2checkout */}
-          <script
-            type="text/javascript"
-            src="https://2pay-js.2checkout.com/v1/2pay.js"
-          ></script>
-
-          {/* Amazon Pay */}
-          <script src="https://static-na.payments-amazon.com/checkout.js"></script>
 
           {/* Inject MUI styles first to match with the prepend: true configuration. */}
           {this.props.emotionStyleTags}

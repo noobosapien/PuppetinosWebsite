@@ -1,13 +1,11 @@
-import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import { Button, Card, CardContent, Grid, Typography } from '@mui/material';
+import { Button, Grid, Typography } from '@mui/material';
 import { useTheme } from '@mui/material/styles';
-import { getTopRated } from '../../helpers/getTopRated';
 import SmallProductCard from '../common/SmallProductCard';
 import { useRouter } from 'next/router';
-import OTP from '../../public/OTP.png';
 import Carousel3D from './Carousel3D';
 import { getAllTopRated } from '../../helpers/getAllTopRated';
+import CustomButton from './CustomButton';
 
 export default function Carousel({ products }) {
   const theme = useTheme();
@@ -52,109 +50,49 @@ export default function Carousel({ products }) {
       container
       justifyContent="space-evenly"
       alignItems="center"
-      spacing={10}
-      sx={{ marginTop: '10%' }}
+      spacing={4}
+      sx={{ marginTop: '6rem' }}
+      direction="column"
     >
-      <Grid
-        item
-        container
-        direction="column"
-        alignItems="center"
-        xs={12}
-        lg={4}
-        sx={{ marginBottom: '30vh' }}
-      >
-        <Grid item alignSelf="center">
-          <Typography variant="h3">Most viewed items</Typography>
-        </Grid>
-
-        <Grid
-          item
-          sx={(theme) => ({
-            [theme.breakpoints.up('sm')]: {
-              marginTop: '40vh',
-            },
-            [theme.breakpoints.down('sm')]: {
-              marginTop: '30vh',
-            },
-          })}
+      <Grid item>
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: '1.5rem',
+            fontWeight: '400',
+          }}
         >
-          <Carousel3D slides={slides} />
-        </Grid>
+          Latest marionettes:
+        </Typography>
       </Grid>
 
-      <Grid item xs={12} lg={4} container direction="column" spacing={10}>
-        {/* <Grid item>
-          <Card elevation={10}>
-            <Grid container direction="column" alignItems="center">
-              <Grid item>
-                <CardContent>
-                  <Typography
-                    align="center"
-                    variant="body2"
-                    sx={{ fontSize: '2rem' }}
-                  >
-                    We donate 20% of our earnings to the cause
-                  </Typography>
-                </CardContent>
-              </Grid>
+      <Grid
+        item
+        sx={(theme) => ({
+          [theme.breakpoints.up('xs')]: {
+            marginTop: '8rem',
+          },
+          [theme.breakpoints.up('sm')]: {
+            marginTop: '20rem',
+          },
+        })}
+        alignSelf="space-evenly"
+      >
+        <Carousel3D slides={slides} />
+      </Grid>
 
-              <Grid item>
-                <Image height={215} width={215} src={OTP.src} alt="OTP" />
-              </Grid>
-
-              <Grid item>
-                <CardContent>
-                  <Grid
-                    container
-                    direction="column"
-                    alignItems="center"
-                    spacing={4}
-                  >
-                    <Grid item>
-                      <Typography
-                        align="center"
-                        variant="body2"
-                        sx={{ fontSize: '2rem' }}
-                      >
-                        every month
-                      </Typography>
-                    </Grid>
-
-                    <Grid item>
-                      <Button
-                        variant="outlined"
-                        onClick={(e) => router.push('/about')}
-                      >
-                        Learn more
-                      </Button>
-                    </Grid>
-                  </Grid>
-                </CardContent>
-              </Grid>
-            </Grid>
-          </Card>
-        </Grid> */}
-
-        <Grid item container alignItems="center" direction="column" spacing={6}>
-          <Grid item>
-            <Typography
-              sx={(theme) => ({
-                fontFamily: 'Ranga',
-                fontSize: '1.5rem',
-              })}
-            >
-              Top rated
-            </Typography>
-          </Grid>
-          <Grid item container justifyContent="space-evenly" spacing={4}>
-            {TopRated.map((cl) => (
-              <Grid item key={cl.id}>
-                <SmallProductCard product={cl} />
-              </Grid>
-            ))}
-          </Grid>
-        </Grid>
+      <Grid
+        item
+        sx={(theme) => ({
+          [theme.breakpoints.up('xs')]: {
+            marginTop: '6rem',
+          },
+          [theme.breakpoints.up('sm')]: {
+            marginTop: '20rem',
+          },
+        })}
+      >
+        <CustomButton>View all</CustomButton>
       </Grid>
     </Grid>
   );
