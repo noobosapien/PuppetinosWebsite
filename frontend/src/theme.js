@@ -1,88 +1,63 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
-const greenBlue = '#3a8783';
-const lightAqua = '#bdf2ef66';
-const aqua = '#bdf2ef';
+const col = '#006D77';
+const slateGray = '#2A4747';
+const emeraldGreen = '#439775';
 const black = '#474747';
-const lightGray = '#787878';
-const gray = '#5c5c5c';
-const darkGray = '#454545';
-const lightBrown = '#B1AB7D';
-const orange = '#ff7700';
-const lightRed = '#ff6b6b';
-
-const purple = '#42005e';
-const roseRed = '#ff006f';
 // Create a theme instance.
 const theme = createTheme({
   palette: {
     primary: {
-      main: '#ff006f',
-      // main: '#ffffff',
+      main: slateGray,
     },
     secondary: {
-      main: '#303030',
+      main: emeraldGreen,
     },
     error: {
       main: red.A400,
     },
     common: {
       white: '#ffffff',
-      black: '#474747',
-      greenBlue,
-      gray,
-      darkGray,
-      lightGray,
-      lightBrown,
-      orange,
-      lightAqua,
-      aqua,
-      lightRed,
-      purple,
-      roseRed,
+      black,
+      slateGray,
+      emeraldGreen,
     },
   },
 
   typography: {
     h1: {
-      fontSize: '4.5rem',
-      fontFamily: 'Ranga',
-      fontStyle: 'italic',
-      // fontWeight: 700,
-      color: roseRed,
+      fontSize: '6.5rem',
+      fontFamily: 'Montserrat',
+      color: black,
     },
     h2: {
-      fontFamily: 'Rancho',
-      fontSize: '3rem',
-      // fontWeight: 500,
+      fontFamily: 'Montserrat',
+      fontSize: '5.5rem',
       color: black,
     },
     h3: {
-      fontFamily: 'Rancho',
-      fontSize: '2rem',
-      // fontWeight: 300,
+      fontFamily: 'Montserrat',
+      fontSize: '4.5rem',
       color: black,
     },
     h4: {
-      fontFamily: 'Ranga',
-      // fontWeight: 700,
-      fontSize: '3rem',
+      fontFamily: 'Montserrat',
+      fontSize: '4rem',
       color: black,
     },
     h5: {
-      fontFamily: 'Ranga',
-      fontSize: '1.4rem',
-      // fontWeight: 700,
-      color: lightGray,
+      fontFamily: 'Montserrat',
+      fontSize: '3rem',
+      color: black,
     },
     body1: {
-      // fontFamily: 'Ranga',
-      fontSize: '0.8rem',
-      color: gray,
+      fontFamily: 'Montserrat',
+      fontSize: '1.0rem',
+      color: black,
     },
     body2: {
-      fontFamily: 'Rancho',
+      fontFamily: 'Montserrat',
       fontSize: '1.0rem',
       color: black,
     },
@@ -90,17 +65,16 @@ const theme = createTheme({
   overrides: {
     MuiChip: {
       root: {
-        backgroundColor: roseRed,
+        backgroundColor: '#eee',
       },
       label: {
-        fontFamily: 'Rancho',
+        fontFamily: 'Montserrat',
         fontSize: '1.5rem',
         color: '#fff',
-        // fontWeight: 400,
       },
     },
     '.MuiTextField-root': {
-      fontFamily: 'Roboto',
+      fontFamily: 'Montserrat',
     },
   },
 });

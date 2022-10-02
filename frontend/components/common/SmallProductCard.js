@@ -16,7 +16,23 @@ export default function SmallProductCard({ product, noReviews }) {
   return (
     <Grid container direction="column" alignItems="center">
       <Grid item>
-        <Card sx={{ width: '120px' }}>
+        <Card
+          sx={(theme) => ({
+            width: '120px',
+            [theme.breakpoints.up('xs')]: {
+              width: '120px',
+            },
+            [theme.breakpoints.up('sm')]: {
+              width: '180px',
+            },
+            [theme.breakpoints.up('md')]: {
+              width: '220px',
+            },
+            [theme.breakpoints.up('lg')]: {
+              width: '320px',
+            },
+          })}
+        >
           <CardActionArea
             onClick={(e) => {
               router.push(`/product/${product.slug}`);
@@ -26,7 +42,6 @@ export default function SmallProductCard({ product, noReviews }) {
               component="img"
               alt={product.name}
               image={product.images instanceof Array && product.images[0].url}
-              height="140"
             />
           </CardActionArea>
         </Card>

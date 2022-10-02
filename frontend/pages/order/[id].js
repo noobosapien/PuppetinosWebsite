@@ -6,7 +6,7 @@ import { useRouter } from 'next/router';
 import ShowBaggedItems from '../../components/Checkout/ShowBaggedItems';
 import SideCart from '../../components/Checkout/SideCart';
 import { Box } from '@mui/system';
-import Tick from '../../public/correct.svg';
+// import Tick from '../../public/correct.svg';
 import Image from 'next/image';
 import { getOrder } from '../../helpers/getOrder';
 import StatusStepper from '../../components/Order/StatusStepper';
@@ -75,7 +75,7 @@ function Order({ params, query }) {
             </Grid>
 
             <Grid item>
-              <Image src={Tick.src} width={200} height={200} alt="all done" />
+              {/* <Image src={Tick.src} width={200} height={200} alt="all done" /> */}
             </Grid>
 
             <Grid item container direction="column" spacing={2}>

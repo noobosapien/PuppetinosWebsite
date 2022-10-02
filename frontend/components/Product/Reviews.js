@@ -194,9 +194,17 @@ const xsReviews = (
         <Grid item>
           <Divider variant="middle" />
         </Grid>
-        <Grid item container justifyContent="space-evenly" alignItems="center">
+        <Grid
+          item
+          container
+          justifyContent="space-evenly"
+          alignItems="center"
+          spacing={6}
+        >
           <Grid item>
-            <Typography variant="h3">Reviews:</Typography>
+            <Typography variant="h1" sx={{ fontSize: '4rem' }}>
+              Reviews:
+            </Typography>
           </Grid>
 
           <Grid item>
@@ -247,7 +255,6 @@ const xsReviews = (
                   <Grid item>
                     <Typography
                       sx={(theme) => ({
-                        fontFamily: 'Rancho',
                         fontSize: '2rem',
                       })}
                     >
@@ -284,7 +291,6 @@ const xsReviews = (
                     sx={(theme) => ({
                       fontSize: '1.4rem',
                       color: theme.palette.common.lightGray,
-                      fontFamily: 'Rancho',
                     })}
                   >
                     {review.heading ? review.heading : ''}

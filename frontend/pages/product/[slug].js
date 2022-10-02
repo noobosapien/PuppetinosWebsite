@@ -42,9 +42,8 @@ import { Store } from '../../utils/store';
 import { getProductInfo } from '../../helpers/getProductInfo';
 import Message from '../../components/common/Message';
 import { setDebug } from '../../helpers/setDebug';
-import OTP from '../../public/OTP.png';
-import Coconut from '../../public/coconut.svg';
-import Eco from '../../public/eco.svg';
+import 'video-react/dist/video-react.css';
+import { Player } from 'video-react';
 
 export default function ProductPage(props) {
   const { product } = props;
@@ -100,6 +99,12 @@ export default function ProductPage(props) {
 
       images.push(item);
     });
+  }
+
+  let video = null;
+
+  if (prodInfo.video) {
+    video = prodInfo.video;
   }
 
   const handleNumberChange = (e) => {
@@ -165,9 +170,9 @@ export default function ProductPage(props) {
         </Grid>
         <Grid item>
           {/* Product */}
-          <Grid container justifyContent="space-evenly" spacing={3}>
+          <Grid container justifyContent="space-evenly" spacing={4}>
             <Grid item>
-              <Grid container direction="column" spacing={4}>
+              <Grid container direction="column" spacing={10}>
                 <Grid item>
                   <ImageGallery
                     items={images}
@@ -176,64 +181,28 @@ export default function ProductPage(props) {
                     thumbnailPosition={'left'}
                   />
                 </Grid>
-
-                <Grid item>
-                  <Grid container justifyContent="space-evenly" spacing={4}>
-                    <Grid item>
-                      {prodInfo.tags && prodInfo.tags.coconut ? (
-                        <Grid container direction="column">
-                          <Grid item>
-                            <IconButton>
-                              <Image src={Coconut} height={64} width={64} />
-                            </IconButton>
-                          </Grid>
-
-                          <Grid item>
-                            <Typography variant="body2">
-                              Coconut based
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      ) : (
-                        <></>
-                      )}
-                    </Grid>
-
-                    <Grid item>
-                      {prodInfo.tags && prodInfo.tags.eco ? (
-                        <Grid container direction="column" alignItems="center">
-                          <Grid item>
-                            <IconButton>
-                              <Image src={Eco} height={64} width={64} />
-                            </IconButton>
-                          </Grid>
-
-                          <Grid item>
-                            <Typography variant="body2">
-                              Eco-friendly
-                            </Typography>
-                          </Grid>
-                        </Grid>
-                      ) : (
-                        <></>
-                      )}
-                    </Grid>
-                  </Grid>
-
-                  {/* tags */}
-                </Grid>
               </Grid>
             </Grid>
 
-            <Grid item xs={10} lg={5}>
+            <Grid item>
               <Grid
                 container
                 direction="column"
                 justifyContent="center"
                 spacing={3}
+                sx={{
+                  marginBottom: video ? '35vh' : '0',
+                }}
               >
                 <Grid item>
-                  <Typography variant="h4">{prodInfo.name}</Typography>
+                  <Typography
+                    variant="h1"
+                    sx={{
+                      fontSize: '2rem',
+                    }}
+                  >
+                    {prodInfo.name}
+                  </Typography>
                 </Grid>
 
                 <Grid item container alignItems="center" spacing={3}>
@@ -379,54 +348,6 @@ export default function ProductPage(props) {
                   <></>
                 )}
 
-                {prodInfo.quotes instanceof Array ? (
-                  <Grid item>
-                    <Grid container direction="column" spacing={2}>
-                      {prodInfo.quotes.map((quote) => (
-                        <>
-                          <Grid item>
-                            <Typography
-                              sx={(theme) => ({
-                                fontFamily: 'Ranga',
-                                fontSize: '1.4rem',
-                                color: theme.palette.common.lightGray,
-                              })}
-                              align={quote.left ? 'left' : 'right'}
-                            >
-                              {quote.text}
-                            </Typography>
-                          </Grid>
-                          <Grid item>
-                            <Typography
-                              sx={(theme) => ({
-                                fontFamily: 'Ranga',
-                                fontSize: '1.4rem',
-                                fontWeight: '600',
-                                color: theme.palette.common.lightGray,
-                              })}
-                              align={quote.left ? 'left' : 'right'}
-                            >
-                              -{quote.author}-
-                            </Typography>
-                          </Grid>
-                        </>
-                      ))}
-                    </Grid>
-                  </Grid>
-                ) : (
-                  <></>
-                )}
-
-                {prodInfo.alert ? (
-                  <Grid item>
-                    <Alert variant="standard" severity={prodInfo.alert.type}>
-                      {prodInfo.alert.text}
-                    </Alert>
-                  </Grid>
-                ) : (
-                  <></>
-                )}
-
                 <Grid item>
                   {product instanceof Array ? (
                     <InfoTable product={product[0]} />
@@ -435,60 +356,15 @@ export default function ProductPage(props) {
                   )}
                 </Grid>
 
-                {/* <Grid item>
-                  <Card elevation={10}>
-                    <CardActionArea>
-                      <Grid container direction="column" alignItems="center">
-                        <Grid item>
-                          <CardContent>
-                            <Typography
-                              variant="body2"
-                              sx={{ fontSize: '1.4rem' }}
-                            >
-                              Something to be proud of...
-                            </Typography>
-                          </CardContent>
-                        </Grid>
-
-                        <Grid item>
-                          <CardContent>
-                            <Typography
-                              variant="body2"
-                              sx={{ fontSize: '1.4rem' }}
-                            >
-                              <span
-                                style={{ fontSize: '1.6rem', color: '#3a8783' }}
-                              >
-                                20%
-                              </span>{' '}
-                              of your purchase goes to
-                            </Typography>
-                          </CardContent>
-                        </Grid>
-
-                        <Grid item>
-                          <Image
-                            height={215}
-                            width={215}
-                            src={OTP.src}
-                            alt="OTP"
-                          />
-                        </Grid>
-
-                        <Grid item>
-                          <CardContent>
-                            <Typography
-                              variant="body2"
-                              sx={{ fontSize: '1.4rem' }}
-                            >
-                              On us... in your name.
-                            </Typography>
-                          </CardContent>
-                        </Grid>
-                      </Grid>
-                    </CardActionArea>
-                  </Card>
-                </Grid> */}
+                <Grid item>
+                  {video ? (
+                    <Player>
+                      <source src={video.url} />
+                    </Player>
+                  ) : (
+                    <></>
+                  )}
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -504,7 +380,7 @@ export default function ProductPage(props) {
         >
           <Grid item>
             <Button
-              sx={{ fontSize: '1.2rem', fontFamily: 'Rancho' }}
+              sx={{ fontSize: '1.2rem' }}
               endIcon={
                 showRelated ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
               }
@@ -603,7 +479,7 @@ export default function ProductPage(props) {
               <Grid item>
                 <Button
                   onClick={handleAddToCart}
-                  startIcon={<LocalMallTwoToneIcon />}
+                  // startIcon={<LocalMallTwoToneIcon />}
                   variant="contained"
                   color="secondary"
                 >
@@ -632,7 +508,14 @@ export async function getStaticPaths() {
       paths: names,
       fallback: true,
     };
-  } catch (e) {}
+  } catch (e) {
+    // console.log(e);
+
+    return {
+      paths: [],
+      fallback: true,
+    };
+  }
 }
 
 export async function getStaticProps(context) {

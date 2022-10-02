@@ -34,7 +34,8 @@
     "react-spring-3d-carousel": "^1.2.1",
     "stripe": "^8.216.0",
     "styled-components": "^5.3.3",
-    "uuid": "^8.3.2"
+    "uuid": "^8.3.2",
+    "video-react": "^0.15.0"
   },
   "devDependencies": {
     "cypress": "^9.4.1",

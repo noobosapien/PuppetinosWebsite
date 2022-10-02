@@ -1,20 +1,22 @@
+import { styled } from '@mui/system';
+import React, { useEffect } from 'react';
+import useMediaQuery from '@mui/material/useMediaQuery';
+import { useTheme } from '@mui/material/styles';
+
+import { useRouter } from 'next/router';
 import {
   Card,
   CardActionArea,
+  CardContent,
   CardMedia,
-  Fab,
   Grid,
   Typography,
 } from '@mui/material';
-import { styled } from '@mui/system';
-import React, { useEffect, useState } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-import { useTheme } from '@mui/material/styles';
-import HandPuppet from '../../public/hand_puppet.webp';
-import Marionette from '../../public/pinochio_mari.jpg';
-import FingerPuppet from '../../public/finger_puppet.jpg';
-import ShadowPuppet from '../../public/shadow_puppet.webp';
-import { useRouter } from 'next/router';
+import Image from 'next/image';
+
+import Placeholder from '../../public/placeholder 1.png';
+import Placeholder2 from '../../public/placeholder 2.png';
+import Placeholder3 from '../../public/placeholder 5.png';
 
 const Animation = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -23,21 +25,24 @@ const Animation = styled('div')(({ theme }) => ({
     width: '80vw',
     height: '80vw',
     left: '-60vw',
+    // top: '60vw',
   },
   [theme.breakpoints.down('md')]: {
     width: '100vw',
     height: '100vw',
     left: '-80vw',
+    // top: '100vw',
   },
   [theme.breakpoints.down('sm')]: {
     width: '150vw',
     height: '150vw',
     left: '-125vw',
+    // top: '200vw',
   },
+  top: '5rem',
   width: '100vw',
   height: '100vw',
-  background: 'rgba(0, 238, 255, 0.5)',
-  top: '10vw',
+  background: 'rgba(0, 255, 240, 0.2)',
   // left: 'calc(50%-75vw)',
   borderRadius: '45%',
   animation: 'rotate 30s infinite',
@@ -46,7 +51,7 @@ const Animation = styled('div')(({ theme }) => ({
     content: '""',
     width: '100%',
     height: '100%',
-    background: 'rgba(0, 255, 191, 0.5)',
+    background: 'rgba(0, 255, 191, 0.1)',
     position: 'absolute',
     top: 0,
     left: 0,
@@ -65,7 +70,7 @@ const Animation = styled('div')(({ theme }) => ({
   },
 }));
 
-function Hero2() {
+function Hero1() {
   return (
     <div
       style={{
@@ -79,6 +84,166 @@ function Hero2() {
   );
 }
 
+function Hero2() {
+  useEffect(() => {}, []);
+  const theme = useTheme();
+
+  return (
+    <>
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          position: 'absolute',
+          top: 0,
+          left: 0,
+          'z-index': '-100',
+          // clipPath: 'polygon(100% 0, 100% 38%, 100% 100%, 0 11%, 0 0)',
+          clipPath: 'circle(50.5% at 100% 1%)',
+          background: `linear-gradient(125deg, rgba(0,255,240,0.3) 0%, rgba(89,177,206,0.1) 100%)`,
+        }}
+      ></div>
+    </>
+  );
+}
+
+function Hero3() {
+  return (
+    <>
+      <div
+        style={{
+          width: '100%',
+          // height: '100vh',
+          // position: 'absolute',
+          paddingTop: '2rem',
+        }}
+      >
+        <Grid
+          container
+          alignItems="center"
+          justifyContent="center"
+          direction="column"
+          spacing={6}
+        >
+          <Grid item>
+            <Typography
+              variant="h5"
+              textAlign="center"
+              sx={{ fontWeight: '300' }}
+            >
+              Hand made wooden marionettes
+            </Typography>
+          </Grid>
+
+          <Grid item>
+            <Typography textAlign="center">
+              We help you to channel your inner puppeteer
+            </Typography>
+          </Grid>
+
+          <Grid
+            item
+            container
+            alignItems="center"
+            justifyContent="space-evenly"
+            spacing={4}
+            sx={{
+              marginTop: '4rem',
+            }}
+          >
+            <Grid item>
+              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={Placeholder.src}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Grid container justifyContent="center">
+                      <Grid item>
+                        <Typography
+                          gutterBottom
+                          variant="body2"
+                          component="div"
+                          sx={{
+                            fontWeight: '200',
+                          }}
+                        >
+                          Buy a marionette
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+
+            <Grid item>
+              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={Placeholder2.src}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Grid container justifyContent="center">
+                      <Grid item>
+                        <Typography
+                          gutterBottom
+                          variant="body2"
+                          component="div"
+                          sx={{
+                            fontWeight: '200',
+                          }}
+                        >
+                          Learn puppeteering
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+
+            <Grid item>
+              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+                <CardActionArea>
+                  <CardMedia
+                    component="img"
+                    height="300"
+                    image={Placeholder3.src}
+                    alt="green iguana"
+                  />
+                  <CardContent>
+                    <Grid container justifyContent="center">
+                      <Grid item>
+                        <Typography
+                          gutterBottom
+                          variant="body2"
+                          component="div"
+                          sx={{
+                            fontWeight: '200',
+                          }}
+                        >
+                          Follow the webcomic
+                        </Typography>
+                      </Grid>
+                    </Grid>
+                  </CardContent>
+                </CardActionArea>
+              </Card>
+            </Grid>
+          </Grid>
+        </Grid>
+      </div>
+    </>
+  );
+}
+
 export default function Hero() {
   const theme = useTheme();
   const router = useRouter();
@@ -89,232 +254,11 @@ export default function Hero() {
   const matchesLG = useMediaQuery(theme.breakpoints.down('lg'));
   const matchesXL = useMediaQuery(theme.breakpoints.down('xl'));
 
-  const handleGoToHP = async (e) => {
-    router.push('/category/Hand Puppets');
-  };
-
-  const handleGoToMN = async (e) => {
-    router.push('/category/Marionettes');
-  };
-
-  const handleGoToFP = async (e) => {
-    router.push('/category/Finger Puppets');
-  };
-
-  const handleGoToSP = async (e) => {
-    router.push('/category/Shadow Puppets');
-  };
-
   return (
     <>
       <Hero2 />
-
-      <Grid
-        container
-        direction="column"
-        justifyContent="space-between"
-        sx={{ marginTop: '10rem' }}
-        spacing={4}
-      >
-        <Grid item container justifyContent="space-evenly" alignItems="center">
-          {/* hand puupets and marionettes */}
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid item>
-                <Card
-                  sx={(theme) => ({
-                    borderRadius: '25%',
-                    width: '25rem',
-                    [theme.breakpoints.down('xl')]: {
-                      width: '25rem',
-                    },
-                    [theme.breakpoints.down('lg')]: {
-                      width: '20rem',
-                    },
-                    [theme.breakpoints.down('md')]: {
-                      width: '15rem',
-                    },
-                    [theme.breakpoints.down('sm')]: {
-                      width: '8rem',
-                    },
-                  })}
-                >
-                  <CardActionArea onClick={handleGoToHP}>
-                    <CardMedia
-                      component="img"
-                      height="100%"
-                      image={HandPuppet.src}
-                      alt="Hand Puppets"
-                      sx={{
-                        opacity: 0.7,
-                        transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
-                      }}
-                    />
-                  </CardActionArea>
-                </Card>
-              </Grid>
-
-              <Grid item>
-                <Typography variant="body2">Hand Puppets</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid item>
-                <Card
-                  sx={(theme) => ({
-                    borderRadius: '25%',
-                    width: '25rem',
-                    [theme.breakpoints.down('xl')]: {
-                      width: '25rem',
-                    },
-                    [theme.breakpoints.down('lg')]: {
-                      width: '20rem',
-                    },
-                    [theme.breakpoints.down('md')]: {
-                      width: '15rem',
-                    },
-                    [theme.breakpoints.down('sm')]: {
-                      width: '8rem',
-                    },
-                  })}
-                >
-                  <CardActionArea onClick={handleGoToMN}>
-                    <CardMedia
-                      component="img"
-                      height="100%"
-                      image={Marionette.src}
-                      alt="Marionettes"
-                      sx={{
-                        opacity: 0.7,
-                        transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
-                      }}
-                    />
-                  </CardActionArea>
-                </Card>
-              </Grid>
-
-              <Grid item>
-                <Typography variant="body2">Marionettes</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-
-        <Grid item container justifyContent="space-evenly" alignItems="center">
-          {/* finger puppets and shadow puppets */}
-
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid item>
-                <Card
-                  sx={(theme) => ({
-                    borderRadius: '25%',
-                    width: '25rem',
-                    [theme.breakpoints.down('xl')]: {
-                      width: '25rem',
-                    },
-                    [theme.breakpoints.down('lg')]: {
-                      width: '20rem',
-                    },
-                    [theme.breakpoints.down('md')]: {
-                      width: '15rem',
-                    },
-                    [theme.breakpoints.down('sm')]: {
-                      width: '8rem',
-                    },
-                  })}
-                >
-                  <CardActionArea onClick={handleGoToFP}>
-                    <CardMedia
-                      component="img"
-                      height="100%"
-                      image={FingerPuppet.src}
-                      alt="finger puppets"
-                      sx={{
-                        opacity: 0.7,
-                        transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
-                      }}
-                    />
-                  </CardActionArea>
-                </Card>
-              </Grid>
-
-              <Grid item>
-                <Typography variant="body2">Finger Puppets</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-
-          <Grid item>
-            <Grid
-              container
-              direction="column"
-              justifyContent="center"
-              alignItems="center"
-              spacing={2}
-            >
-              <Grid item>
-                <Card
-                  sx={(theme) => ({
-                    borderRadius: '25%',
-                    width: '25rem',
-                    [theme.breakpoints.down('xl')]: {
-                      width: '25rem',
-                    },
-                    [theme.breakpoints.down('lg')]: {
-                      width: '20rem',
-                    },
-                    [theme.breakpoints.down('md')]: {
-                      width: '15rem',
-                    },
-                    [theme.breakpoints.down('sm')]: {
-                      width: '8rem',
-                    },
-                  })}
-                >
-                  <CardActionArea onClick={handleGoToSP}>
-                    <CardMedia
-                      component="img"
-                      height="100%"
-                      image={ShadowPuppet.src}
-                      alt="shadow puppets"
-                      sx={{
-                        opacity: 0.7,
-                        transform: `perspective(1000px) rotateY(120 deg) translateZ(120 px)`,
-                      }}
-                    />
-                  </CardActionArea>
-                </Card>
-              </Grid>
-
-              <Grid item>
-                <Typography variant="body2">Shadow Puppets</Typography>
-              </Grid>
-            </Grid>
-          </Grid>
-        </Grid>
-      </Grid>
+      <Hero1 />
+      <Hero3 />
     </>
   );
 }

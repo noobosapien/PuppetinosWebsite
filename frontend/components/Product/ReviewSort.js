@@ -32,7 +32,6 @@ const grey = {
 
 const StyledButton = styled('button')(
   ({ theme }) => `
-  font-family: Rancho, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
   min-height: calc(1.5em + 22px);
@@ -70,7 +69,6 @@ const StyledButton = styled('button')(
 
 const StyledListbox = styled('ul')(
   ({ theme }) => `
-  font-family: Rancho, sans-serif;
   font-size: 0.875rem;
   box-sizing: border-box;
   padding: 5px;
