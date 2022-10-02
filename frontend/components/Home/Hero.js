@@ -107,7 +107,7 @@ function Hero2() {
   );
 }
 
-function Hero3() {
+function Hero3({ forwardToLearn }) {
   return (
     <>
       <div
@@ -182,7 +182,7 @@ function Hero3() {
 
             <Grid item>
               <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
-                <CardActionArea>
+                <CardActionArea onClick={forwardToLearn}>
                   <CardMedia
                     component="img"
                     height="300"
@@ -244,7 +244,7 @@ function Hero3() {
   );
 }
 
-export default function Hero() {
+export default function Hero({ forwardToLearn }) {
   const theme = useTheme();
   const router = useRouter();
 
@@ -258,7 +258,7 @@ export default function Hero() {
     <>
       <Hero2 />
       <Hero1 />
-      <Hero3 />
+      <Hero3 forwardToLearn={forwardToLearn} />
     </>
   );
 }

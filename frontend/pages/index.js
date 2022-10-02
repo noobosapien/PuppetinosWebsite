@@ -1,3 +1,4 @@
+import React, { useRef } from 'react';
 import Carousel from '../components/Home/Carousel';
 import Hero from '../components/Home/Hero';
 import LearnSection from '../components/Home/LearnSection';
@@ -6,13 +7,26 @@ import SeasonalSection from '../components/Home/SeasonalSection';
 import Layout from '../components/Layout';
 
 export default function Home({ featured, seasonal }) {
+  const learnRef = React.createRef();
+
+  const forwardToLearn = () => {
+    learnRef
+      ? learnRef.current
+        ? learnRef.current.scrollIntoView({ behavior: 'smooth' })
+        : undefined
+      : undefined;
+  };
+
   return (
     <Layout title="Puppetinos" description={'Puppetinos passion for puppets'}>
-      <Hero />
+      <Hero forwardToLearn={forwardToLearn} />
       <Carousel products={featured} />
 
       <SeasonalSection seasonal={seasonal} />
-      <LearnSection />
+      <div ref={learnRef}>
+        <LearnSection />
+      </div>
+
       <NewsLetterSection />
     </Layout>
   );
