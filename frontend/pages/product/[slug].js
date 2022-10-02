@@ -154,12 +154,7 @@ export default function ProductPage(props) {
 
   return (
     <Layout title={prodInfo.name} description={prodInfo.description}>
-      <Grid
-        container
-        direction="column"
-        sx={{ marginTop: '0rem' }}
-        spacing={10}
-      >
+      <Grid container direction="column" spacing={4} sx={{ marginTop: '2rem' }}>
         <Grid item>
           <Message
             text={`Added ${prodInfo.name} to the bag!`}
@@ -170,19 +165,27 @@ export default function ProductPage(props) {
         </Grid>
         <Grid item>
           {/* Product */}
-          <Grid container justifyContent="space-evenly" spacing={4}>
-            <Grid item>
-              <Grid container direction="column" spacing={10}>
-                <Grid item>
-                  <ImageGallery
-                    items={images}
-                    showFullscreenButton={false}
-                    showPlayButton={false}
-                    thumbnailPosition={'left'}
-                  />
-                </Grid>
-              </Grid>
+          <Grid container justifyContent="space-evenly" spacing={2}>
+            {/* <Grid item> */}
+            {/* <Grid container direction="column"> */}
+            <Grid
+              item
+              sx={(theme) => ({
+                minWidth: '600px',
+                [theme.breakpoints.down('xl')]: { minWidth: '600px' },
+                [theme.breakpoints.down('lg')]: { minWidth: '400px' },
+                [theme.breakpoints.down('sm')]: { minWidth: '300px' },
+              })}
+            >
+              <ImageGallery
+                items={images}
+                showFullscreenButton={false}
+                showPlayButton={false}
+                thumbnailPosition={'left'}
+              />
             </Grid>
+            {/* </Grid> */}
+            {/* </Grid> */}
 
             <Grid item>
               <Grid
@@ -192,6 +195,10 @@ export default function ProductPage(props) {
                 spacing={3}
                 sx={{
                   marginBottom: video ? '35vh' : '0',
+                  minWidth: '600px',
+                  [theme.breakpoints.down('xl')]: { minWidth: '600px' },
+                  [theme.breakpoints.down('lg')]: { minWidth: '400px' },
+                  [theme.breakpoints.down('sm')]: { minWidth: '100vw' },
                 }}
               >
                 <Grid item>
@@ -324,6 +331,7 @@ export default function ProductPage(props) {
                     sx={(theme) => ({
                       fontSize: '1.3rem',
                       color: theme.palette.common.lightGray,
+                      maxWidth: '600px',
                     })}
                   >
                     {prodInfo.description}
@@ -358,9 +366,12 @@ export default function ProductPage(props) {
 
                 <Grid item>
                   {video ? (
-                    <Player>
-                      <source src={video.url} />
-                    </Player>
+                    <>
+                      <Typography>Video demo:</Typography>
+                      <Player>
+                        <source src={video.url} />
+                      </Player>
+                    </>
                   ) : (
                     <></>
                   )}
@@ -376,11 +387,12 @@ export default function ProductPage(props) {
           direction="column"
           justifyContent="center"
           alignItems="center"
-          spacing={10}
+          spacing={2}
+          sx={{ marginTop: '2rem' }}
         >
           <Grid item>
             <Button
-              sx={{ fontSize: '1.2rem' }}
+              sx={{ fontSize: '1.0rem', fontWeight: '200' }}
               endIcon={
                 showRelated ? <ArrowDropUpIcon /> : <ArrowDropDownIcon />
               }
