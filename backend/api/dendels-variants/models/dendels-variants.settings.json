@@ -38,6 +38,10 @@
     },
     "sale": {
       "type": "boolean"
+    },
+    "dendels_product": {
+      "via": "dendels_variants",
+      "model": "dendels-products"
     }
   }
 }

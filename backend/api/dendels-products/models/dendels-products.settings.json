@@ -34,10 +34,15 @@
       "type": "boolean"
     },
     "dendels_variants": {
-      "collection": "dendels-variants"
+      "collection": "dendels-variants",
+      "via": "dendels_product"
     },
     "type": {
       "type": "string"
+    },
+    "dendels_category": {
+      "via": "dendels_products",
+      "model": "dendels-categories"
     }
   }
 }

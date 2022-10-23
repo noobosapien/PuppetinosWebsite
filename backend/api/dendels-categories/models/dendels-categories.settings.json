@@ -16,6 +16,7 @@
       "type": "string"
     },
     "dendels_products": {
+      "via": "dendels_category",
       "collection": "dendels-products"
     }
   }
