@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dendels-variants",
+      "handler": "dendels-variants.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-variants/count",
+      "handler": "dendels-variants.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-variants/:id",
+      "handler": "dendels-variants.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-variants",
+      "handler": "dendels-variants.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dendels-variants/:id",
+      "handler": "dendels-variants.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dendels-variants/:id",
+      "handler": "dendels-variants.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

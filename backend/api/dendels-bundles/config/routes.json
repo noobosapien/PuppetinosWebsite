@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dendels-bundles",
+      "handler": "dendels-bundles.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-bundles/count",
+      "handler": "dendels-bundles.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-bundles/:id",
+      "handler": "dendels-bundles.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-bundles",
+      "handler": "dendels-bundles.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dendels-bundles/:id",
+      "handler": "dendels-bundles.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dendels-bundles/:id",
+      "handler": "dendels-bundles.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

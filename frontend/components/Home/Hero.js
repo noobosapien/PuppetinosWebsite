@@ -107,7 +107,7 @@ function Hero2() {
   );
 }
 
-function Hero3({ forwardToLearn }) {
+function Hero3({ forwardToLearn, goToAllPage }) {
   return (
     <>
       <div
@@ -153,12 +153,12 @@ function Hero3({ forwardToLearn }) {
           >
             <Grid item>
               <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
-                <CardActionArea>
+                <CardActionArea onClick={goToAllPage}>
                   <CardMedia
                     component="img"
                     height="300"
                     image={Placeholder.src}
-                    alt="green iguana"
+                    alt="Goto all page"
                   />
                   <CardContent>
                     <Grid container justifyContent="center">
@@ -187,7 +187,7 @@ function Hero3({ forwardToLearn }) {
                     component="img"
                     height="300"
                     image={Placeholder2.src}
-                    alt="green iguana"
+                    alt="Learn puppeteering"
                   />
                   <CardContent>
                     <Grid container justifyContent="center">
@@ -216,7 +216,7 @@ function Hero3({ forwardToLearn }) {
                     component="img"
                     height="300"
                     image={Placeholder3.src}
-                    alt="green iguana"
+                    alt="Webcomic"
                   />
                   <CardContent>
                     <Grid container justifyContent="center">
@@ -254,11 +254,15 @@ export default function Hero({ forwardToLearn }) {
   const matchesLG = useMediaQuery(theme.breakpoints.down('lg'));
   const matchesXL = useMediaQuery(theme.breakpoints.down('xl'));
 
+  const goToAllPage = () => {
+    router.push('/all');
+  };
+
   return (
     <>
       <Hero2 />
       <Hero1 />
-      <Hero3 forwardToLearn={forwardToLearn} />
+      <Hero3 forwardToLearn={forwardToLearn} goToAllPage={goToAllPage} />
     </>
   );
 }

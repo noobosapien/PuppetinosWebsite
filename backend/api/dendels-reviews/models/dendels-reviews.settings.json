@@ -1,0 +1,39 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dendels_reviews",
+  "info": {
+    "name": "dendels-reviews"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "text": {
+      "type": "text"
+    },
+    "rating": {
+      "type": "integer"
+    },
+    "email": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean"
+    },
+    "product": {
+      "model": "product"
+    },
+    "userLastname": {
+      "type": "string"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}
