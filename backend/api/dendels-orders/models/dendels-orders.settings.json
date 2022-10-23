@@ -1,0 +1,54 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dendels_orders",
+  "info": {
+    "name": "dendels-orders"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "json"
+    },
+    "shippingAddress": {
+      "type": "json"
+    },
+    "billingAddress": {
+      "type": "json"
+    },
+    "shippingInfo": {
+      "type": "json"
+    },
+    "billingInfo": {
+      "type": "json"
+    },
+    "shippingOption": {
+      "type": "json"
+    },
+    "orderEncObject": {
+      "type": "json"
+    },
+    "subtotal": {
+      "type": "integer"
+    },
+    "total": {
+      "type": "integer"
+    },
+    "status": {
+      "type": "string"
+    },
+    "orderLink": {
+      "type": "text"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "orderAuth": {
+      "type": "text"
+    }
+  }
+}

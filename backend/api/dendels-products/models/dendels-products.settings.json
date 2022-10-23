@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dendels_products",
+  "info": {
+    "name": "dendels-products",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "image": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "promo": {
+      "type": "boolean"
+    },
+    "dendels_variants": {
+      "collection": "dendels-variants"
+    },
+    "type": {
+      "type": "string"
+    }
+  }
+}

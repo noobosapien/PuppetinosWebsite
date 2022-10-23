@@ -1,0 +1,43 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dendels_variants",
+  "info": {
+    "name": "dendels-variants",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "images": {
+      "collection": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false,
+      "pluginOptions": {}
+    },
+    "data": {
+      "type": "json"
+    },
+    "highPrice": {
+      "type": "integer"
+    },
+    "lowPrice": {
+      "type": "integer"
+    },
+    "sale": {
+      "type": "boolean"
+    }
+  }
+}

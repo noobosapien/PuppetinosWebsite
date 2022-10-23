@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dendels-products",
+      "handler": "dendels-products.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-products/count",
+      "handler": "dendels-products.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-products/:id",
+      "handler": "dendels-products.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-products",
+      "handler": "dendels-products.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dendels-products/:id",
+      "handler": "dendels-products.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dendels-products/:id",
+      "handler": "dendels-products.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

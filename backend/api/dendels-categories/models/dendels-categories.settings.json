@@ -1,0 +1,22 @@
+{
+  "kind": "collectionType",
+  "collectionName": "dendels_categories",
+  "info": {
+    "name": "dendels-categories",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": false
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "dendels_products": {
+      "collection": "dendels-products"
+    }
+  }
+}

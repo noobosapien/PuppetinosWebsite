@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dendels-reviews",
+      "handler": "dendels-reviews.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-reviews/count",
+      "handler": "dendels-reviews.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-reviews/:id",
+      "handler": "dendels-reviews.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-reviews",
+      "handler": "dendels-reviews.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dendels-reviews/:id",
+      "handler": "dendels-reviews.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dendels-reviews/:id",
+      "handler": "dendels-reviews.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

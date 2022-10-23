@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/dendels-categories",
+      "handler": "dendels-categories.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-categories/count",
+      "handler": "dendels-categories.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-categories/:id",
+      "handler": "dendels-categories.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-categories",
+      "handler": "dendels-categories.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/dendels-categories/:id",
+      "handler": "dendels-categories.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/dendels-categories/:id",
+      "handler": "dendels-categories.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
