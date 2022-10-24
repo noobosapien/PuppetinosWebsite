@@ -46,6 +46,9 @@
     },
     "slug": {
       "type": "string"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
