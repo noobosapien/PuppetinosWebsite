@@ -43,6 +43,9 @@
     "dendels_category": {
       "via": "dendels_products",
       "model": "dendels-categories"
+    },
+    "slug": {
+      "type": "string"
     }
   }
 }
