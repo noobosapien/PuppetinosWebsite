@@ -49,6 +49,14 @@
     },
     "description": {
       "type": "text"
+    },
+    "dendels_products": {
+      "collection": "dendels-products",
+      "via": "relatedproducts"
+    },
+    "relatedproducts": {
+      "model": "dendels-products",
+      "via": "dendels_products"
     }
   }
 }
