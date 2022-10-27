@@ -7,7 +7,7 @@
 
 const crypto = require("crypto");
 const { sanitizeEntity } = require("strapi-utils");
-const stripe = require("stripe")(process.env.STRIPE_SK);
+const stripe = require("stripe")(process.env.STRIPE_DENDELS_SK);
 const { uuid } = require("uuidv4");
 
 module.exports = {
@@ -127,18 +127,18 @@ module.exports = {
         orderAuth,
       };
 
-      var order = await strapi.services.dendels_orders.create(orderObject);
+      const dendelsOrders = strapi.services["dendels-orders"];
+      var order = await dendelsOrders.create(orderObject);
 
-      order = sanitizeEntity(order, { model: strapi.models.dendels_orders });
+      order = sanitizeEntity(order, { model: strapi.models["dendels-orders"] });
 
-      const confirmation =
-        await strapi.services.dendels_orders.confirmationEmail(orderObject);
+      const confirmation = await dendelsOrders.confirmationEmail(orderObject);
 
       await strapi.plugins["email"].services.email.send({
         to: shippingAddress.email.value,
         from: "sales@puppetinos.com",
         replyTo: "sales@puppetinos.com",
-        subject: "Puppetinos order confirmation",
+        subject: "Dendels order confirmation",
         text: "We recieved your order!",
         html: confirmation,
       });
@@ -176,9 +176,12 @@ module.exports = {
         { label: "express", price: 20 },
       ];
 
+      //   console.log(strapi.services);
+      const dendelsVariants = strapi.services["dendels-variants"];
+
       await Promise.all(
         items.map(async (clientItem) => {
-          const serverItem = await strapi.services.dendels_variants.findOne({
+          const serverItem = await dendelsVariants.findOne({
             id: clientItem.id,
           });
 
@@ -245,17 +248,24 @@ module.exports = {
   },
 
   async getOrder(ctx) {
+    // console.log(ctx.query);
     try {
       const query = ctx.query;
+
+      console.log(ctx.query);
       if (!query.auth || !query.order) {
+        console.log("Fail");
         return {
           status: "fail",
         };
       }
 
+      console.log("Here");
       const order = await strapi
         .query("dendels-order")
         .findOne({ orderLink: ctx.query.order });
+
+      console.log("Order: ", order);
 
       if (query.auth === order.orderAuth) {
         order.id = 0;

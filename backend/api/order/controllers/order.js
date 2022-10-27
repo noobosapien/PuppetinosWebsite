@@ -251,7 +251,7 @@ module.exports = {
       }
 
       const order = await strapi
-        .query("order")
+        .query("dendels-orders")
         .findOne({ orderLink: ctx.query.order });
 
       if (query.auth === order.orderAuth) {
