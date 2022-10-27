@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "dendels_reviews",
   "info": {
-    "name": "dendels-reviews"
+    "name": "dendels-reviews",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -26,14 +27,15 @@
     "verified": {
       "type": "boolean"
     },
-    "product": {
-      "model": "product"
-    },
     "userLastname": {
       "type": "string"
     },
     "heading": {
       "type": "string"
+    },
+    "dendels_product": {
+      "model": "dendels-products",
+      "via": "dendels_reviews"
     }
   }
 }

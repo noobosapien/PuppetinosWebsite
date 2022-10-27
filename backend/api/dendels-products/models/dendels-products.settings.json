@@ -58,6 +58,10 @@
     "related_products": {
       "collection": "dendels-products",
       "via": "dendels_products"
+    },
+    "dendels_reviews": {
+      "via": "dendels_product",
+      "collection": "dendels-reviews"
     }
   }
 }
