@@ -47,6 +47,31 @@
       "config": {
         "policies": []
       }
+    },
+
+    {
+      "method": "POST",
+      "path": "/dendels-orders/process",
+      "handler": "dendels-orders.process",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-orders/place",
+      "handler": "dendels-orders.place",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-orders/getOrder",
+      "handler": "dendels-orders.getOrder",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }
