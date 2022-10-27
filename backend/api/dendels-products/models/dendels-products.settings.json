@@ -52,10 +52,11 @@
     },
     "dendels_products": {
       "collection": "dendels-products",
-      "via": "relatedproducts"
+      "via": "related_products",
+      "dominant": true
     },
-    "relatedproducts": {
-      "model": "dendels-products",
+    "related_products": {
+      "collection": "dendels-products",
       "via": "dendels_products"
     }
   }
