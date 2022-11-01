@@ -34,8 +34,8 @@
       "type": "string"
     },
     "dendels_product": {
-      "model": "dendels-products",
-      "via": "dendels_reviews"
+      "via": "dendels_reviews",
+      "model": "dendels-products"
     }
   }
 }

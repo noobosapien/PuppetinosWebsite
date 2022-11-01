@@ -47,6 +47,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "GET",
+      "path": "/dendels-products/updatePrices",
+      "handler": "dendels-products.updateprices",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

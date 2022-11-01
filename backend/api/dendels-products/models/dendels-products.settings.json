@@ -62,6 +62,9 @@
     "dendels_reviews": {
       "via": "dendels_product",
       "collection": "dendels-reviews"
+    },
+    "highestprice": {
+      "type": "integer"
     }
   }
 }
