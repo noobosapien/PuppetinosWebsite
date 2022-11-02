@@ -47,7 +47,52 @@ module.exports = {
             { ...product, highestprice: highestPrice, onSale }
           );
         }
+
+        //if types doesn't have the type in it add the product.type
       }
+
+      // console.log(products);
+
+      // console.log(types);
+      const dendelsCategories = await strapi.services[
+        "dendels-categories"
+      ].find();
+      // console.log(dendelsCategories);
+
+      // find products in each category
+      if (dendelsCategories instanceof Array) {
+        for (var i = 0; i < dendelsCategories.length; i++) {
+          var category = dendelsCategories[i];
+          var types = [];
+
+          const products = await strapi.services["dendels-products"].find({
+            dendels_category: category.id,
+          });
+
+          products instanceof Array &&
+            products.forEach((pr) => {
+              const check = types.filter((ty) => ty === pr.type);
+              if (check.length === 0) {
+                types.push(pr.type);
+              }
+            });
+
+          console.log(types);
+
+          const typesJSON = JSON.stringify(types);
+
+          const dendelsCats = strapi.services["dendels-categories"];
+
+          await dendelsCats.update(
+            { id: category.id },
+            { ...category, types: typesJSON }
+          );
+        }
+      }
+
+      // for each product in the category get the type and add it to the array
+
+      // JSONify the array and set it to category.types
 
       //save and sanitize
 
