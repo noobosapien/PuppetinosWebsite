@@ -49,7 +49,7 @@
       }
     },
     {
-      "method": "GET",
+      "method": "POST",
       "path": "/dendels-products/updatePrices",
       "handler": "dendels-products.updateprices",
       "config": {
