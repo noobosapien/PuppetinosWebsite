@@ -22,14 +22,13 @@ module.exports = {
             for (var j = 0; j < product.dendels_variants.length; j++) {
               var variant = product.dendels_variants[j];
 
-              if (highestPrice < variant.highPrice) {
-                highestPrice = variant.highPrice;
+              if (highestPrice < variant.lowPrice) {
+                highestPrice = variant.lowPrice;
               }
             }
           }
           //if variant highPrice is lower than the highestPrice replace it
           //make the product highestPrice as highestPrice
-          console.log(highestPrice);
           product.highestPrice = highestPrice;
 
           product = sanitizeEntity(product, {
