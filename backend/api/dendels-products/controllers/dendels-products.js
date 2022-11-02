@@ -17,6 +17,7 @@ module.exports = {
           var product = products[i];
           //create a variable for highestPrice
           var highestPrice = 0;
+          var onSale = false;
           //for every variant
           if (product.dendels_variants instanceof Array) {
             for (var j = 0; j < product.dendels_variants.length; j++) {
@@ -24,6 +25,10 @@ module.exports = {
 
               if (highestPrice < variant.lowPrice) {
                 highestPrice = variant.lowPrice;
+              }
+
+              if (variant.sale) {
+                onSale = true;
               }
             }
           }
@@ -39,7 +44,7 @@ module.exports = {
 
           await dendelsProducts.update(
             { id: product.id },
-            { ...product, highestprice: highestPrice }
+            { ...product, highestprice: highestPrice, onSale }
           );
         }
       }

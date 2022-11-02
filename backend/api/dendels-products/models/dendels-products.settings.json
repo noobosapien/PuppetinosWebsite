@@ -65,6 +65,9 @@
     },
     "highestprice": {
       "type": "integer"
+    },
+    "onSale": {
+      "type": "boolean"
     }
   }
 }
