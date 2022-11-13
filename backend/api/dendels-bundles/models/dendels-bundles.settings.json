@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "dendels_bundles",
   "info": {
-    "name": "dendels-bundles"
+    "name": "dendels-bundles",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -25,6 +26,23 @@
     },
     "dendels_products": {
       "collection": "dendels-products"
+    },
+    "name": {
+      "type": "string",
+      "unique": true,
+      "required": true
+    },
+    "highPrice": {
+      "type": "float",
+      "required": true
+    },
+    "lowPrice": {
+      "type": "float",
+      "unique": true,
+      "required": true
+    },
+    "sale": {
+      "type": "boolean"
     }
   }
 }

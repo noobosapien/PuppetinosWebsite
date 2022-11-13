@@ -77,8 +77,6 @@ module.exports = {
               }
             });
 
-          console.log(types);
-
           const typesJSON = JSON.stringify(types);
 
           const dendelsCats = strapi.services["dendels-categories"];
