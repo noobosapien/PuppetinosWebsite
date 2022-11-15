@@ -43,6 +43,12 @@
     },
     "sale": {
       "type": "boolean"
+    },
+    "featured": {
+      "type": "boolean"
+    },
+    "description": {
+      "type": "text"
     }
   }
 }
