@@ -38,7 +38,7 @@
     },
     "lowPrice": {
       "type": "float",
-      "unique": true,
+      "unique": false,
       "required": true
     },
     "sale": {
