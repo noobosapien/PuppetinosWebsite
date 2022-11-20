@@ -23,8 +23,8 @@ module.exports = {
             for (var j = 0; j < product.dendels_variants.length; j++) {
               var variant = product.dendels_variants[j];
 
-              if (highestPrice < variant.lowPrice) {
-                highestPrice = variant.lowPrice;
+              if (highestPrice < variant.highPrice) {
+                highestPrice = variant.highPrice;
               }
 
               if (variant.sale) {
