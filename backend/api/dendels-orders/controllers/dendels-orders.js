@@ -14,6 +14,7 @@ module.exports = {
   async place(ctx) {
     const {
       items,
+      bundles,
       country,
       shippingAddress,
       billingAddress,
@@ -65,6 +66,8 @@ module.exports = {
       const orderAuth = uuid();
 
       var orderItems = [];
+      var orderBundles = [];
+
       items.forEach((item) => {
         orderItems.push({
           id: item.id,
@@ -77,8 +80,18 @@ module.exports = {
         });
       });
 
+      bundles.forEach((item) => {
+        orderBundles.push({
+          id: item.id,
+          name: item.name,
+          lowPrice: item.lowPrice,
+          img: item.image.url,
+        });
+      });
+
       const orderObject = {
         items: JSON.stringify(orderItems),
+        bundles: JSON.stringify(orderBundles),
         shippingAddress: JSON.stringify({
           firstName: shippingAddress.firstName.value,
           lastName: shippingAddress.lastName.value,
@@ -127,6 +140,8 @@ module.exports = {
         orderAuth,
       };
 
+      console.log("Order Object:", orderObject, "\n\n\n\n\n\n\n");
+
       const dendelsOrders = strapi.services["dendels-orders"];
       var order = await dendelsOrders.create(orderObject);
 
@@ -163,8 +178,14 @@ module.exports = {
   },
 
   async process(ctx) {
-    const { items, total, shippingOption, idempotencyKey, shippingAddress } =
-      ctx.request.body;
+    const {
+      items,
+      bundles,
+      total,
+      shippingOption,
+      idempotencyKey,
+      shippingAddress,
+    } = ctx.request.body;
 
     try {
       let serverTotal = 0;
@@ -192,6 +213,19 @@ module.exports = {
           serverTotal +=
             (serverItem.sale ? serverItem.lowPrice : serverItem.highPrice) *
             clientItem.quantity;
+        })
+      );
+
+      //bundle
+
+      const dendelsBundles = strapi.services["dendels-bundles"];
+      await Promise.all(
+        bundles.map(async (clientItem) => {
+          const serverItem = await dendelsBundles.findOne({
+            id: clientItem.id,
+          });
+
+          serverTotal += serverItem.lowPrice;
         })
       );
 
@@ -248,11 +282,9 @@ module.exports = {
   },
 
   async getOrder(ctx) {
-    // console.log(ctx.query);
     try {
       const query = ctx.query;
 
-      console.log(ctx.query);
       if (!query.auth || !query.order) {
         console.log("Fail");
         return {
@@ -260,12 +292,9 @@ module.exports = {
         };
       }
 
-      console.log("Here");
       const order = await strapi
-        .query("dendels-order")
+        .query("dendels-orders")
         .findOne({ orderLink: ctx.query.order });
-
-      console.log("Order: ", order);
 
       if (query.auth === order.orderAuth) {
         order.id = 0;

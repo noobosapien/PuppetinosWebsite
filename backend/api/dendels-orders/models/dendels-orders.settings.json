@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "dendels_orders",
   "info": {
-    "name": "dendels-orders"
+    "name": "dendels-orders",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -33,10 +34,10 @@
       "type": "json"
     },
     "subtotal": {
-      "type": "integer"
+      "type": "decimal"
     },
     "total": {
-      "type": "integer"
+      "type": "decimal"
     },
     "status": {
       "type": "string"
@@ -49,6 +50,9 @@
     },
     "orderAuth": {
       "type": "text"
+    },
+    "bundles": {
+      "type": "json"
     }
   }
 }
