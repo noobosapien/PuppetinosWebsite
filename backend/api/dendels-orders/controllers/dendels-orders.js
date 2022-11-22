@@ -7,7 +7,7 @@
 
 const crypto = require("crypto");
 const { sanitizeEntity } = require("strapi-utils");
-const stripe = require("stripe")(process.env.STRIPE_DENDELS_SK);
+const stripe = require("stripe")(process.env.DENDELS_SK_LIVE);
 const { uuid } = require("uuidv4");
 
 module.exports = {
