@@ -55,6 +55,14 @@
       "config": {
         "policies": []
       }
+    },
+    {
+      "method": "POST",
+      "path": "/dendels-products/correctPrices",
+      "handler": "dendels-products.setCorrectPrices",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

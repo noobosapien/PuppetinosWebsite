@@ -31,10 +31,10 @@
       "type": "json"
     },
     "highPrice": {
-      "type": "integer"
+      "type": "decimal"
     },
     "lowPrice": {
-      "type": "integer"
+      "type": "decimal"
     },
     "sale": {
       "type": "boolean"

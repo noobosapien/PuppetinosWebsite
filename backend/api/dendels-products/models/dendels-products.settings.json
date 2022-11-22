@@ -34,8 +34,8 @@
       "type": "boolean"
     },
     "dendels_variants": {
-      "collection": "dendels-variants",
-      "via": "dendels_product"
+      "via": "dendels_product",
+      "collection": "dendels-variants"
     },
     "type": {
       "type": "string"

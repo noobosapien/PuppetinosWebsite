@@ -7,6 +7,134 @@ const { sanitizeEntity } = require("strapi-utils");
  */
 
 module.exports = {
+  async setCorrectPrices(ctx) {
+    const products = await strapi.services["dendels-products"].find();
+
+    const dendelsVariants = strapi.services["dendels-variants"];
+
+    if (products instanceof Array) {
+      for (var i = 0; i < products.length; i++) {
+        var product = products[i];
+        console.log(product.slug);
+
+        var highPrice = 0;
+        var lowPrice = 0;
+
+        switch (product.slug) {
+          case "t_blade_trimmer": {
+            highPrice = 80.0;
+            lowPrice = 39.99;
+            break;
+          }
+
+          case "sleek_trimmer": {
+            highPrice = 65.0;
+            lowPrice = 39.99;
+            break;
+          }
+
+          case "stainless_steel_nasal": {
+            highPrice = 25.0;
+            lowPrice = 9.99;
+            break;
+          }
+
+          case "rechargable_nose_trimmer": {
+            highPrice = 50.0;
+            lowPrice = 19.99;
+            break;
+          }
+
+          case "wet_dry_ceramic_straightener": {
+            highPrice = 120.0;
+            lowPrice = 49.99;
+            break;
+          }
+
+          case "ceramic_curling_iron": {
+            highPrice = 95.0;
+            lowPrice = 49.99;
+            break;
+          }
+
+          case "five_barrel_curling_iron": {
+            highPrice = 120.0;
+            lowPrice = 79.99;
+            break;
+          }
+
+          case "three_barrel_hair_curler": {
+            highPrice = 135.0;
+            lowPrice = 69.99;
+            break;
+          }
+
+          case "tourmaline_hair_dryer": {
+            highPrice = 110.0;
+            lowPrice = 49.99;
+            break;
+          }
+
+          case "hot_rotating_roller": {
+            highPrice = 100.0;
+            lowPrice = 69.99;
+            break;
+          }
+
+          case "strong_wind_hammer_blower": {
+            highPrice = 90.0;
+            lowPrice = 49.99;
+            break;
+          }
+
+          case "photo_epilator_five_gear": {
+            highPrice = 150.0;
+            lowPrice = 89.99;
+            break;
+          }
+
+          case "portable_instant": {
+            highPrice = 75.0;
+            lowPrice = 49.99;
+            break;
+          }
+
+          case "pulsing_perma_hair_remover": {
+            highPrice = 90.0;
+            lowPrice = 59.99;
+            break;
+          }
+
+          default:
+            break;
+        }
+
+        if (product.dendels_variants instanceof Array) {
+          for (var j = 0; j < product.dendels_variants.length; j++) {
+            var variant = product.dendels_variants[j];
+            // variant.highPrice = highPrice;
+            // variant.lowPrice = lowPrice;
+            // variant.sale = true;
+
+            await dendelsVariants.update(
+              { id: variant.id },
+              {
+                ...variant,
+                highPrice,
+                lowPrice,
+                sale: true,
+              }
+            );
+          }
+        }
+      }
+    }
+
+    return {
+      message: "Success",
+    };
+  },
+
   async updateprices(ctx) {
     try {
       //get every product
