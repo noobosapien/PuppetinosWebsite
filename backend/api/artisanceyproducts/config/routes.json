@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/artisanceyproducts",
+      "handler": "artisanceyproducts.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artisanceyproducts/count",
+      "handler": "artisanceyproducts.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artisanceyproducts/:id",
+      "handler": "artisanceyproducts.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/artisanceyproducts",
+      "handler": "artisanceyproducts.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/artisanceyproducts/:id",
+      "handler": "artisanceyproducts.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/artisanceyproducts/:id",
+      "handler": "artisanceyproducts.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
