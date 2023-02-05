@@ -102,6 +102,10 @@
       "type": "string",
       "required": true,
       "unique": true
+    },
+    "price": {
+      "type": "decimal",
+      "required": true
     }
   }
 }
