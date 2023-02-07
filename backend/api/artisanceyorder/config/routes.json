@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/artisanceyorders",
+      "handler": "artisanceyorder.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artisanceyorders/count",
+      "handler": "artisanceyorder.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/artisanceyorders/:id",
+      "handler": "artisanceyorder.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/artisanceyorders",
+      "handler": "artisanceyorder.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/artisanceyorders/:id",
+      "handler": "artisanceyorder.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/artisanceyorders/:id",
+      "handler": "artisanceyorder.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

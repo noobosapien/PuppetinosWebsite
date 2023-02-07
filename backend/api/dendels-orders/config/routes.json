@@ -72,6 +72,31 @@
       "config": {
         "policies": []
       }
+    },
+
+    {
+      "method": "POST",
+      "path": "/artisanceyorders/process",
+      "handler": "artisanceyorder.process",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/artisanceyorders/place",
+      "handler": "artisanceyorder.place",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/artisanceyorders/getOrder",
+      "handler": "artisanceyorder.getOrder",
+      "config": {
+        "policies": []
+      }
     }
   ]
 }

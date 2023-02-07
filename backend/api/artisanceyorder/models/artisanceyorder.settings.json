@@ -1,0 +1,48 @@
+{
+  "kind": "collectionType",
+  "collectionName": "artisanceyorders",
+  "info": {
+    "name": "artisanceyorder"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "items": {
+      "type": "json"
+    },
+    "shippingAddress": {
+      "type": "json"
+    },
+    "billingAddress": {
+      "type": "json"
+    },
+    "shippingOption": {
+      "type": "json"
+    },
+    "orderEncObject": {
+      "type": "json"
+    },
+    "subtotal": {
+      "type": "decimal"
+    },
+    "total": {
+      "type": "decimal"
+    },
+    "status": {
+      "type": "string"
+    },
+    "orderLink": {
+      "type": "string"
+    },
+    "orderId": {
+      "type": "string"
+    },
+    "orderAuth": {
+      "type": "string"
+    }
+  }
+}
