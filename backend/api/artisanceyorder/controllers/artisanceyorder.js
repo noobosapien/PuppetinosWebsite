@@ -71,7 +71,7 @@ module.exports = {
           id: item.id,
           name: item.name,
           quantity: item.quantity,
-          img: item?.images instanceof Array ? item.images[0] : "",
+          img: item.images instanceof Array ? item.images[0] : "",
           price: item.price,
           sale: item.sale,
         });
