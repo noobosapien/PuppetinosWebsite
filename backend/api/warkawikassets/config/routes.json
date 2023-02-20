@@ -1,0 +1,60 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/warkawikassets",
+      "handler": "warkawikassets.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/warkawikassets/count",
+      "handler": "warkawikassets.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/warkawikassets/:id",
+      "handler": "warkawikassets.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/warkawikassets",
+      "handler": "warkawikassets.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/warkawikassets/:id",
+      "handler": "warkawikassets.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/warkawikassets/:id",
+      "handler": "warkawikassets.delete",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/warkawikassets/getzip",
+      "handler": "warkawikassets.getzip",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
