@@ -1,7 +1,7 @@
 import { Grid, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { useEffect, useState } from 'react';
-import ComicBG from '../../public/comicbg.jpg';
+import ComicBG from '../../public/comicbg.png';
 import SmallProductCard from '../common/SmallProductCard';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import { useTheme } from '@mui/material/styles';

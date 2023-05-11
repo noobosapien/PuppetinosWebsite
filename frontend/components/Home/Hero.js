@@ -14,9 +14,9 @@ import {
 } from '@mui/material';
 import Image from 'next/image';
 
-import Placeholder from '../../public/placeholder 1.png';
-import Placeholder2 from '../../public/placeholder 2.png';
-import Placeholder3 from '../../public/placeholder 5.png';
+import Placeholder from '../../public/buy.png';
+import Placeholder2 from '../../public/learn.png';
+import Placeholder3 from '../../public/comic.png';
 
 const Animation = styled('div')(({ theme }) => ({
   position: 'absolute',
@@ -152,7 +152,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
             }}
           >
             <Grid item>
-              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+              <Card sx={{ maxWidth: 300, borderRadius: '0.4rem' }} raised>
                 <CardActionArea onClick={goToAllPage}>
                   <CardMedia
                     component="img"
@@ -168,7 +168,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
                           variant="body2"
                           component="div"
                           sx={{
-                            fontWeight: '200',
+                            fontWeight: '300',
                           }}
                         >
                           Buy a marionette
@@ -181,7 +181,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
             </Grid>
 
             <Grid item>
-              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+              <Card sx={{ maxWidth: 300, borderRadius: '0.4rem' }} raised>
                 <CardActionArea onClick={forwardToLearn}>
                   <CardMedia
                     component="img"
@@ -197,7 +197,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
                           variant="body2"
                           component="div"
                           sx={{
-                            fontWeight: '200',
+                            fontWeight: '300',
                           }}
                         >
                           Learn puppeteering
@@ -210,7 +210,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
             </Grid>
 
             <Grid item>
-              <Card sx={{ minWidth: 300, borderRadius: '0.4rem' }} raised>
+              <Card sx={{ maxWidth: 300, borderRadius: '0.4rem' }} raised>
                 <CardActionArea>
                   <CardMedia
                     component="img"
@@ -226,7 +226,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
                           variant="body2"
                           component="div"
                           sx={{
-                            fontWeight: '200',
+                            fontWeight: '300',
                           }}
                         >
                           Follow the webcomic

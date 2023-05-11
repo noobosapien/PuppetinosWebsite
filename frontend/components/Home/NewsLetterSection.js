@@ -1,6 +1,6 @@
 import { Button, Grid, TextField, Typography } from '@mui/material';
 import React from 'react';
-import NewsLetterBG from '../../public/newsletterbg.jpg';
+import NewsLetterBG from '../../public/newsletterbg.png';
 
 export default function NewsLetterSection() {
   return (
@@ -18,7 +18,7 @@ export default function NewsLetterSection() {
           width: '100%',
           height: '100%',
           // background: `rgba(0, 255, 255, 0.8)`,
-          background: `url(${NewsLetterBG.src}) rgba(0, 255, 240, 0.4)`,
+          background: `url(${NewsLetterBG.src}) rgba(0, 255, 240, 0.1)`,
           backgroundBlendMode: 'multiply',
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
@@ -41,7 +41,7 @@ export default function NewsLetterSection() {
         spacing={2}
       >
         <Grid item>
-          <Typography sx={{ color: 'white' }}>
+          <Typography sx={{ color: 'black' }}>
             Join our newsletter for updates!
           </Typography>
         </Grid>

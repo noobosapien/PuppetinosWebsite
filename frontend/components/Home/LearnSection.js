@@ -7,7 +7,7 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import LearnBG from '../../public/learnbg1.jpg';
+import LearnBG from '../../public/learnbg.png';
 
 import Placeholder from '../../public/placeholder 1.png';
 import Placeholder2 from '../../public/placeholder 4.png';
@@ -21,11 +21,12 @@ export default function LearnSection() {
           height: '100vh',
           position: 'absolute',
           marginTop: '4rem',
-          background: `url(${LearnBG.src})`,
+          background: `rgba(0, 255, 240, 0.3)`,
+          zIndex: '-1',
+          // background: `url(${LearnBG.src}) rgba(0, 255, 240, 0.8)`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
-          filter: 'blur(2px)',
-          opacity: '0.4',
+          filter: 'blur(1px)',
           clipPath: 'polygon(0 0, 0% 80%, 100% 100%)',
         }}
       ></div>
