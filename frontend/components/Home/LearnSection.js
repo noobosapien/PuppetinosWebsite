@@ -7,10 +7,9 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
-import LearnBG from '../../public/learnbg.png';
 
-import Placeholder from '../../public/placeholder 1.png';
-import Placeholder2 from '../../public/placeholder 4.png';
+import Placeholder from '../../public/front.png';
+import Placeholder2 from '../../public/history.png';
 
 export default function LearnSection() {
   return (
