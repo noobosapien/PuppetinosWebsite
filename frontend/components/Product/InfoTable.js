@@ -13,10 +13,6 @@ import difficulty from '../../public/difficulty.png';
 import { Grid } from '@mui/material';
 import Difficulty from './Difficulty';
 
-function createData(name, calories, fat, carbs, protein) {
-  return { name, calories, fat, carbs, protein };
-}
-
 export default function InfoTable({ product }) {
   const [rows, setRows] = React.useState([]);
 
@@ -46,7 +42,7 @@ export default function InfoTable({ product }) {
               </Grid>
             </TableCell>
             <TableCell align="right">
-              <Difficulty diff={2} />
+              <Difficulty diff={product.difficulty} />
             </TableCell>
           </TableRow>
 

@@ -30,6 +30,8 @@ import Message from '../../components/common/Message';
 import { setDebug } from '../../helpers/setDebug';
 import 'video-react/dist/video-react.css';
 import { Player } from 'video-react';
+import ShippingnReturn from '../../components/Product/ShippingnReturn';
+import Confidence from '../../components/Product/Confidence';
 
 export default function ProductPage(props) {
   const { product } = props;
@@ -149,6 +151,7 @@ export default function ProductPage(props) {
             setOpen={setOpenMessage}
           />
         </Grid>
+
         <Grid item>
           {/* Product */}
           <Grid container justifyContent="space-evenly" spacing={2}>
@@ -338,6 +341,14 @@ export default function ProductPage(props) {
                     <></>
                   )}
                 </Grid>
+
+                <Grid item sx={{ marginTop: '3rem' }}>
+                  <ShippingnReturn />
+                </Grid>
+
+                <Grid item sx={{ marginTop: '3rem' }}>
+                  <Confidence />
+                </Grid>
               </Grid>
             </Grid>
           </Grid>
@@ -362,7 +373,7 @@ export default function ProductPage(props) {
                 setShowRelated(!showRelated);
               }}
             >
-              {showRelated ? 'Hide' : 'Show'} Related products
+              {showRelated ? 'Hide' : 'Show'} Related puppets
             </Button>
           </Grid>
 

@@ -19,6 +19,7 @@ export default function SmallProductCard({ product, noReviews }) {
         <Card
           sx={(theme) => ({
             width: '120px',
+            borderRadius: '1rem',
             [theme.breakpoints.up('xs')]: {
               width: '120px',
             },
@@ -57,14 +58,14 @@ export default function SmallProductCard({ product, noReviews }) {
           justifyContent="center"
           direction="column"
         >
-          <Grid item>
+          {/* <Grid item>
             <Rating value={product.rating} readOnly />
           </Grid>
           <Grid item>
             <Typography>
               ({product.noofreviews ? product.noofreviews : 0} reviews)
             </Typography>
-          </Grid>
+          </Grid> */}
         </Grid>
       )}
 
