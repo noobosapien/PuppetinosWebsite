@@ -98,6 +98,9 @@
       "plugin": "upload",
       "required": false,
       "pluginOptions": {}
+    },
+    "highPrice": {
+      "type": "decimal"
     }
   }
 }

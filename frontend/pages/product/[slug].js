@@ -5,16 +5,13 @@ import {
   Collapse,
   Grid,
   IconButton,
-  Rating,
   TextField,
   Toolbar,
   Typography,
 } from '@mui/material';
-import Image from 'next/image';
 import React, { useContext, useEffect, useState } from 'react';
 import Layout from '../../components/Layout';
 import { Controller, useForm } from 'react-hook-form';
-import { setReview } from '../../helpers/setReview';
 import ImageGallery from 'react-image-gallery';
 import 'react-image-gallery/styles/css/image-gallery.css';
 import useMediaQuery from '@mui/material/useMediaQuery';
@@ -155,8 +152,6 @@ export default function ProductPage(props) {
         <Grid item>
           {/* Product */}
           <Grid container justifyContent="space-evenly" spacing={2}>
-            {/* <Grid item> */}
-            {/* <Grid container direction="column"> */}
             <Grid
               item
               sx={(theme) => ({
@@ -173,8 +168,6 @@ export default function ProductPage(props) {
                 thumbnailPosition={'left'}
               />
             </Grid>
-            {/* </Grid> */}
-            {/* </Grid> */}
 
             <Grid item>
               <Grid
@@ -201,26 +194,13 @@ export default function ProductPage(props) {
                   </Typography>
                 </Grid>
 
-                <Grid item container alignItems="center" spacing={3}>
-                  <Grid item>
-                    <Rating precision={0.5} value={prodInfo.rating} readOnly />
-                  </Grid>
-                  <Grid item>
-                    <Typography>
-                      ({prodInfo.noofreviews ? prodInfo.noofreviews : 0}{' '}
-                      reviews)
-                    </Typography>
-                  </Grid>
-                </Grid>
-
-                <Grid item>
+                <Grid item justifySelf={'center'} alignSelf={'center'}>
                   <Typography
                     variant="h5"
                     sx={(theme) => ({
                       color: theme.palette.common.black,
                       fontSize: '2.0rem',
-                      fontFamily: 'Roboto',
-                      fontWeight: '600',
+                      fontWeight: '400',
                     })}
                   >
                     ${prodInfo.price ? prodInfo.price.toFixed(2) : '0.00'}
@@ -228,82 +208,50 @@ export default function ProductPage(props) {
                 </Grid>
 
                 {matchesMD ? (
-                  <></>
+                  <>
+                    <Grid item xs={10} sx={{ marginBottom: '25vh' }}>
+                      {video ? (
+                        <>
+                          <Typography sx={{ marginBottom: '2rem' }}>
+                            Video demo:
+                          </Typography>
+                          <Player>
+                            <source src={video.url} />
+                          </Player>
+                        </>
+                      ) : (
+                        <></>
+                      )}
+                    </Grid>
+                  </>
                 ) : (
                   <>
-                    <Grid item container alignItems="center" spacing={3}>
-                      <Grid item>
-                        <Typography
-                          sx={{ fontSize: '1rem', fontWeight: '700' }}
-                        >
-                          Qty:
-                        </Typography>
+                    <Grid
+                      item
+                      container
+                      alignItems="center"
+                      justifyContent={'center'}
+                      spacing={3}
+                    >
+                      <Grid item xs={10}>
+                        {video ? (
+                          <>
+                            <Typography>Video demo:</Typography>
+                            <Player>
+                              <source src={video.url} />
+                            </Player>
+                          </>
+                        ) : (
+                          <></>
+                        )}
                       </Grid>
 
-                      <Grid item>
-                        <Grid container alignItems="center">
-                          <Grid item>
-                            <IconButton
-                              onClick={handleDownAmount}
-                              color="primary"
-                              aria-label="increase quantity"
-                              component="span"
-                            >
-                              <ArrowCircleDownTwoToneIcon
-                                sx={(theme) => ({
-                                  color: theme.palette.common.lightRed,
-                                  fontSize: '2rem',
-                                })}
-                              />
-                            </IconButton>
-                          </Grid>
-
-                          <Grid item>
-                            <TextField
-                              onChange={handleNumberChange}
-                              value={amount}
-                              variant="outlined"
-                              type="number"
-                              size="small"
-                              sx={{
-                                width: '11ch',
-                                'input::-webkit-inner-spin-button': {
-                                  '-webkit-appearance': 'none',
-                                  margin: 0,
-                                },
-
-                                'input[type=number]': {
-                                  '-moz-appearance': 'textfield',
-                                  'font-size': '1.2rem',
-                                  'text-align': 'center',
-                                  color: '#3a8783',
-                                },
-                              }}
-                            />
-                          </Grid>
-
-                          <Grid item>
-                            <IconButton
-                              onClick={handleAddAmount}
-                              color="primary"
-                              aria-label="decrease quantity"
-                              component="span"
-                            >
-                              <ArrowCircleUpTwoToneIcon
-                                sx={(theme) => ({
-                                  fontSize: '2rem',
-                                })}
-                              />
-                            </IconButton>
-                          </Grid>
-                        </Grid>
-                      </Grid>
-
-                      <Grid item>
+                      <Grid item xs={12}>
                         <Button
                           onClick={handleAddToCart}
                           startIcon={<LocalMallTwoToneIcon />}
                           variant="contained"
+                          fullWidth
                         >
                           Add to bag
                         </Button>
@@ -318,7 +266,7 @@ export default function ProductPage(props) {
                     paragraph
                     variant="body2"
                     sx={(theme) => ({
-                      fontSize: '1.3rem',
+                      fontSize: '1rem',
                       color: theme.palette.common.lightGray,
                       maxWidth: '600px',
                     })}
@@ -348,19 +296,6 @@ export default function ProductPage(props) {
                 <Grid item>
                   {product instanceof Array ? (
                     <InfoTable product={product[0]} />
-                  ) : (
-                    <></>
-                  )}
-                </Grid>
-
-                <Grid item>
-                  {video ? (
-                    <>
-                      <Typography>Video demo:</Typography>
-                      <Player>
-                        <source src={video.url} />
-                      </Player>
-                    </>
                   ) : (
                     <></>
                   )}
@@ -409,9 +344,9 @@ export default function ProductPage(props) {
           </Grid>
         </Grid>
 
-        <Grid item>
+        {/* <Grid item>
           <Reviews product={prodInfo} page={page} setPage={setPage} />
-        </Grid>
+        </Grid> */}
       </Grid>
 
       <Box sx={{ display: { xs: 'block', md: 'none' } }}>
@@ -427,60 +362,10 @@ export default function ProductPage(props) {
               justifyContent="space-evenly"
               alignItems="center"
             >
-              <Grid item>
-                <Grid container alignItems="center">
-                  <Grid item>
-                    <IconButton
-                      onClick={handleDownAmount}
-                      color="secondary"
-                      aria-label="increase quantity"
-                      component="span"
-                    >
-                      <ArrowCircleDownTwoToneIcon />
-                    </IconButton>
-                  </Grid>
-
-                  <Grid item>
-                    <TextField
-                      onChange={handleNumberChange}
-                      value={amount}
-                      variant="outlined"
-                      type="number"
-                      size="small"
-                      sx={{
-                        width: '7ch',
-                        'input::-webkit-inner-spin-button': {
-                          '-webkit-appearance': 'none',
-                          margin: 0,
-                        },
-
-                        'input[type=number]': {
-                          '-moz-appearance': 'textfield',
-                          'font-size': '1.2rem',
-                          color: '#fff',
-                          'text-align': 'center',
-                        },
-                      }}
-                    />
-                  </Grid>
-
-                  <Grid item>
-                    <IconButton
-                      onClick={handleAddAmount}
-                      color="secondary"
-                      aria-label="decrease quantity"
-                      component="span"
-                    >
-                      <ArrowCircleUpTwoToneIcon />
-                    </IconButton>
-                  </Grid>
-                </Grid>
-              </Grid>
-
-              <Grid item>
+              <Grid item xs={10}>
                 <Button
+                  fullWidth
                   onClick={handleAddToCart}
-                  // startIcon={<LocalMallTwoToneIcon />}
                   variant="contained"
                   color="secondary"
                 >

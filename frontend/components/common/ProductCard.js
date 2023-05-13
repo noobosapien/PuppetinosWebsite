@@ -1,5 +1,4 @@
 import {
-  Button,
   Card,
   CardActionArea,
   CardActions,
@@ -7,9 +6,7 @@ import {
   CardMedia,
   Fab,
   Grid,
-  IconButton,
   Rating,
-  Stack,
   Typography,
 } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
@@ -73,10 +70,10 @@ export default function ProductCard({ product }) {
     : matchesMD
     ? '20rem'
     : matchesLG
-    ? '25rem'
+    ? '20rem'
     : matchesXL
-    ? '25rem'
-    : '25rem';
+    ? '20rem'
+    : '20rem';
 
   const ImageButton = styled(Fab)(({ theme }) => ({
     // borderRadius: '50px',
@@ -118,7 +115,7 @@ export default function ProductCard({ product }) {
                   <Typography
                     variant="body2"
                     sx={(theme) => ({
-                      fontWeight: '700',
+                      fontWeight: '300',
                       fontSize: '1.5rem',
                       color: theme.palette.common.lightGray,
                     })}
@@ -133,14 +130,14 @@ export default function ProductCard({ product }) {
                     sx={(theme) => ({
                       fontSize: '2rem',
                       color: theme.palette.common.greenBlue,
-                      fontWeight: '600',
+                      fontWeight: '300',
                     })}
                   >
                     ${prod.price}
                   </Typography>
                 </Grid>
 
-                <Grid item>
+                {/* <Grid item>
                   <Rating
                     precision={0.5}
                     disabled={prod.rating === 0}
@@ -148,9 +145,9 @@ export default function ProductCard({ product }) {
                     size="small"
                     value={prod.rating}
                   />
-                </Grid>
+                </Grid> */}
 
-                <Grid item>
+                {/* <Grid item>
                   <Typography
                     variant="body2"
                     sx={(theme) => ({
@@ -163,7 +160,7 @@ export default function ProductCard({ product }) {
                       ? `(${prod.noOfReviews} reviews)`
                       : '(No reviews yet)'}
                   </Typography>
-                </Grid>
+                </Grid> */}
               </Grid>
             </CardContent>
           </CardActionArea>

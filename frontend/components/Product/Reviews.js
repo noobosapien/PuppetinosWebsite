@@ -30,7 +30,9 @@ const mdReviews = (
     <>
       <Grid container direction="column" spacing={4} alignItems="center">
         <Grid item>
-          <Typography variant="h3">Reviews</Typography>
+          <Typography variant="h2" sx={{ fontSize: '2rem', fontWeight: '300' }}>
+            Reviews
+          </Typography>
         </Grid>
 
         <Grid item container direction="column" spacing={4}>
@@ -202,7 +204,7 @@ const xsReviews = (
           spacing={6}
         >
           <Grid item>
-            <Typography variant="h1" sx={{ fontSize: '4rem' }}>
+            <Typography variant="h2" sx={{ fontSize: '1.5rem' }}>
               Reviews:
             </Typography>
           </Grid>

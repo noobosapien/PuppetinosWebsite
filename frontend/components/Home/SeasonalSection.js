@@ -84,7 +84,7 @@ export default function SeasonalcSection({ seasonal }) {
                 }}
                 alignSelf="center"
               >
-                Checkout our christmas collection:
+                Checkout our summer collection:
               </Typography>
             </Grid>
           </Grid>
