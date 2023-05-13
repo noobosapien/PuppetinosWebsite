@@ -1,9 +1,9 @@
 import { createTheme } from '@mui/material/styles';
 import { red } from '@mui/material/colors';
 
-const col = '#006D77';
 const slateGray = '#2A4747';
 const emeraldGreen = '#439775';
+const lightGreen = '#00FEC1';
 const black = '#474747';
 // Create a theme instance.
 const theme = createTheme({
@@ -22,6 +22,7 @@ const theme = createTheme({
       black,
       slateGray,
       emeraldGreen,
+      lightGreen,
     },
   },
 

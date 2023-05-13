@@ -165,7 +165,7 @@ export default function ProductPage(props) {
                 items={images}
                 showFullscreenButton={false}
                 showPlayButton={false}
-                thumbnailPosition={'left'}
+                thumbnailPosition={'bottom'}
               />
             </Grid>
 
@@ -183,7 +183,7 @@ export default function ProductPage(props) {
                   [theme.breakpoints.down('sm')]: { minWidth: '100vw' },
                 }}
               >
-                <Grid item>
+                <Grid item alignSelf={'center'}>
                   <Typography
                     variant="h1"
                     sx={{
@@ -194,17 +194,51 @@ export default function ProductPage(props) {
                   </Typography>
                 </Grid>
 
-                <Grid item justifySelf={'center'} alignSelf={'center'}>
-                  <Typography
-                    variant="h5"
-                    sx={(theme) => ({
-                      color: theme.palette.common.black,
-                      fontSize: '2.0rem',
-                      fontWeight: '400',
-                    })}
-                  >
-                    ${prodInfo.price ? prodInfo.price.toFixed(2) : '0.00'}
-                  </Typography>
+                <Grid
+                  item
+                  container
+                  justifySelf={'center'}
+                  alignSelf={'center'}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  spacing={3}
+                >
+                  <Grid item>
+                    <Typography
+                      variant="h5"
+                      sx={(theme) => ({
+                        color: theme.palette.common.black,
+                        fontSize: '2.0rem',
+                        fontWeight: '400',
+                      })}
+                    >
+                      ${prodInfo.price ? prodInfo.price.toFixed(2) : '0.00'}
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    <Typography sx={{ fontSize: '1.4rem' }}>
+                      <s>
+                        $
+                        {prodInfo.highPrice
+                          ? prodInfo.highPrice.toFixed(2)
+                          : '0.00'}
+                      </s>
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    <Typography
+                      sx={{
+                        border: '2px solid red',
+                        borderRadius: '3px',
+                        padding: '2px',
+                        color: 'red',
+                      }}
+                    >
+                      🔥-50% off
+                    </Typography>
+                  </Grid>
                 </Grid>
 
                 {matchesMD ? (
@@ -215,7 +249,7 @@ export default function ProductPage(props) {
                           <Typography sx={{ marginBottom: '2rem' }}>
                             Video demo:
                           </Typography>
-                          <Player>
+                          <Player fluid>
                             <source src={video.url} />
                           </Player>
                         </>
@@ -252,6 +286,10 @@ export default function ProductPage(props) {
                           startIcon={<LocalMallTwoToneIcon />}
                           variant="contained"
                           fullWidth
+                          sx={(theme) => ({
+                            borderRadius: '1.4rem',
+                            background: theme.palette.common.lightGreen,
+                          })}
                         >
                           Add to bag
                         </Button>

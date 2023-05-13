@@ -2,7 +2,8 @@
   "kind": "collectionType",
   "collectionName": "artisanceyorders",
   "info": {
-    "name": "artisanceyorder"
+    "name": "artisanceyorder",
+    "description": ""
   },
   "options": {
     "increments": true,
@@ -43,6 +44,10 @@
     },
     "orderAuth": {
       "type": "string"
+    },
+    "difficulty": {
+      "type": "integer",
+      "max": 3
     }
   }
 }

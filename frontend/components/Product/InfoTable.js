@@ -6,6 +6,12 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import Image from 'next/image';
+import height from '../../public/height.png';
+import width from '../../public/width.png';
+import difficulty from '../../public/difficulty.png';
+import { Grid } from '@mui/material';
+import Difficulty from './Difficulty';
 
 function createData(name, calories, fat, carbs, protein) {
   return { name, calories, fat, carbs, protein };
@@ -26,21 +32,52 @@ export default function InfoTable({ product }) {
     <TableContainer component={Paper}>
       <Table sx={{}} aria-label="simple table">
         <TableBody>
-          {/* <TableRow
+          <TableRow
+            key="prod dificulty"
+            sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+          >
+            <TableCell component="th" scope="row">
+              <Grid container alignItems={'center'} spacing={3}>
+                <Grid item>Dificulty</Grid>
+
+                <Grid item>
+                  <Image src={difficulty} width={30} height={30} />
+                </Grid>
+              </Grid>
+            </TableCell>
+            <TableCell align="right">
+              <Difficulty diff={2} />
+            </TableCell>
+          </TableRow>
+
+          <TableRow
             key="prod width"
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             <TableCell component="th" scope="row">
-              Width
+              <Grid container alignItems={'center'} spacing={3}>
+                <Grid item>Width</Grid>
+
+                <Grid item>
+                  <Image src={width} width={30} height={30} />
+                </Grid>
+              </Grid>
             </TableCell>
-            <TableCell align="right">{product.width} cm</TableCell>
-          </TableRow> */}
+            <TableCell align="right">{product.width} inches</TableCell>
+          </TableRow>
+
           <TableRow
             key="prod height"
             sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
           >
             <TableCell component="th" scope="row">
-              Height
+              <Grid container alignItems={'center'} spacing={3}>
+                <Grid item>Height</Grid>
+
+                <Grid item>
+                  <Image src={height} width={30} height={30} />
+                </Grid>
+              </Grid>
             </TableCell>
             <TableCell align="right">{product.height} inches</TableCell>
           </TableRow>
