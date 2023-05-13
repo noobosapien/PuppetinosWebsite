@@ -44,10 +44,6 @@
     },
     "orderAuth": {
       "type": "string"
-    },
-    "difficulty": {
-      "type": "integer",
-      "max": 3
     }
   }
 }

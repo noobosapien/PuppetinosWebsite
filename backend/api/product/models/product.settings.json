@@ -101,6 +101,11 @@
     },
     "highPrice": {
       "type": "decimal"
+    },
+    "difficulty": {
+      "type": "integer",
+      "max": 3,
+      "default": 1
     }
   }
 }
