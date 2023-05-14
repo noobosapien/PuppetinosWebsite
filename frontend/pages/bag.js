@@ -61,7 +61,7 @@ function Cart() {
         alignItems="center"
       >
         <Grid item>
-          <Typography component="h1" variant="h3">
+          <Typography component="h1" variant="h3" sx={{ fontSize: '2rem' }}>
             Shopping Bag
           </Typography>
         </Grid>

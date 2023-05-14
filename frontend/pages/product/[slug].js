@@ -239,7 +239,13 @@ export default function ProductPage(props) {
                         color: 'red',
                       }}
                     >
-                      🔥-50% off
+                      🔥-
+                      {(
+                        ((prodInfo.highPrice - prodInfo.price) /
+                          prodInfo.highPrice) *
+                        100
+                      ).toFixed(0)}
+                      % off
                     </Typography>
                   </Grid>
                 </Grid>
@@ -361,7 +367,7 @@ export default function ProductPage(props) {
           justifyContent="center"
           alignItems="center"
           spacing={2}
-          sx={{ marginTop: '2rem' }}
+          // sx={{ marginTop: '2rem' }}
         >
           <Grid item>
             <Button
@@ -401,7 +407,7 @@ export default function ProductPage(props) {
       <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <AppBar
           position="fixed"
-          color="primary"
+          color="secondary"
           sx={{ top: 'auto', bottom: 0 }}
         >
           <Toolbar>
@@ -417,6 +423,10 @@ export default function ProductPage(props) {
                   onClick={handleAddToCart}
                   variant="contained"
                   color="secondary"
+                  sx={(theme) => ({
+                    borderRadius: '1.4rem',
+                    background: theme.palette.common.lightGreen,
+                  })}
                 >
                   Add to bag
                 </Button>

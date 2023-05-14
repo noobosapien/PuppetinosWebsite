@@ -4,7 +4,6 @@ import React from 'react';
 import ship from '../../public/ship.png';
 import home from '../../public/home.png';
 import returns from '../../public/returns.png';
-import green from '../../public/green.png';
 
 export default function ShippingnReturn() {
   return (
@@ -78,22 +77,6 @@ export default function ShippingnReturn() {
 
             <Grid item>
               <Typography>Free within 30 days</Typography>
-            </Grid>
-          </Grid>
-
-          <Grid
-            item
-            container
-            // justifyContent={'center'}
-            alignItems={'center'}
-            spacing={4}
-          >
-            <Grid item>
-              <Image src={green} width={30} height={30} />
-            </Grid>
-
-            <Grid item>
-              <Typography>And we are sustainable!</Typography>
             </Grid>
           </Grid>
         </Grid>
