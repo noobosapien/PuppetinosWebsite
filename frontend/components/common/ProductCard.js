@@ -19,6 +19,7 @@ import { Store } from '../../utils/store';
 import { getProductInfo } from '../../helpers/getProductInfo';
 import Message from './Message';
 import { setDebug } from '../../helpers/setDebug';
+import CardBG from '../../public/cardbg.png';
 
 export default function ProductCard({ product }) {
   const { state, dispatch } = useContext(Store);
@@ -35,6 +36,7 @@ export default function ProductCard({ product }) {
       product.images && product.images[0] ? product.images[0].url : undefined;
     prod.name = product.name ? product.name : 'Name';
     prod.price = product.price ? product.price : '0';
+    prod.highPrice = product.highPrice ? product.highPrice : 0;
     prod.slug = product.slug ? product.slug : '';
     prod.noOfReviews = product.noofreviews ? product.noofreviews : 0;
     prod.rating = product.rating ? product.rating : 0;
@@ -100,7 +102,15 @@ export default function ProductCard({ product }) {
   return (
     <Grid container justifyContent="center">
       <Grid item>
-        <Card sx={{ width: imgWidth }} elevation={5}>
+        <Card
+          sx={{
+            width: imgWidth,
+            borderImage: `url('${CardBG.src}') 30`,
+            borderWidth: '0.5rem',
+            borderStyle: 'solid',
+          }}
+          elevation={5}
+        >
           <CardActionArea onClick={handleGotoProduct(prod.slug)}>
             <CardMedia component="img" image={prod.img} alt="item" />
 
@@ -124,17 +134,53 @@ export default function ProductCard({ product }) {
                   </Typography>
                 </Grid>
 
-                <Grid item>
-                  <Typography
-                    variant="subtitle"
-                    sx={(theme) => ({
-                      fontSize: '2rem',
-                      color: theme.palette.common.greenBlue,
-                      fontWeight: '300',
-                    })}
-                  >
-                    ${prod.price}
-                  </Typography>
+                <Grid
+                  item
+                  container
+                  justifySelf={'center'}
+                  alignSelf={'center'}
+                  alignItems={'center'}
+                  justifyContent={'center'}
+                  spacing={3}
+                >
+                  <Grid item>
+                    <Typography sx={{ fontSize: '1.2rem' }}>
+                      <s>
+                        ${prod.highPrice ? prod.highPrice.toFixed(2) : '0.00'}
+                      </s>
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    <Typography
+                      variant="h5"
+                      sx={(theme) => ({
+                        color: theme.palette.common.black,
+                        fontSize: '2.0rem',
+                        fontWeight: '400',
+                      })}
+                    >
+                      ${prod.price ? prod.price.toFixed(2) : '0.00'}
+                    </Typography>
+                  </Grid>
+
+                  <Grid item>
+                    <Typography
+                      sx={{
+                        border: '2px solid red',
+                        borderRadius: '3px',
+                        padding: '2px',
+                        color: 'red',
+                      }}
+                    >
+                      🔥-
+                      {(
+                        ((prod.highPrice - prod.price) / prod.highPrice) *
+                        100
+                      ).toFixed(0)}
+                      % off
+                    </Typography>
+                  </Grid>
                 </Grid>
 
                 {/* <Grid item>

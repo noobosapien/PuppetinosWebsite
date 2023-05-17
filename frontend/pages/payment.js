@@ -1,4 +1,4 @@
-import { Grid, Typography } from '@mui/material';
+import { Grid } from '@mui/material';
 import React, { useContext, useEffect, useState } from 'react';
 import Layout from '../components/Layout';
 import { Store } from '../utils/store';
@@ -8,16 +8,16 @@ import ShowBaggedItems from '../components/Checkout/ShowBaggedItems';
 import { Box } from '@mui/system';
 import SideCart from '../components/Checkout/SideCart';
 
-// import { Elements } from '@stripe/react-stripe-js';
-// import { loadStripe } from '@stripe/stripe-js';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import PaymentCard from '../components/Payment/PaymentCard';
 
-// const stripePromise = loadStripe(
-//   'pk_test_51KlmmXBjzktAVpB3bqgjVI3SMazdRltAO8VzIZ2uXeQ7ZzaQGFayS4EtjtJuczcDu3Cd7oKkuIvlkFJhyZ1nWLVc00NnuEpUpX'
-// );
+const stripePromise = loadStripe(
+  'pk_test_51LnVryD2A7cg6E5pu8ZVW5l80bxDUclL4pA4pC3kWJb9QGLUu5KM92WKxtOAPxGAlnLouQRlj5e5iex9SUg9pLZU002vLXvoDa'
+);
 
 // const stripePromise = loadStripe(
-//   'pk_live_51KlmmXBjzktAVpB3PE58A3ZdhohYN6laQrbDSD9aaEus9SgSqhDFtDRMRKG2SZTmN3Kps9SN5gFV10miM8M8bSjY00kjyMEi86'
+//   'pk_live_51LxN8jA2zx4WKMEfzBA3YG4dQeBvgZXPuz01pY7ZkIdOgyPkie0ay1ubdsEnLaUJQpHK1KKLWlbZOMvvumYcWKeQ00cjYTrIfd'
 // );
 
 export default function Checkout() {
@@ -27,7 +27,13 @@ export default function Checkout() {
   const [loading, setLoading] = useState(false);
 
   const {
-    cart: { cartItems, shippingAddress, shippingCountry, shippingMethod },
+    cart: {
+      cartItems,
+      bundles,
+      shippingAddress,
+      shippingCountry,
+      shippingMethod,
+    },
   } = state;
 
   useEffect(() => {
@@ -36,7 +42,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!loading) {
-      if (cartItems.length < 1) {
+      if (cartItems.length < 1 && bundles.length < 1) {
         router.push('/bag');
       }
 
@@ -80,13 +86,9 @@ export default function Checkout() {
         <Grid item>
           <Grid container alignItems="center" justifyContent="space-evenly">
             <Grid item xs={12} md={5} lg={4}>
-              {/* <Elements stripe={stripePromise}>
+              <Elements stripe={stripePromise}>
                 <PaymentCard loading={loading} setLoading={setLoading} />
-              </Elements> */}
-
-              <Typography variant="h3">
-                Sorry for the inconvenience. Payments are temporarily disabled.
-              </Typography>
+              </Elements>
             </Grid>
 
             <Grid item md={5} sx={{ display: { xs: 'none', md: 'block' } }}>

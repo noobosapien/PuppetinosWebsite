@@ -106,6 +106,9 @@
       "type": "integer",
       "max": 3,
       "default": 1
+    },
+    "sale": {
+      "type": "boolean"
     }
   }
 }

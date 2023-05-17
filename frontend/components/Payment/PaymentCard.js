@@ -299,6 +299,8 @@ export default function PaymentCard({ loading, setLoading }) {
           shippingAddress,
         });
 
+        console.log(result);
+
         if (result.client_secret) {
           setClientSecret(result.client_secret);
         }
@@ -536,7 +538,6 @@ export default function PaymentCard({ loading, setLoading }) {
           style: {
             base: {
               fontSize: '1.0rem',
-              fontFamily: 'Roboto',
               color: '#474747',
             },
           },
@@ -627,7 +628,6 @@ export default function PaymentCard({ loading, setLoading }) {
         title="Billing Address"
         sx={(theme) => ({
           '& 	.MuiCardHeader-title': {
-            fontFamily: 'Roboto',
             fontSize: '1rem',
             color: theme.palette.common.greenBlue,
           },
@@ -653,7 +653,6 @@ export default function PaymentCard({ loading, setLoading }) {
         title="Payment method"
         sx={(theme) => ({
           '& 	.MuiCardHeader-title': {
-            fontFamily: 'Roboto',
             fontSize: '1rem',
             color: theme.palette.common.greenBlue,
           },

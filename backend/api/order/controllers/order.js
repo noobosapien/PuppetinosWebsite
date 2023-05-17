@@ -7,13 +7,14 @@
 
 const crypto = require("crypto");
 const { sanitizeEntity } = require("strapi-utils");
-const stripe = require("stripe")(process.env.STRIPE_SK);
+const stripe = require("stripe")(process.env.PUPPETINOS_SK_TEST);
 const { uuid } = require("uuidv4");
 
 module.exports = {
   async place(ctx) {
     const {
       items,
+      bundles,
       country,
       shippingAddress,
       billingAddress,
@@ -65,6 +66,8 @@ module.exports = {
       const orderAuth = uuid();
 
       var orderItems = [];
+      var orderBundles = [];
+
       items.forEach((item) => {
         orderItems.push({
           id: item.id,
@@ -72,6 +75,17 @@ module.exports = {
           quantity: item.quantity,
           img: item.img,
           price: item.price,
+          highPrice: item.highPrice,
+          sale: item.sale,
+        });
+      });
+
+      bundles.forEach((item) => {
+        orderBundles.push({
+          id: item.id,
+          name: item.name,
+          price: item.price,
+          img: item.image.url,
         });
       });
 
@@ -125,11 +139,14 @@ module.exports = {
         orderAuth,
       };
 
-      var order = await strapi.services.order.create(orderObject);
+      console.log("Order Object:", orderObject, "\n\n\n\n\n\n\n");
 
-      order = sanitizeEntity(order, { model: strapi.models.order });
+      const puppetinosOrders = strapi.services["orders"];
+      var order = await puppetinosOrders.create(orderObject);
 
-      const confirmation = await strapi.services.order.confirmationEmail(
+      order = sanitizeEntity(order, { model: strapi.models["orders"] });
+
+      const confirmation = await puppetinosOrders.confirmationEmail(
         orderObject
       );
 
@@ -175,9 +192,12 @@ module.exports = {
         { label: "express", price: 20 },
       ];
 
+      //   console.log(strapi.services);
+      const puppetinosProduct = strapi.services["product"];
+
       await Promise.all(
         items.map(async (clientItem) => {
-          const serverItem = await strapi.services.product.findOne({
+          const serverItem = await puppetinosProduct.findOne({
             id: clientItem.id,
           });
 
@@ -185,7 +205,9 @@ module.exports = {
             unavailable.push({ id: serverItem.id, qty: serverItem.stock });
           }
 
-          serverTotal += serverItem.price * clientItem.quantity;
+          serverTotal +=
+            (serverItem.sale ? serverItem.price : serverItem.highPrice) *
+            clientItem.quantity;
         })
       );
 
@@ -244,14 +266,16 @@ module.exports = {
   async getOrder(ctx) {
     try {
       const query = ctx.query;
+
       if (!query.auth || !query.order) {
+        console.log("Fail");
         return {
           status: "fail",
         };
       }
 
       const order = await strapi
-        .query("dendels-orders")
+        .query("orders")
         .findOne({ orderLink: ctx.query.order });
 
       if (query.auth === order.orderAuth) {

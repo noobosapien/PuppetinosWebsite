@@ -119,9 +119,27 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
                     <React.Fragment key={item.id}>
                       <ListItem
                         secondaryAction={
-                          <Typography sx={{ fontSize: '1.5rem' }}>
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </Typography>
+                          <>
+                            <Typography
+                              sx={{
+                                border: '2px solid red',
+                                borderRadius: '3px',
+                                padding: '2px',
+                                color: 'red',
+                              }}
+                            >
+                              🔥-
+                              {(
+                                ((item.highPrice - item.price) /
+                                  item.highPrice) *
+                                100
+                              ).toFixed(0)}
+                              % off
+                            </Typography>
+                            <Typography sx={{ fontSize: '1.5rem' }}>
+                              ${(item.price * item.quantity).toFixed(2)}
+                            </Typography>
+                          </>
                         }
                       >
                         <ListItemAvatar>
@@ -138,7 +156,7 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
                         </ListItemAvatar>
                         <ListItemText
                           primary={item.name}
-                          secondary={`Each: $${item.price.toFixed(2)}`}
+                          secondary={`Each: $${item.highPrice.toFixed(2)}`}
                         />
                       </ListItem>
                       <Divider variant="inset" component="li" />
@@ -148,9 +166,28 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
                     <React.Fragment key={`${item.id}_`}>
                       <ListItem
                         secondaryAction={
-                          <Typography sx={{ fontSize: '1.5rem' }}>
-                            ${(item.price * item.quantity).toFixed(2)}
-                          </Typography>
+                          <>
+                            <Typography
+                              sx={{
+                                border: '2px solid red',
+                                borderRadius: '3px',
+                                padding: '2px',
+                                color: 'red',
+                              }}
+                            >
+                              🔥-
+                              {(
+                                ((item.highPrice - item.price) /
+                                  item.highPrice) *
+                                100
+                              ).toFixed(0)}
+                              % off
+                            </Typography>
+
+                            <Typography sx={{ fontSize: '1.5rem' }}>
+                              ${(item.price * item.quantity).toFixed(2)}
+                            </Typography>
+                          </>
                         }
                       >
                         <ListItemAvatar>
@@ -167,7 +204,7 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
                         </ListItemAvatar>
                         <ListItemText
                           primary={item.name}
-                          secondary={`Each: $${item.price.toFixed(2)}`}
+                          secondary={`Each: $${item?.highPrice?.toFixed(2)}`}
                         />
                       </ListItem>
                       <Divider variant="inset" component="li" />
@@ -192,12 +229,12 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
           <Typography
             variant="h5"
             sx={(theme) => ({
-              fontFamily: 'Roboto',
+              // fontFamily: 'Roboto',
               fontSize: shipping ? '1.2rem' : '1.4rem',
-              color:
-                shipping || order
-                  ? theme.palette.common.black
-                  : theme.palette.common.white,
+              // color:
+              //   shipping || order
+              //     ? theme.palette.common.black
+              //     : theme.palette.common.white,
             })}
           >
             Subtotal: $
@@ -248,8 +285,10 @@ export default function ShowBaggedItems({ shipping, order, auth }) {
               <Typography
                 variant="h5"
                 sx={(theme) => ({
-                  fontFamily: 'Roboto',
-                  color: theme.palette.common.white,
+                  fontSize: '1.5rem',
+                  fontWeight: 500,
+                  // fontFamily: 'Roboto',
+                  // color: theme.palette.common.white,
                 })}
               >
                 Total: $
