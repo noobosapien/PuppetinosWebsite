@@ -14,7 +14,6 @@ module.exports = {
   async place(ctx) {
     const {
       items,
-      bundles,
       country,
       shippingAddress,
       billingAddress,
@@ -66,7 +65,6 @@ module.exports = {
       const orderAuth = uuid();
 
       var orderItems = [];
-      var orderBundles = [];
 
       items.forEach((item) => {
         orderItems.push({
@@ -77,15 +75,6 @@ module.exports = {
           price: item.price,
           highPrice: item.highPrice,
           sale: item.sale,
-        });
-      });
-
-      bundles.forEach((item) => {
-        orderBundles.push({
-          id: item.id,
-          name: item.name,
-          price: item.price,
-          img: item.image.url,
         });
       });
 

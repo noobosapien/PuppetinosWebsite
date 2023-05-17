@@ -25,7 +25,6 @@ import { placeOrder } from '../../helpers/placeOrder';
 import { setDebug } from '../../helpers/setDebug';
 import countries from '../../utils/countries';
 import BillingAddress from './BillingAddress';
-import Cookies from 'js-cookie';
 import Message from '../common/Message';
 
 export default function PaymentCard({ loading, setLoading }) {
