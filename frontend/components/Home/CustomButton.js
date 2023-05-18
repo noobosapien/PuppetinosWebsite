@@ -115,6 +115,6 @@ const SvgButton = React.forwardRef(function SvgButton(props, ref) {
   return <ButtonUnstyled {...props} component={CustomButtonRoot} ref={ref} />;
 });
 
-export default function CustomButton({ children }) {
-  return <SvgButton>{children}</SvgButton>;
+export default function CustomButton({ onClick, children }) {
+  return <SvgButton onClick={onClick}>{children}</SvgButton>;
 }

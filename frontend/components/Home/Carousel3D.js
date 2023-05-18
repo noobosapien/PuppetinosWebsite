@@ -51,7 +51,7 @@ export default function Carousel3D({ slides }) {
             elevation={10}
             sx={(theme) => ({
               margin: '0 5rem',
-              width: '14rem',
+              width: '11rem',
               height: '14rem',
               [theme.breakpoints.up('sm')]: {
                 width: '30rem',

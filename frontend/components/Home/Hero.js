@@ -85,7 +85,6 @@ function Hero1() {
 }
 
 function Hero2() {
-  useEffect(() => {}, []);
   const theme = useTheme();
 
   return (
@@ -107,7 +106,7 @@ function Hero2() {
   );
 }
 
-function Hero3({ forwardToLearn, goToAllPage }) {
+function Hero3({ forwardToLearn, goToAllPage, toWebComic }) {
   return (
     <>
       <div
@@ -211,7 +210,7 @@ function Hero3({ forwardToLearn, goToAllPage }) {
 
             <Grid item>
               <Card sx={{ maxWidth: 300, borderRadius: '0.4rem' }} raised>
-                <CardActionArea>
+                <CardActionArea onClick={toWebComic}>
                   <CardMedia
                     component="img"
                     height="300"
@@ -258,11 +257,19 @@ export default function Hero({ forwardToLearn }) {
     router.push('/all');
   };
 
+  const toWebcomic = () => {
+    router.push('/webcomic');
+  };
+
   return (
     <>
       <Hero2 />
       <Hero1 />
-      <Hero3 forwardToLearn={forwardToLearn} goToAllPage={goToAllPage} />
+      <Hero3
+        forwardToLearn={forwardToLearn}
+        goToAllPage={goToAllPage}
+        toWebComic={toWebcomic}
+      />
     </>
   );
 }

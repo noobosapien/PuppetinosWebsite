@@ -7,11 +7,22 @@ import {
   Typography,
 } from '@mui/material';
 import React from 'react';
+import { useRouter } from 'next/router';
 
 import Placeholder from '../../public/front.png';
 import Placeholder2 from '../../public/history.png';
 
 export default function LearnSection() {
+  const router = useRouter();
+
+  const goToLearnPage = () => {
+    router.push('/learn');
+  };
+
+  const goToHistoryPage = () => {
+    router.push('/history');
+  };
+
   return (
     <div style={{ position: 'relative', height: '100vh' }}>
       <div
@@ -68,10 +79,11 @@ export default function LearnSection() {
           >
             <Grid item>
               <Card sx={{ minWidth: 200, borderRadius: '0.4rem' }} raised>
-                <CardActionArea>
+                <CardActionArea onClick={goToLearnPage}>
                   <CardMedia
                     component="img"
                     height="200"
+                    width="200"
                     image={Placeholder.src}
                     alt="Learn Puppeteering"
                   />
@@ -97,10 +109,11 @@ export default function LearnSection() {
 
             <Grid item>
               <Card sx={{ width: 200, borderRadius: '0.4rem' }} raised>
-                <CardActionArea>
+                <CardActionArea onClick={goToHistoryPage}>
                   <CardMedia
                     component="img"
                     height="200"
+                    width="200"
                     image={Placeholder2.src}
                     alt="Learn Puppeteering"
                   />

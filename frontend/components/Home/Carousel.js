@@ -11,6 +11,10 @@ export default function Carousel({ products }) {
   const theme = useTheme();
   const router = useRouter();
 
+  const goToAllPage = () => {
+    router.push('/all');
+  };
+
   const [slides, setSlides] = useState([]);
 
   useEffect(() => {
@@ -92,7 +96,7 @@ export default function Carousel({ products }) {
           },
         })}
       >
-        <CustomButton>View all</CustomButton>
+        <CustomButton onClick={goToAllPage}>View all</CustomButton>
       </Grid>
     </Grid>
   );

@@ -1,4 +1,13 @@
-import { Button, Grid, TextField, Typography } from '@mui/material';
+import {
+  Button,
+  FormControl,
+  Grid,
+  InputAdornment,
+  InputLabel,
+  OutlinedInput,
+  TextField,
+  Typography,
+} from '@mui/material';
 import React from 'react';
 import NewsLetterBG from '../../public/newsletterbg.png';
 
@@ -45,19 +54,21 @@ export default function NewsLetterSection() {
             Join our newsletter for updates!
           </Typography>
         </Grid>
-        <Grid item>
-          <TextField
-            size="small"
-            variant="filled"
-            placeholder="Email address"
-            fullWidth
-            type="email"
-            sx={{ color: 'white' }}
-          />
+        <Grid item container justifyContent={'center'} alignItems={'center'}>
+          <Grid item md={4} xs={10}>
+            <TextField
+              size="small"
+              // variant="filled"
+              placeholder="Email address"
+              fullWidth
+              type="email"
+              sx={{ color: 'white' }}
+            />
+          </Grid>
         </Grid>
 
         <Grid item>
-          <Button variant="contained" fullWidth>
+          <Button variant="outlined" fullWidth>
             Join
           </Button>
         </Grid>
