@@ -72,7 +72,7 @@ module.exports = {
             <table class="row" width="700" border="0" align="center" cellpadding="0" cellspacing="0" style="width:700px;max-width:700px;" bgcolor="#ffffff">
               <tbody><tr>
                 <td align="center" valign="middle" style="padding:0;">
-                  <a href=""><img data-crop="false" mc:hideable="" mc:edit="" src="https://i.ibb.co/MfFpFM2/Logo.png" alt="Puppetinos" border="0" width="20%" style="display:block;border:0;width:20%;"></a>
+                  <a href=""><img data-crop="false" mc:hideable="" mc:edit="" src="https://i.ibb.co/5KMtTKx/Logo1.png" alt="Puppetinos" border="0" width="20%" style="display:block;border:0;width:20%;"></a>
                 </td>
               </tr>
             </tbody></table>
