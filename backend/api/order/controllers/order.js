@@ -130,10 +130,10 @@ module.exports = {
 
       console.log("Order Object:", orderObject, "\n\n\n\n\n\n\n");
 
-      const puppetinosOrders = strapi.services["orders"];
+      const puppetinosOrders = strapi.services["order"];
       var order = await puppetinosOrders.create(orderObject);
 
-      order = sanitizeEntity(order, { model: strapi.models["orders"] });
+      order = sanitizeEntity(order, { model: strapi.models["order"] });
 
       const confirmation = await puppetinosOrders.confirmationEmail(
         orderObject
@@ -255,6 +255,7 @@ module.exports = {
   async getOrder(ctx) {
     try {
       const query = ctx.query;
+      console.log(ctx.query);
 
       if (!query.auth || !query.order) {
         console.log("Fail");
@@ -264,7 +265,7 @@ module.exports = {
       }
 
       const order = await strapi
-        .query("orders")
+        .query("order")
         .findOne({ orderLink: ctx.query.order });
 
       if (query.auth === order.orderAuth) {

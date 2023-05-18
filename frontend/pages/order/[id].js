@@ -20,6 +20,8 @@ function Order({ params, query }) {
     const getOrderFromServer = async () => {
       const result = await getOrder(params.id, query.auth);
 
+      console.log(result);
+
       if (result && result.shippingInfo) {
         var sInfo = '';
         if (result.shippingInfo.firstName) {
@@ -32,7 +34,7 @@ function Order({ params, query }) {
 
         setName(`${sInfo.firstName} ${sInfo.lastName}`);
       } else {
-        router.push('/bag');
+        // router.push('/bag');
       }
     };
 
@@ -71,7 +73,13 @@ function Order({ params, query }) {
             md={5}
           >
             <Grid item>
-              <Typography variant="h3">Thank you {name}</Typography>
+              <Typography
+                variant="h3"
+                sx={{ fontSize: '1.5rem' }}
+                textAlign={'center'}
+              >
+                Thank you {name}
+              </Typography>
             </Grid>
 
             <Grid item>
@@ -82,7 +90,7 @@ function Order({ params, query }) {
               <Grid item>
                 <Typography
                   align="center"
-                  variant="h6"
+                  // variant="h6"
                   sx={{ fontSize: '0.8rem' }}
                 >
                   We recieved your order and now processing it!
@@ -92,7 +100,7 @@ function Order({ params, query }) {
               <Grid item>
                 <Typography
                   align="center"
-                  variant="h6"
+                  // variant="h6"
                   sx={{ fontSize: '0.8rem' }}
                 >
                   We will update this page when there is a change in your
@@ -103,7 +111,7 @@ function Order({ params, query }) {
               <Grid item>
                 <Typography
                   align="center"
-                  variant="h6"
+                  // variant="h6"
                   sx={{ fontSize: '0.8rem' }}
                 >
                   Do not hesitate to contact us if there is any issue
@@ -112,7 +120,9 @@ function Order({ params, query }) {
             </Grid>
 
             <Grid item>
-              <Typography variant="h3">Current status</Typography>
+              <Typography variant="h3" sx={{ fontSize: '2rem' }}>
+                Current status
+              </Typography>
             </Grid>
 
             <Grid item>

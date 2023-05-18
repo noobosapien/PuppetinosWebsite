@@ -154,8 +154,8 @@ ColorlibStepIcon.propTypes = {
 const steps = [
   'In our wearhouse',
   'Shipped from wearhouse',
-  'With local delivery courier',
-  'Delivered to your mailbox!',
+  'With local agent',
+  'Delivered!',
 ];
 
 export default function StatusStepper({ order }) {
@@ -186,7 +186,7 @@ export default function StatusStepper({ order }) {
   }, [order]);
 
   return (
-    <Stack sx={{ width: '100%' }} spacing={4}>
+    <Stack sx={{ width: '100%' }} spacing={2}>
       <Stepper
         alternativeLabel
         activeStep={step}

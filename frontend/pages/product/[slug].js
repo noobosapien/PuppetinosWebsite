@@ -298,6 +298,13 @@ export default function ProductPage(props) {
                           sx={(theme) => ({
                             borderRadius: '1.4rem',
                             background: theme.palette.common.lightGreen,
+                            color: 'black',
+                            '&:hover': {
+                              color: 'white',
+                            },
+                            '&:focus': {
+                              color: 'white',
+                            },
                           })}
                         >
                           Add to bag
@@ -426,6 +433,12 @@ export default function ProductPage(props) {
                   sx={(theme) => ({
                     borderRadius: '1.4rem',
                     background: theme.palette.common.lightGreen,
+                    '&:hover': {
+                      color: 'white',
+                    },
+                    '&:focus': {
+                      color: 'white',
+                    },
                   })}
                 >
                   Add to bag

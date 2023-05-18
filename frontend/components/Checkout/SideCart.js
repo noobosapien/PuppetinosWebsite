@@ -267,7 +267,8 @@ export default function SideCart({ shipping, order }) {
                   <Grid item>
                     <Typography variant="body2">
                       Shipping:{' '}
-                      {shippingOption.label === 'standard' ? '$5.00' : '$20.00'}
+                      {/* {shippingOption.label === 'standard' ? '$5.00' : '$20.00'} */}
+                      Free
                     </Typography>
                   </Grid>
                 </Grid>
@@ -285,6 +286,7 @@ export default function SideCart({ shipping, order }) {
                     variant="h5"
                     sx={(theme) => ({
                       // color: theme.palette.common.white,
+                      fontSize: '2rem',
                     })}
                   >
                     Total: $
