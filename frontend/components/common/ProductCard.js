@@ -66,9 +66,9 @@ export default function ProductCard({ product }) {
   const matchesXL = useMediaQuery(theme.breakpoints.down('xl'));
 
   const imgWidth = matchesXS
-    ? '10rem'
+    ? '20rem'
     : matchesSM
-    ? '15rem'
+    ? '20rem'
     : matchesMD
     ? '20rem'
     : matchesLG

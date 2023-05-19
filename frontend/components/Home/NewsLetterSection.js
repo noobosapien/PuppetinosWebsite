@@ -8,10 +8,24 @@ import {
   TextField,
   Typography,
 } from '@mui/material';
-import React from 'react';
+import React, { useState } from 'react';
 import NewsLetterBG from '../../public/newsletterbg.png';
+import { getNewsLetter } from '../../helpers/getNewsLetter';
+import Message from '../common/Message';
 
 export default function NewsLetterSection() {
+  const [email, setEmail] = useState('');
+  const [openMessage, setOpenMessage] = useState(false);
+
+  const newsletter = async (e) => {
+    const result = await getNewsLetter(email);
+    setEmail('');
+
+    if (result.message === 'success') {
+      setOpenMessage(true);
+    }
+  };
+
   return (
     <div
       style={{
@@ -62,15 +76,28 @@ export default function NewsLetterSection() {
               placeholder="Email address"
               fullWidth
               type="email"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value);
+              }}
               sx={{ color: 'white' }}
             />
           </Grid>
         </Grid>
 
         <Grid item>
-          <Button variant="outlined" fullWidth>
+          <Button variant="outlined" fullWidth onClick={newsletter}>
             Join
           </Button>
+        </Grid>
+
+        <Grid item>
+          <Message
+            text={`Success!`}
+            severity="success"
+            open={openMessage}
+            setOpen={setOpenMessage}
+          />
         </Grid>
       </Grid>
     </div>

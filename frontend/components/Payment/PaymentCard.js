@@ -11,7 +11,9 @@ import {
   ListItem,
   ListItemAvatar,
   ListItemText,
+  Typography,
 } from '@mui/material';
+import Image from 'next/image';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import HomeIcon from '@mui/icons-material/Home';
 import DirectionsBoatFilledTwoToneIcon from '@mui/icons-material/DirectionsBoatFilledTwoTone';
@@ -26,6 +28,12 @@ import { setDebug } from '../../helpers/setDebug';
 import countries from '../../utils/countries';
 import BillingAddress from './BillingAddress';
 import Message from '../common/Message';
+import visa from '../../public/visa.png';
+import mc from '../../public/mc.png';
+import amex from '../../public/amex.png';
+import discover from '../../public/discover.png';
+import jcb from '../../public/jcb.png';
+import up from '../../public/up.png';
 
 export default function PaymentCard({ loading, setLoading }) {
   const { state, dispatch } = useContext(Store);
@@ -297,8 +305,6 @@ export default function PaymentCard({ loading, setLoading }) {
           idempotencyKey,
           shippingAddress,
         });
-
-        console.log(result);
 
         if (result.client_secret) {
           setClientSecret(result.client_secret);
@@ -660,6 +666,35 @@ export default function PaymentCard({ loading, setLoading }) {
 
       <CardContent>
         <Grid container direction="column" spacing={4}>
+          <Grid item container spacing={2}>
+            <Grid item>
+              <Typography>Cards:</Typography>
+            </Grid>
+            <Grid item xs={12} />
+            <Grid item>
+              <Image src={visa} width={39} height={25} />
+            </Grid>
+
+            <Grid item>
+              <Image src={mc} width={39} height={25} />
+            </Grid>
+
+            <Grid item>
+              <Image src={amex} width={39} height={25} />
+            </Grid>
+
+            <Grid item>
+              <Image src={jcb} width={39} height={25} />
+            </Grid>
+
+            <Grid item>
+              <Image src={discover} width={39} height={25} />
+            </Grid>
+
+            <Grid item>
+              <Image src={up} width={39} height={25} />
+            </Grid>
+          </Grid>
           <Grid item>{cardWrapper}</Grid>
 
           <Grid item>

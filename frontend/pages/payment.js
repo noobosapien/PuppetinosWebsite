@@ -42,7 +42,7 @@ export default function Checkout() {
 
   useEffect(() => {
     if (!loading) {
-      if (cartItems.length < 1 && bundles.length < 1) {
+      if (cartItems.length < 1) {
         router.push('/bag');
       }
 
