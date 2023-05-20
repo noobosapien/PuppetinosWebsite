@@ -13,6 +13,12 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
+import {
+  PayPalButtons,
+  FUNDING,
+  usePayPalScriptReducer,
+} from '@paypal/react-paypal-js';
+import { paypalCreateOrder } from '../../helpers/paypalCreateOrder';
 import Image from 'next/image';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
 import HomeIcon from '@mui/icons-material/Home';
@@ -551,6 +557,70 @@ export default function PaymentCard({ loading, setLoading }) {
     </form>
   );
 
+  const clientId =
+    'AdBhUR8S3NaWUVNFhmO20wsSsnhL3iumCcvVNDzvznDm-Jd0gQE5LEn-QxDeEEVFa7KnSW_v3oRyUJo_';
+  const [{ isPending }, paypalDispatch] = usePayPalScriptReducer();
+
+  useEffect(() => {
+    const loadPaypal = async () => {
+      paypalDispatch({
+        type: 'resetOptions',
+        value: {
+          'client-id': clientId,
+          currency: 'USD',
+        },
+      });
+
+      paypalDispatch({ type: 'setLoadingStatus', value: 'pending' });
+    };
+
+    loadPaypal();
+  }, []);
+
+  const createOrder = async (data, actions) => {
+    const response = await paypalCreateOrder({
+      items: cartItems,
+      total,
+      shippingOption: {
+        label: state.cart.shippingMethod && state.cart.shippingMethod.value,
+        price: 0,
+        // price:
+        //   state.cart.shippingMethod &&
+        //   state.cart.shippingMethod.value === 'express'
+        //     ? 20
+        //     : 5,
+      },
+      shippingAddress,
+    });
+    const details = await response.json();
+    return details.id;
+  };
+
+  const onApprove = async (data, actions) => {
+    // const response = await fetch(
+    //   `http://localhost:9597/orders/${data.orderID}/capture`,
+    //   {
+    //     method: 'POST',
+    //   }
+    // );
+
+    console.log(data);
+    const details = await response.json();
+
+    const errorDetail = Array.isArray(details.details) && details.details[0];
+    if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
+      return actions.restart();
+    }
+
+    if (errorDetail) {
+      let msg = 'Sorry, your transaction could not be processed.';
+      if (errorDetail.description) msg += '' + errorDetail.description;
+      if (details.debug_id) msg += ' (' + details.debug_id + ')';
+    }
+
+    console.log('Capture result', details, JSON.stringify(details, null, 2));
+  };
+
   return (
     <Card variant="outlined" sx={{}}>
       <Message
@@ -666,6 +736,16 @@ export default function PaymentCard({ loading, setLoading }) {
 
       <CardContent>
         <Grid container direction="column" spacing={4}>
+          <Grid item>
+            <PayPalButtons
+              createOrder={createOrder}
+              onApprove={onApprove}
+              // onError={onError}
+              style={{ layout: 'horizontal' }}
+              fundingSource={FUNDING.PAYPAL}
+            ></PayPalButtons>
+          </Grid>
+
           <Grid item container spacing={2}>
             <Grid item>
               <Typography>Cards:</Typography>

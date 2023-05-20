@@ -9,6 +9,7 @@ const crypto = require("crypto");
 const { sanitizeEntity } = require("strapi-utils");
 const stripe = require("stripe")(process.env.PUPPETINOS_SK_TEST);
 const { uuid } = require("uuidv4");
+const fetch = require("node-fetch");
 
 module.exports = {
   async place(ctx) {
@@ -250,6 +251,135 @@ module.exports = {
     } catch (e) {
       console.log(e);
     }
+  },
+
+  async getPaypalAccessToken() {
+    const clientId = process.env.PAYPAL_CLIENTID;
+    const appSecret = process.env.PAYPAL_SECRET;
+    const url = "https://api-m.sandbox.paypal.com/v1/oauth2/token";
+    const response = await fetch(url, {
+      body: "grant_type=client_credentials",
+      method: "POST",
+      headers: {
+        Authorization:
+          "Basic " + Buffer.from(clientId + ":" + appSecret).toString("base64"),
+      },
+    });
+    const data = await response.json();
+    return data.access_token;
+  },
+
+  async paypalProcess(ctx) {
+    try {
+      const { items, total, shippingOption, shippingAddress } =
+        ctx.request.body;
+
+      console.log(items, total, shippingOption, shippingAddress);
+
+      let serverTotal = 0;
+      let unavailable = [];
+
+      const shippingVariants = [
+        { label: "free", price: 0 },
+        { label: "standard", price: 5 },
+        { label: "express", price: 20 },
+      ];
+
+      //   console.log(strapi.services);
+      const puppetinosProduct = strapi.services["product"];
+
+      await Promise.all(
+        items.map(async (clientItem) => {
+          const serverItem = await puppetinosProduct.findOne({
+            id: clientItem.id,
+          });
+
+          if (serverItem.stock < clientItem.qty) {
+            unavailable.push({ id: serverItem.id, qty: serverItem.stock });
+          }
+
+          serverTotal +=
+            (serverItem.sale ? serverItem.price : serverItem.highPrice) *
+            clientItem.quantity;
+        })
+      );
+
+      const shippingValid = shippingVariants.find(
+        (option) =>
+          option.label === shippingOption.label &&
+          option.price === shippingOption.price
+      );
+
+      if (
+        shippingValid === undefined ||
+        Number(serverTotal + shippingValid.price).toFixed(2) !==
+          Number(total).toFixed(2)
+      ) {
+        // ctx.send({ error: "invalid cart" }, 400);
+        console.error(
+          shippingValid,
+          Number(serverTotal + shippingValid.price).toFixed(2),
+          Number(total).toFixed(2)
+        );
+        return { error: "invalid cart" };
+      } else if (unavailable.length > 0) {
+        // ctx.send({ unavailable }, 409);
+        return { unavailable };
+      } else {
+        var guest = await strapi.services.guests.findOne({
+          email: shippingAddress.email.value,
+        });
+
+        if (!guest) {
+          guest = await strapi.services.guests.create({
+            first_name: shippingAddress.firstName.value,
+            last_name: shippingAddress.lastName.value,
+            email: shippingAddress.email.value,
+          });
+        }
+
+        const createOrder = async () => {
+          const url = "https://api-m.sandbox.paypal.com/v2/checkout/orders";
+          const payload = {
+            intent: "CAPTURE",
+            purchase_units: [
+              {
+                amount: {
+                  currency_code: "USD",
+                  value: serverTotal.toString(),
+                },
+              },
+            ],
+          };
+
+          const headers = {
+            Authorization: `Bearer ${await getPaypalAccessToken()}`,
+            "Content-Type": "application/json",
+          };
+          const response = await fetch(url, {
+            headers,
+            method: "POST",
+            body: JSON.stringify(payload),
+          });
+          const data = await response.json();
+          if (data.error) {
+            throw new Error(error);
+          }
+          return data;
+        };
+
+        const result = await createOrder();
+
+        return result;
+      }
+    } catch (e) {
+      console.log(e);
+    }
+  },
+
+  async paypalPlace(ctx) {
+    try {
+    } catch (e) {}
   },
 
   async getOrder(ctx) {

@@ -2,6 +2,22 @@
   "routes": [
     {
       "method": "POST",
+      "path": "/orders/paypalProcess",
+      "handler": "order.paypalProcess",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/orders/paypalPlace",
+      "handler": "order.paypalPlace",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
       "path": "/orders/process",
       "handler": "order.process",
       "config": {

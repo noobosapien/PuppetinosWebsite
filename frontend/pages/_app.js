@@ -21,9 +21,10 @@ export default function MyApp(props) {
   const router = useRouter();
 
   const handleRouteChange = (url) => {
-    window.gtag('config', 'UA-223410216-1', {
-      page_path: url,
-    });
+    window &&
+      window.gtag('config', 'UA-223410216-1', {
+        page_path: url,
+      });
   };
 
   useEffect(() => {
@@ -35,21 +36,24 @@ export default function MyApp(props) {
 
   return (
     <StoreProvider>
-      <PayPalScriptProvider deferLoading={true}>
-        <CacheProvider value={emotionCache}>
-          <Head>
-            <meta
-              name="viewport"
-              content="initial-scale=1, width=device-width"
-            />
-          </Head>
-          <ThemeProvider theme={theme}>
+      <CacheProvider value={emotionCache}>
+        <Head>
+          <meta name="viewport" content="initial-scale=1, width=device-width" />
+        </Head>
+        <ThemeProvider theme={theme}>
+          <PayPalScriptProvider
+            options={{
+              'client-id':
+                'AcePzwaHqLntcV6D1wD9ACOlf0v7pqJ_AGZ-K3U0CqD3wEqx_nByDdHTkgwdrodvcHV1BnA2t-WXpbTZ',
+            }}
+            deferLoading={true}
+          >
             {/* CssBaseline kickstart an elegant, consistent, and simple baseline to build upon. */}
             <CssBaseline />
             <Component {...pageProps} />
-          </ThemeProvider>
-        </CacheProvider>
-      </PayPalScriptProvider>
+          </PayPalScriptProvider>
+        </ThemeProvider>
+      </CacheProvider>
     </StoreProvider>
   );
 }
