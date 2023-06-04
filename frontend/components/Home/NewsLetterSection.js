@@ -65,7 +65,7 @@ export default function NewsLetterSection() {
       >
         <Grid item>
           <Typography sx={{ color: 'black' }}>
-            Join our newsletter for updates!
+            Subscribe here and we'll keep you in the loop of new puppets!
           </Typography>
         </Grid>
         <Grid item container justifyContent={'center'} alignItems={'center'}>

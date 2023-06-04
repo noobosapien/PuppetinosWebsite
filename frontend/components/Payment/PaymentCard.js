@@ -13,11 +13,7 @@ import {
   ListItemText,
   Typography,
 } from '@mui/material';
-import {
-  PayPalButtons,
-  FUNDING,
-  usePayPalScriptReducer,
-} from '@paypal/react-paypal-js';
+import { usePayPalScriptReducer } from '@paypal/react-paypal-js';
 import { paypalCreateOrder } from '../../helpers/paypalCreateOrder';
 import Image from 'next/image';
 import AlternateEmailIcon from '@mui/icons-material/AlternateEmail';
@@ -40,6 +36,7 @@ import amex from '../../public/amex.png';
 import discover from '../../public/discover.png';
 import jcb from '../../public/jcb.png';
 import up from '../../public/up.png';
+import PaypalCheckout from './PaypalCheckout';
 
 export default function PaymentCard({ loading, setLoading }) {
   const { state, dispatch } = useContext(Store);
@@ -577,24 +574,7 @@ export default function PaymentCard({ loading, setLoading }) {
     loadPaypal();
   }, []);
 
-  const createOrder = async (data, actions) => {
-    const response = await paypalCreateOrder({
-      items: cartItems,
-      total,
-      shippingOption: {
-        label: state.cart.shippingMethod && state.cart.shippingMethod.value,
-        price: 0,
-        // price:
-        //   state.cart.shippingMethod &&
-        //   state.cart.shippingMethod.value === 'express'
-        //     ? 20
-        //     : 5,
-      },
-      shippingAddress,
-    });
-    const details = await response.json();
-    return details.id;
-  };
+  const createOrder = async (data, actions) => {};
 
   const onApprove = async (data, actions) => {
     // const response = await fetch(
@@ -603,22 +583,18 @@ export default function PaymentCard({ loading, setLoading }) {
     //     method: 'POST',
     //   }
     // );
-
-    console.log(data);
-    const details = await response.json();
-
-    const errorDetail = Array.isArray(details.details) && details.details[0];
-    if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
-      return actions.restart();
-    }
-
-    if (errorDetail) {
-      let msg = 'Sorry, your transaction could not be processed.';
-      if (errorDetail.description) msg += '' + errorDetail.description;
-      if (details.debug_id) msg += ' (' + details.debug_id + ')';
-    }
-
-    console.log('Capture result', details, JSON.stringify(details, null, 2));
+    // console.log(data);
+    // const details = await response.json();
+    // const errorDetail = Array.isArray(details.details) && details.details[0];
+    // if (errorDetail && errorDetail.issue === 'INSTRUMENT_DECLINED') {
+    //   return actions.restart();
+    // }
+    // if (errorDetail) {
+    //   let msg = 'Sorry, your transaction could not be processed.';
+    //   if (errorDetail.description) msg += '' + errorDetail.description;
+    //   if (details.debug_id) msg += ' (' + details.debug_id + ')';
+    // }
+    // console.log('Capture result', details, JSON.stringify(details, null, 2));
   };
 
   return (
@@ -733,17 +709,27 @@ export default function PaymentCard({ loading, setLoading }) {
           },
         })}
       />
-
+      {console.log(
+        state.cart.shippingMethod,
+        cartItems
+          .reduce((a, c) => a + c.quantity * c.price, 0)
+          // +
+          // (shippingMethod.value === 'standard' ? 5 : 20)
+          .toFixed(2)
+      )}
       <CardContent>
         <Grid container direction="column" spacing={4}>
           <Grid item>
-            <PayPalButtons
-              createOrder={createOrder}
-              onApprove={onApprove}
-              // onError={onError}
-              style={{ layout: 'horizontal' }}
-              fundingSource={FUNDING.PAYPAL}
-            ></PayPalButtons>
+            <PaypalCheckout
+              items={cartItems}
+              shippingMethod={state.cart.shippingMethod}
+              shippingAddress={shippingAddress}
+              total={cartItems
+                .reduce((a, c) => a + c.quantity * c.price, 0)
+                // +
+                // (shippingMethod.value === 'standard' ? 5 : 20)
+                .toFixed(2)}
+            />
           </Grid>
 
           <Grid item container spacing={2}>

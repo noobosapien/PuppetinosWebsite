@@ -35,6 +35,7 @@ import Confidence from '../../components/Product/Confidence';
 
 export default function ProductPage(props) {
   const { product } = props;
+  console.log(product);
 
   const { state, dispatch } = useContext(Store);
 
@@ -323,6 +324,7 @@ export default function ProductPage(props) {
                       fontSize: '1rem',
                       color: theme.palette.common.lightGray,
                       maxWidth: '600px',
+                      whiteSpace: 'pre-wrap',
                     })}
                   >
                     {prodInfo.description}

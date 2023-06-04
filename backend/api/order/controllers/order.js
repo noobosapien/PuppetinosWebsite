@@ -270,9 +270,27 @@ module.exports = {
   },
 
   async paypalProcess(ctx) {
+    async function getPaypalAccessToken() {
+      const clientId = process.env.PAYPAL_CLIENTID;
+      const appSecret = process.env.PAYPAL_SECRET;
+      const url = "https://api-m.sandbox.paypal.com/v1/oauth2/token";
+      const response = await fetch(url, {
+        body: "grant_type=client_credentials",
+        method: "POST",
+        headers: {
+          Authorization:
+            "Basic " +
+            Buffer.from(clientId + ":" + appSecret).toString("base64"),
+        },
+      });
+      const data = await response.json();
+      return data.access_token;
+    }
+
     try {
-      const { items, total, shippingOption, shippingAddress } =
-        ctx.request.body;
+      var { items, total, shippingOption, shippingAddress } = ctx.request.body;
+
+      items = items.items;
 
       console.log(items, total, shippingOption, shippingAddress);
 
@@ -346,6 +364,7 @@ module.exports = {
               {
                 amount: {
                   currency_code: "USD",
+                  // value: 120,
                   value: serverTotal.toString(),
                 },
               },
