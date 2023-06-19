@@ -32,10 +32,10 @@ import 'video-react/dist/video-react.css';
 import { Player } from 'video-react';
 import ShippingnReturn from '../../components/Product/ShippingnReturn';
 import Confidence from '../../components/Product/Confidence';
+import CustomCarousel from '../../components/Product/CustomCarousel';
 
 export default function ProductPage(props) {
   const { product } = props;
-  console.log(product);
 
   const { state, dispatch } = useContext(Store);
 
@@ -155,7 +155,7 @@ export default function ProductPage(props) {
 
         <Grid item>
           {/* Product */}
-          <Grid container justifyContent="space-evenly" spacing={2}>
+          <Grid container justifyContent="space-evenly" spacing={8}>
             <Grid
               item
               sx={(theme) => ({
@@ -165,12 +165,13 @@ export default function ProductPage(props) {
                 [theme.breakpoints.down('sm')]: { minWidth: '300px' },
               })}
             >
-              <ImageGallery
+              {/* <ImageGallery
                 items={images}
                 showFullscreenButton={false}
                 showPlayButton={false}
-                thumbnailPosition={'bottom'}
-              />
+                thumbnailPosition={'left'}
+              /> */}
+              <CustomCarousel items={images} thumbnails={'left'} />
             </Grid>
 
             <Grid item>
@@ -435,11 +436,12 @@ export default function ProductPage(props) {
                   sx={(theme) => ({
                     borderRadius: '1.4rem',
                     background: theme.palette.common.lightGreen,
+                    color: 'black',
                     '&:hover': {
-                      color: 'white',
+                      color: 'black',
                     },
                     '&:focus': {
-                      color: 'white',
+                      color: 'black',
                     },
                   })}
                 >
