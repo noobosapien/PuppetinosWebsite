@@ -5,6 +5,7 @@ const slateGray = '#2A4747';
 const emeraldGreen = '#439775';
 const lightGreen = '#00FEC1';
 const black = '#474747';
+const aqua = '#4CCCC9';
 // Create a theme instance.
 const theme = createTheme({
   palette: {
@@ -23,6 +24,7 @@ const theme = createTheme({
       slateGray,
       emeraldGreen,
       lightGreen,
+      aqua,
     },
   },
 

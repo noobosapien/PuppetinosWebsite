@@ -299,7 +299,7 @@ export default function ProductPage(props) {
                           fullWidth
                           sx={(theme) => ({
                             borderRadius: '1.4rem',
-                            background: theme.palette.common.lightGreen,
+                            background: theme.palette.common.aqua,
                             color: 'black',
                             '&:hover': {
                               color: 'white',
@@ -417,10 +417,11 @@ export default function ProductPage(props) {
       <Box sx={{ display: { xs: 'block', md: 'none' } }}>
         <AppBar
           position="fixed"
-          color="secondary"
+          color="transparent"
+          elevation={0}
           sx={{ top: 'auto', bottom: 0 }}
         >
-          <Toolbar>
+          <Toolbar disableGutters>
             <Grid
               container
               spacing={2}
@@ -435,7 +436,8 @@ export default function ProductPage(props) {
                   color="secondary"
                   sx={(theme) => ({
                     borderRadius: '1.4rem',
-                    background: theme.palette.common.lightGreen,
+                    opacity: '1.0',
+                    background: theme.palette.common.aqua,
                     color: 'black',
                     '&:hover': {
                       color: 'black',
